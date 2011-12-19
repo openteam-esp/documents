@@ -1,7 +1,9 @@
 source :rubygems
 
 gem 'jquery-rails'
+gem 'has_enum'
 gem 'rails'
+gem 'russian'
 
 group :assets do
   gem 'sass-rails'
