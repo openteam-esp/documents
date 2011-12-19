@@ -1,0 +1,7 @@
+<ul>
+  <% collection.each do |item| %>
+    <li>
+      <%= link_to item, resource_path(item) %>
+    </li>
+  <% end %>
+</ul>
