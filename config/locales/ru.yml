@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    attributes:
+      paper:
+        authority:              Орган власти
+        kind:                   Вид документа
+        kind_enum:
+          decision:             Постановление
+          direction:            Распоряжение
+          order:                Приказ
+
+        published_on:           Дата размещения
+        title:                  Название
+
+      document:
+        approved_on:            Дата утверждения
+        number:                 Номер
+
+    models:
+      document:                 Нормативный документ
