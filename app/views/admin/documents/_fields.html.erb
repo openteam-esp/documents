@@ -1,0 +1,8 @@
+<%= form.inputs do %>
+  <%= form.input :kind, :collection => form.object.class.values_for_select_tag(:kind) %>
+  <%= form.input :authority %>
+  <%= form.input :number  %>
+  <%= form.input :approved_on %>
+  <%= form.input :title %>
+  <%= form.input :published_on %>
+<% end %>

@@ -1,7 +1,9 @@
 source :rubygems
 
-gem 'jquery-rails'
+gem 'formtastic'
 gem 'has_enum'
+gem 'inherited_resources'
+gem 'jquery-rails'
 gem 'rails'
 gem 'russian'
 
