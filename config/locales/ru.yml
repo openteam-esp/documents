@@ -16,5 +16,12 @@ ru:
         approved_on:            Дата утверждения
         number:                 Номер
 
+      project:
+        kind_enum:
+          decision:             Проект постановления
+          direction:            Проект распоряжения
+          order:                Проект приказа
+
+
     models:
       document:                 Нормативный документ
