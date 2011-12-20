@@ -1,0 +1,17 @@
+<%= semantic_search_form_for :paper do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :keywords, :as => :string %>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>
+
+<ul>
+  <% collection.each do |item| %>
+    <li>
+      <%= link_to item, [:admin, item] %>
+    </li>
+  <% end %>
+</ul>

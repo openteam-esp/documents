@@ -5,10 +5,11 @@ class Paper < ActiveRecord::Base
 
   has_enum :kind
 
-  alias_attribute :to_s, :title
+  alias_attribute :to_s,  :title
+  alias_attribute :klass, :type
 
   searchable do
-    string  :type
+    string  :klass
     text    :title
   end
 

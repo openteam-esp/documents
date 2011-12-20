@@ -11,10 +11,11 @@
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log/*.log*
 /tmp
 
 /bin
 /config/database.yml
 /config/sunspot.yml
 /solr/data
+/solr/pids
