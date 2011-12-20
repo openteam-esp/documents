@@ -2,13 +2,25 @@
 <html>
 <head>
   <title>Documents</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div class='header'>
+    <h1>Подсистема публикации нормативных документов</h1>
+  </div>
 
+  <div class='main_wrapper'>
+    <%= yield %>
+  </div>
+
+  <div class='footer'>
+    <div class='copyright'>
+      <%= Time.now.year.eql?(2011) ? '2011' : raw("2011&ndash;#{Time.now.year}") %>,
+      <%= link_to 'OpenTeam', 'http://openteam.ru/' %>
+    </div>
+  </div>
 </body>
 </html>

@@ -3,5 +3,7 @@
 
   <%= form.buttons do %>
     <%= form.commit_button %>
+    <%= button_to t('delete'), resource_path, :method => :delete %>
+    <%= link_to t('cancel'), resource_path %>
   <% end %>
 <% end %>

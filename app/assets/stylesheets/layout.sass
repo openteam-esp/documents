@@ -1,0 +1,54 @@
+@import "compass/reset"
+@import "compass/utilities"
+
+
+html, body
+  background: #fff
+  font-family: Arial, Verdana, sans-serif
+
+
+body
+  margin: 0 auto
+  width: 1000px
+
+  .header
+  .main_wrapper
+    .top_navigation
+      +clearfix
+      background: image_url('top-menu-bg.gif') no-repeat left top
+      margin: 0 0 30px 0
+      padding: 6px
+
+      li
+        border-right: 1px solid #DDD
+        float: left
+        height: 37px
+
+        a
+          color: #646464
+          display: block
+          float: left
+          font-weight: bold
+          height: 37px
+          line-height: 37px
+          padding: 0 20px
+          text-decoration: none
+
+      .documents
+      .projects
+      .active
+
+  .footer
+    +clearfix
+    background-color: #efefef
+    border-top: 1px solid #aaa
+    bottom: 0
+    padding: 3px 0
+
+    .copyright
+      text-align: right
+      margin-right: 10px
+    a
+      color: #333
+
+

@@ -1,6 +1,5 @@
 source :rubygems
 
-gem 'compass'
 gem 'client_side_validations'
 gem 'formtastic'
 gem 'has_enum'
@@ -10,11 +9,14 @@ gem 'rails'
 gem 'russian'
 
 group :assets do
+  gem 'compass',            '~> 0.12.alpha.2'
   gem 'sass-rails'
   gem 'uglifier'
 end
 
 group :development do
+  gem 'hirb'
+  gem 'itslog'
   gem 'therubyracer'
 end
 

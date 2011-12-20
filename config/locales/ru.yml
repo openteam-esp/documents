@@ -1,6 +1,19 @@
 ru:
+  back:                         Назад
+  cancel:                       Отмена
+  delete:                       Удалить
+  edit:                         Редактировать
+  new_document:                 Добавить нормативный документ
+  new_project:                  Добавить проект документа
+  documents:                    Нормативные документы
+  projects:                     Проекты документов
+
   activerecord:
     attributes:
+      document:
+        approved_on:            Дата утверждения
+        number:                 Номер
+
       paper:
         authority:              Орган власти
         kind:                   Вид документа
@@ -12,16 +25,20 @@ ru:
         published_on:           Дата размещения
         title:                  Название
 
-      document:
-        approved_on:            Дата утверждения
-        number:                 Номер
-
       project:
         kind_enum:
           decision:             Проект постановления
           direction:            Проект распоряжения
           order:                Проект приказа
 
-
     models:
       document:                 Нормативный документ
+      project:                  Проект документа
+
+  formtastic:
+    actions:
+      create:                   "Создать %{model}"
+      update:                   Сохранить
+
+    required:                   обязательное поле
+

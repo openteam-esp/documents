@@ -1,7 +1,25 @@
+<ul class='top_navigation'>
+  <li class='documents <%= "active" if controller_name == 'documents' %>'>
+    <%= link_to t('documents'), admin_documents_path %>
+  </li>
+  <li class='projects <%= "active" if controller_name == 'projects' %>'>
+    <%= link_to t('projects'), admin_projects_path %>
+  </li>
+</ul>
+
 <ul>
   <% collection.each do |item| %>
     <li>
       <%= link_to item, resource_path(item) %>
     </li>
   <% end %>
+</ul>
+
+<ul>
+  <li>
+    <%= link_to t('new_document'), new_admin_document_path %>
+  </li>
+  <li>
+    <%= link_to t('new_project'), new_admin_project_path %>
+  </li>
 </ul>
