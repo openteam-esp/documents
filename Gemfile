@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'rails',                                      :require => false
 gem 'russian'
 gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 group :assets do
   gem 'compass',            '~> 0.12.alpha.2'
@@ -16,7 +17,7 @@ group :assets do
 end
 
 group :development do
-  gem 'hirb'
+  gem 'hirb',                                     :require => false
   gem 'itslog'
   gem 'therubyracer'
 end

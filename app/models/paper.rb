@@ -6,6 +6,7 @@ class Paper < ActiveRecord::Base
   alias_attribute :to_s, :title
 
   searchable do
-    text :title
+    string  :type
+    text    :title
   end
 end

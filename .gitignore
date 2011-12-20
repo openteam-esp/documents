@@ -17,3 +17,4 @@
 /bin
 /config/database.yml
 /config/sunspot.yml
+/solr/data

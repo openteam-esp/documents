@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219091822) do
+ActiveRecord::Schema.define(:version => 20111220045803) do
+
+  create_table "changes", :force => true do |t|
+    t.integer  "subject_id"
+    t.integer  "objekt_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "changes", ["objekt_id"], :name => "index_changes_on_objekt_id"
+  add_index "changes", ["subject_id"], :name => "index_changes_on_subject_id"
 
   create_table "papers", :force => true do |t|
     t.string   "kind"
