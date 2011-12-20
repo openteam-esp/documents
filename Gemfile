@@ -1,5 +1,7 @@
 source :rubygems
 
+gem 'compass'
+gem 'client_side_validations'
 gem 'formtastic'
 gem 'has_enum'
 gem 'inherited_resources'

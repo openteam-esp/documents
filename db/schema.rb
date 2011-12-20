@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219081705) do
+ActiveRecord::Schema.define(:version => 20111219091822) do
 
   create_table "papers", :force => true do |t|
     t.string   "kind"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20111219081705) do
     t.datetime "updated_at"
     t.string   "number"
     t.date     "approved_on"
+    t.string   "type"
   end
 
 end
