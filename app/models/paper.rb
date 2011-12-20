@@ -4,4 +4,8 @@ class Paper < ActiveRecord::Base
   has_enum :kind
 
   alias_attribute :to_s, :title
+
+  searchable do
+    text :title
+  end
 end

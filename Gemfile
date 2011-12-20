@@ -5,8 +5,9 @@ gem 'formtastic'
 gem 'has_enum'
 gem 'inherited_resources'
 gem 'jquery-rails'
-gem 'rails'
+gem 'rails',                                      :require => false
 gem 'russian'
+gem 'sunspot_rails'
 
 group :assets do
   gem 'compass',            '~> 0.12.alpha.2'
@@ -27,7 +28,8 @@ group :test do
   gem 'libnotify'
   gem 'rb-inotify'
   gem 'rspec-rails',            '~> 2.6.0'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers',                         :require => false
   gem 'spork',                  '~> 0.9.0.rc9'
   gem 'sqlite3'
+  gem 'sunspot_matchers',                         :require => false
 end
