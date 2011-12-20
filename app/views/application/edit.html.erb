@@ -1,9 +1,17 @@
 <%= semantic_form_for resource, :url => resource_path, :validate => true do |form| %>
   <%= render :partial => 'fields', :locals => {:form => form} %>
 
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-    <%= button_to t('delete'), resource_path, :method => :delete %>
-    <%= link_to t('cancel'), resource_path %>
+  <%= form.buttons :class => 'button-group' do %>
+    <li>
+      <%= button_tag t('formtastic.actions.update'), :class => 'button icon approve primary' %>
+    </li>
+
+    <li>
+      <%= link_to t('delete'), resource_path, :method => :delete, :class => 'button icon remove danger' %>
+    </li>
+
+    <li>
+      <%= link_to t('cancel'), resource_path, :class => 'button icon reload' %>
+    </li>
   <% end %>
 <% end %>

@@ -1,4 +1,5 @@
 ru:
+  published:                    Добавлен
   back:                         Назад
   cancel:                       Отмена
   delete:                       Удалить
@@ -37,7 +38,7 @@ ru:
 
   formtastic:
     actions:
-      create:                   "Создать %{model}"
+      create:                   Создать
       update:                   Сохранить
 
     required:                   обязательное поле

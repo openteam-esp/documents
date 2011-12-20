@@ -2,6 +2,7 @@ source :rubygems
 
 gem 'client_side_validations'
 gem 'formtastic'
+gem 'formtastic_datepicker-rails3x', :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
 gem 'has_enum'
 gem 'inherited_resources'
 gem 'jquery-rails'

@@ -1,25 +1,12 @@
-<ul class='top_navigation'>
-  <li class='documents <%= "active" if controller_name == 'documents' %>'>
-    <%= link_to t('documents'), admin_documents_path %>
-  </li>
-  <li class='projects <%= "active" if controller_name == 'projects' %>'>
-    <%= link_to t('projects'), admin_projects_path %>
-  </li>
-</ul>
+<%= link_to t("new_#{controller_name.singularize}"), new_resource_path, :class => 'new button icon add' %>
 
-<ul>
+<ul class='paper_list'>
   <% collection.each do |item| %>
-    <li>
+    <li class=<%= cycle('odd', 'even') %>>
       <%= link_to item, resource_path(item) %>
+      <span class='description'><%= item.description %> </span>
+      <span class='published_on'><%= t('published') %> <%= l item.published_on, :format => :long %> </span>
     </li>
   <% end %>
 </ul>
 
-<ul>
-  <li>
-    <%= link_to t('new_document'), new_admin_document_path %>
-  </li>
-  <li>
-    <%= link_to t('new_project'), new_admin_project_path %>
-  </li>
-</ul>

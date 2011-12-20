@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git
+  revision: d66ab9db54bde442aa158467f550c2bae7961207
+  specs:
+    formtastic_datepicker-rails3x (1.0.0)
+      actionpack (>= 3.0.10)
+      activesupport (>= 3.0.10)
+      formtastic (>= 2.0.0)
+      i18n (>= 0.4.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -169,6 +179,7 @@ DEPENDENCIES
   compass (~> 0.12.alpha.2)
   fabrication
   formtastic
+  formtastic_datepicker-rails3x!
   guard-rspec
   guard-spork
   has_enum

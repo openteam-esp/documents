@@ -5,6 +5,17 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui
+//= require jquery.ui.datepicker.ru.js
 //= require jquery_ujs
 //= require rails.validations
-//= require_tree .
+//= require_tree
+
+$(function(){
+  $('input.ui-date-picker').datepicker({
+    yearRange: 'c-33:c+5',
+    showOtherMonths: true,
+    changeMonth: true,
+    changeYear: true
+  });
+});

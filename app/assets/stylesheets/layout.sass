@@ -4,46 +4,166 @@
 
 html, body
   background: #fff
-  font-family: Arial, Verdana, sans-serif
+  font-family: Helvetica, Verdana, Arial,  sans-serif
 
 
 body
   margin: 0 auto
-  width: 1000px
+  width: 930px
+
+  a
+    color: #646464
+
+    &:hover
+      color: #2B3913
 
   .header
-  .main_wrapper
-    .top_navigation
-      +clearfix
-      background: image_url('top-menu-bg.gif') no-repeat left top
-      margin: 0 0 30px 0
-      padding: 6px
+    h1
+      height: 28px
+      margin: 15px 0 10px 5px
 
-      li
-        border-right: 1px solid #DDD
+  .top_navigation
+    +clearfix
+    background: image_url('top-menu-bg.gif') no-repeat left top
+    margin: 0 0 30px 0
+    padding: 6px
+
+    li
+      border-right: 1px solid #ddd
+      float: left
+      height: 37px
+
+      a
+        color: #646464
+        display: block
         float: left
+        font-weight: bold
         height: 37px
+        line-height: 37px
+        padding: 0 20px
+        text-decoration: none
 
-        a
-          color: #646464
-          display: block
+        &:hover
+          background: #fdfcf6
+
+    .documents
+    .projects
+    .active
+      a
+        background: #f0f0f0 image_url('top-menu-item-bg.gif') repeat-x left top
+
+  .main_wrapper
+    background: #eee
+    padding: 5px
+
+    .main
+      background: #fff
+      border: 1px solid #ddd
+      padding: 15px
+      width: 888px
+
+      .formtastic
+        li
+          +clearfix
+          margin: 0 0 5px 0
+
+          .inline-errors
+            background: image_url('inline_error_arrow.png') no-repeat 2px 5px
+            clear: both
+            color: red
+            display: block
+            font-size: 11px
+            height: 16px
+            padding: 5px 0 0 16px
+
+          input, select, textarea
+            border: 1px solid #ddd
+            background: #fff image_url('input-shaddow.gif') no-repeat left top
+            font: 13px Arial, Helvetica, sans-serif
+            color: #646464
+            padding: 5px 7px
+            width: 264px
+            float: left
+            margin: 0 10px 0 0
+
+            &:hover, &:active, &:focus
+              background: #fdfcf6 image_url('input-shaddow-hover.gif') no-repeat left top
+
+          select
+            width: 280px
+
+          label
+            color: #646464
+            display: block
+            font-size: 12px
+            margin: 0 0 10px 0
+
+        #document_kind_input, #project_kind_input, #document_authority_input, #project_authority_input, #document_number_input, #project_number_input
           float: left
-          font-weight: bold
-          height: 37px
-          line-height: 37px
-          padding: 0 20px
-          text-decoration: none
+          height: 70px
+          width: 296px
 
-      .documents
-      .projects
-      .active
+        #document_approved_on_input, #project_published_on_input, #document_published_on_input
+          float: left
+          height: 70px
+          width: 150px
+
+          input
+            width: 100px
+
+        #document_title_input, #project_title_input
+          clear: both
+
+          textarea
+            height: 100px
+            width: 850px
+
+
+      .new
+        float: right
+        margin: 0 0 20px 0
+
+      .paper_list
+        +clearfix
+        clear: both
+        font-size: 16px
+        line-height: 20px
+        margin: 15px 0
+
+        .odd
+          background: #F6F6F6
+
+        .even
+          background: #FDFCF6
+
+        li
+          +clearfix
+          padding: 10px 10px 10px 52px
+
+          a
+            display: block
+            margin: 0 0 10px 0
+
+          .description
+            display: block
+            color: #333
+            font-size: 12px
+            font-style: italic
+
+          .published_on
+            color: #333
+            float: right
+            font-size: 11px
 
   .footer
     +clearfix
     background-color: #efefef
     border-top: 1px solid #aaa
     bottom: 0
-    padding: 3px 0
+    font-size: 11px
+    line-height: 14px
+    margin: 30px 0 0 0
+    padding: 5px 0
 
     .copyright
       text-align: right
