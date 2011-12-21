@@ -63,6 +63,8 @@ body
       width: 888px
 
       .formtastic
+        +clearfix
+
         li
           +clearfix
           margin: 0 0 5px 0
@@ -77,14 +79,14 @@ body
             padding: 5px 0 0 16px
 
           input, select, textarea
-            border: 1px solid #ddd
             background: #fff image_url('input-shaddow.gif') no-repeat left top
-            font: 13px Arial, Helvetica, sans-serif
+            border: 1px solid #ddd
             color: #646464
+            float: left
+            font: 13px Arial, Helvetica, sans-serif
+            margin: 0 7px
             padding: 5px 7px
             width: 264px
-            float: left
-            margin: 0 10px 0 0
 
             &:hover, &:active, &:focus
               background: #fdfcf6 image_url('input-shaddow-hover.gif') no-repeat left top
@@ -113,11 +115,15 @@ body
 
         #document_title_input, #project_title_input
           clear: both
+          height: 160px
 
           textarea
             height: 100px
             width: 850px
 
+        .button-group
+          float: right
+          margin: 0 15px
 
       .new
         float: right
