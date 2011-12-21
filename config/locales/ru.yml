@@ -31,6 +31,11 @@ ru:
           decision:             Проект постановления
           direction:            Проект распоряжения
           order:                Проект приказа
+          state:                Статус
+          state_enum:
+            actual:             Актуальный
+            asserted:           Утвержденный
+            deflected:          Отклоненный
 
     models:
       document:                 Нормативный документ

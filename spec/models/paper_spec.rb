@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Paper do
+  subject { Fabricate(:project) }
+
   it { should validate_presence_of :kind }
   it { should validate_presence_of :authority }
   it { should validate_presence_of :title }
