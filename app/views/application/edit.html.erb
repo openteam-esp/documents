@@ -1,4 +1,4 @@
-<%= semantic_nested_form_for resource, :url => resource_path, :validate => true do |form| %>
+<%= semantic_form_for resource, :url => resource_path, :validate => true do |form| %>
   <%= render :partial => 'fields', :locals => {:form => form} %>
 
   <%= form.buttons :class => 'button-group' do %>

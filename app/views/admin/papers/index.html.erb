@@ -1,0 +1,17 @@
+<ul>
+  <% collection.each do |item| %>
+    <li>
+      <%= link_to item, [:admin, item] %>
+      <%= semantic_form_for item.cancels.build, :url => admin_document_cancels_path(item) do |form| %>
+        <%= form.inputs do %>
+          <%= form.input :subject_id, :as => :hidden %>
+          <%= form.input :objekt_id, :as => :hidden, :value => item.id %>
+        <% end %>
+
+        <%= form.buttons do %>
+          <%= form.commit_button %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

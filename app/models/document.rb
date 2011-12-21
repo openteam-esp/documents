@@ -10,12 +10,13 @@ class Document < Paper
   has_many :changes_for_documents, :class_name => 'Change', :foreign_key => :subject_id, :dependent => :destroy
   has_many :changed_documents, :through => :changes_for_documents, :source => :objekt
 
+  validates_presence_of :number, :approved_on
+
   accepts_nested_attributes_for :assertations_for_project
   accepts_nested_attributes_for :cancels_for_documents
   accepts_nested_attributes_for :changes_for_documents
 
-  validates_presence_of :number, :approved_on
-
-  alias :cancels :cancels_for_documents
-  alias :changes :changes_for_documents
+  alias :assertations :assertations_for_project
+  alias :cancels      :cancels_for_documents
+  alias :changes      :changes_for_documents
 end

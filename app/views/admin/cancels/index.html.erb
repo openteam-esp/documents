@@ -14,10 +14,24 @@
   <li><%= link_to t('assertations'), admin_document_assertations_path(@subject) %> </li>
 </ul>
 
+<%= semantic_search_form_for :paper, :url => admin_papers_path, :remote => true do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :klass, :as => :hidden, :value => 'Document' %>
+    <%= form.input :keywords, :as => :string %>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= button_tag t('search'), :class => 'button icon search' %>
+  <% end %>
+<% end %>
+
+<div class="search_result_block">
+</div>
+
 <ul>
   <% collection.each do |cancel| %>
     <li>
-      <%= render cancel.objekt %>
+      <%= cancel.objekt %>
     </li>
   <% end %>
 </ul>

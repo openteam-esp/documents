@@ -1,7 +1,7 @@
 Documents::Application.routes.draw do
   namespace :admin do
     resources :documents do
-      resources :cancels, :only => :index
+      resources :cancels, :only => [:create, :index]
       resources :changes, :only => :index
       resources :assertations, :only => :index
     end
