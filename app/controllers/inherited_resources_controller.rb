@@ -1,8 +1,6 @@
 class InheritedResourcesController < ApplicationController
   inherit_resources
 
-  layout false
-
   respond_to :html, :json
 
   def index

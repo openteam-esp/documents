@@ -10,7 +10,6 @@ gem 'has_searcher'
 gem 'inherited_resources'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'nested_form',                                :git => 'git://github.com/kfprimm/nested_form'
 gem 'rails',                                      :require => false
 gem 'russian'
 gem 'sunspot_rails'

@@ -2,14 +2,14 @@
   <% collection.each do |item| %>
     <li>
       <%= link_to item, [:admin, item] %>
-      <%= semantic_form_for item.cancels.build, :url => admin_document_cancels_path(item) do |form| %>
+      <%= semantic_form_for @subject.send(@association.to_sym).build, :url => eval("admin_document_#{@association}_path(@subject)") do |form| %>
         <%= form.inputs do %>
           <%= form.input :subject_id, :as => :hidden %>
           <%= form.input :objekt_id, :as => :hidden, :value => item.id %>
         <% end %>
 
         <%= form.buttons do %>
-          <%= form.commit_button %>
+          <%= button_tag t('add'), :class => 'button icon add' %>
         <% end %>
       <% end %>
     </li>

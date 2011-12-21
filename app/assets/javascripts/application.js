@@ -5,7 +5,6 @@
 // the compiled file.
 //
 //= require jquery
-//= require nested_form/jquery
 //= require jquery-ui
 //= require jquery.ui.datepicker.ru.js
 //= require jquery_ujs
@@ -21,14 +20,13 @@ function add_datepicker(){
   });
 };
 
-function manage_linked_documents(){
+function search_documents(){
   $('.paper_search')
     .bind('ajax:success', function(evt, data, status, xhr){
       var search_form         = $(this);
       var search_result_block = search_form.siblings('.search_result_block');
 
       search_result_block.html(xhr.responseText);
-
     })
     .bind('ajax:error', function(evt, xhr, status, error){
     })
@@ -38,5 +36,5 @@ function manage_linked_documents(){
 
 $(function(){
   add_datepicker();
-  manage_linked_documents();
+  search_documents();
 });

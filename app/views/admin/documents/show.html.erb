@@ -1,0 +1,24 @@
+<h2><%= resource.title %></h2>
+
+<div class='description'>
+  <%= resource.description %>
+</div>
+
+<div class='published_on'>
+  <%= t('published') %> <%= l resource.published_on, :format => :long %>
+</div>
+
+
+<hr />
+
+<ul class='tabs'>
+  <li><%= link_to t('cancels'), admin_document_cancels_path(resource) %> </li>
+  <li><%= link_to t('changes'), admin_document_changes_path(resource) %> </li>
+  <li><%= link_to t('assertations'), admin_document_assertations_path(resource) %> </li>
+</ul>
+
+<hr />
+
+<%= link_to t('back'), collection_path, :class => 'button icon arrowleft'%>
+<%= link_to t('edit'), edit_resource_path, :class => 'button icon edit' %>
+

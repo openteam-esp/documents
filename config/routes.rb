@@ -2,8 +2,8 @@ Documents::Application.routes.draw do
   namespace :admin do
     resources :documents do
       resources :cancels, :only => [:create, :index]
-      resources :changes, :only => :index
-      resources :assertations, :only => :index
+      resources :changes, :only => [:create, :index]
+      resources :assertations, :only => [:create, :index]
     end
 
     resources :projects
