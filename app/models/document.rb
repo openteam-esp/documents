@@ -15,4 +15,7 @@ class Document < Paper
   accepts_nested_attributes_for :changes_for_documents
 
   validates_presence_of :number, :approved_on
+
+  alias :cancels :cancels_for_documents
+  alias :changes :changes_for_documents
 end

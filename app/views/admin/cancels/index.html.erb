@@ -1,0 +1,23 @@
+<h2><%= @subject %></h2>
+
+<div class='description'>
+  <%= @subject.description %>
+</div>
+
+<div class='published_on'>
+  <%= t('published') %> <%= l @subject.published_on, :format => :long %>
+</div>
+
+<ul>
+  <li><%= link_to t('cancels'), admin_document_cancels_path(@subject) %> </li>
+  <li><%= link_to t('changes'), admin_document_changes_path(@subject) %> </li>
+  <li><%= link_to t('assertations'), admin_document_assertations_path(@subject) %> </li>
+</ul>
+
+<ul>
+  <% collection.each do |cancel| %>
+    <li>
+      <%= render cancel.objekt %>
+    </li>
+  <% end %>
+</ul>

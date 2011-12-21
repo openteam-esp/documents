@@ -5,17 +5,38 @@
 // the compiled file.
 //
 //= require jquery
+//= require nested_form/jquery
 //= require jquery-ui
 //= require jquery.ui.datepicker.ru.js
 //= require jquery_ujs
 //= require rails.validations
 //= require_tree
 
-$(function(){
+function add_datepicker(){
   $('input.ui-date-picker').datepicker({
     yearRange: 'c-33:c+5',
     showOtherMonths: true,
     changeMonth: true,
     changeYear: true
   });
+};
+
+function manage_linked_documents(){
+  $('.paper_search')
+    .bind('ajax:success', function(evt, data, status, xhr){
+      var search_form         = $(this);
+      var search_result_block = search_form.siblings('.search_result_block');
+
+      search_result_block.html(xhr.responseText);
+
+    })
+    .bind('ajax:error', function(evt, xhr, status, error){
+    })
+    .bind('ajax:complete', function(evt, xhr, status){
+    });
+};
+
+$(function(){
+  add_datepicker();
+  manage_linked_documents();
 });

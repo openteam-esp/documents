@@ -1,7 +1,7 @@
 class InheritedResourcesController < ApplicationController
   inherit_resources
 
-  has_searcher
+  layout false
 
   respond_to :html, :json
 
