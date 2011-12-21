@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221014722) do
+ActiveRecord::Schema.define(:version => 20111221023811) do
+
+  create_table "assertations", :force => true do |t|
+    t.integer  "subject_id"
+    t.integer  "objekt_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assertations", ["objekt_id"], :name => "index_assertations_on_objekt_id"
+  add_index "assertations", ["subject_id"], :name => "index_assertations_on_subject_id"
 
   create_table "cancels", :force => true do |t|
     t.integer  "subject_id"
