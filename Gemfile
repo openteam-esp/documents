@@ -27,6 +27,11 @@ group :development do
   gem 'therubyracer'
 end
 
+group :production do
+  gem 'pg'
+  gem 'unicorn',                                  :require => false
+end
+
 group :test do
   gem 'fabrication',                              :require => false
   gem 'guard-rspec'
@@ -39,3 +44,4 @@ group :test do
   gem 'sqlite3'
   gem 'sunspot_matchers',                         :require => false
 end
+
