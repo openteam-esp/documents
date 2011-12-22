@@ -1,0 +1,6 @@
+<div class='tabs button-group'>
+  <%= link_to t('canceled'), [controller_namespace, resource, :cancels], :class => "button big icon remove #{is_active('cancel')}" %>
+  <%= link_to t('change'), [controller_namespace, resource, :changes], :class => "button big icon loop #{is_active('change')}" %>
+  <%= link_to t('assertation'), [controller_namespace, resource, :assertations], :class => "button big icon log #{is_active('assertation')}" %>
+</div>
+

@@ -1,0 +1,10 @@
+<%= semantic_search_form_for klass.to_sym, :url => eval("#{klass.pluralize}_path") do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :keywords, :as => :string %>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= button_tag t('search'), :class => 'button icon search' %>
+  <% end %>
+<% end %>
+
