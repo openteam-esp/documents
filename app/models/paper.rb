@@ -17,4 +17,8 @@ class Paper < ActiveRecord::Base
     res << "№#{number}" if number
     res
   end
+
+  def to_json
+    as_json(:methods => 'description', :only => [:description])
+  end
 end

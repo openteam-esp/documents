@@ -15,8 +15,4 @@ class Document < Paper
   accepts_nested_attributes_for :changes_for_documents
 
   validates_presence_of :number, :approved_on
-
-  def to_json
-    as_json(:except => [:created_at, :id, :state, :updated_at])
-  end
 end
