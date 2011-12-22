@@ -1,5 +1,5 @@
-<%= link_to t('back'), eval("admin_#{resource.class.name.downcase.pluralize}_path"), :class => 'button icon arrowleft'%>
-<%= link_to t('edit'), eval("edit_admin_#{resource.class.name.downcase}_path(resource)"), :class => 'button icon edit' %>
+<%= link_to t('back'), [controller_namespace, resource.class.name.pluralize.downcase.to_sym], :class => 'button icon arrowleft'%>
+<%= link_to t('edit'), eval("edit_admin_#{resource.class.name.downcase}_path(resource)"), :class => 'button icon edit' if controller_namespace%>
 
 <div class="document_show">
   <h2><%= resource.title %></h2>

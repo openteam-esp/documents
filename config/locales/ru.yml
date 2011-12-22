@@ -16,6 +16,12 @@ ru:
 
   activerecord:
     attributes:
+      project_search:
+        keywords:               Поиск проектов документов
+
+      document_search:
+        keywords:               Поиск нормативных документов
+
       paper_search:
         cancel_keywords:        Чтобы добавить отмененный документ введите название документа и нажмите "Найти"
         change_keywords:        Чтобы добавить измененный документ введите название документа и нажмите "Найти"

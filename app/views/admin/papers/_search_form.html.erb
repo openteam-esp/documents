@@ -1,4 +1,4 @@
-<%= semantic_search_form_for klass.singularize.to_sym, :url => eval("admin_#{klass}_path"), :remote => true do |form| %>
+<%= semantic_search_form_for klass.to_sym, :url => eval("admin_#{klass.pluralize}_path"), :remote => true do |form| %>
   <%= form.inputs do %>
     <%= form.input :keywords, :as => :string, :label => search_label %>
     <li class='hidden'><%= hidden_field_tag :subject_id, subject.id %></li>

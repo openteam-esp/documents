@@ -11,7 +11,12 @@ Documents::Application.routes.draw do
     root :to => 'documents#index'
   end
 
-  resources :documents, :only => [:index, :show]
+  resources :documents, :only => [:index, :show] do
+      resources :cancels, :only => [:index]
+      resources :changes, :only => [:index]
+      resources :assertations, :only => [:index]
+  end
+
   resources :projects, :only => [:index, :show]
 
   root :to => 'documents#index'

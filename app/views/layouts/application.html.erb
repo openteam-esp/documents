@@ -14,10 +14,10 @@
 
   <ul class='top_navigation'>
     <li class='documents <%= "active" if controller_name == 'documents' %>'>
-      <%= link_to t('documents'), admin_documents_path %>
+      <%= link_to t('documents'), [controller_namespace, :documents] %>
     </li>
     <li class='projects <%= "active" if controller_name == 'projects' %>'>
-      <%= link_to t('projects'), admin_projects_path %>
+      <%= link_to t('projects'), [controller_namespace, :projects] %>
     </li>
   </ul>
 

@@ -1,9 +1,2 @@
-<h2><%= resource.title %></h2>
-
-<div class='description'>
-  <%= resource.description %>
-</div>
-
-<div class='published_on'>
-  <%= t('published') %> <%= l resource.published_on, :format => :long %>
-</div>
+<%= render :partial => 'admin/papers/view', :locals => { :resource => resource } %>
+<%= render :partial => 'admin/documents/linked_documents_tabs', :locals => { :resource => resource } %>

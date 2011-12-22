@@ -1,18 +1,2 @@
-<%= semantic_search_form_for :document, :url => documents_path do |form| %>
-  <%= form.inputs do %>
-    <%= form.input :keywords, :as => :string %>
-  <% end %>
-
-  <%= form.buttons do %>
-    <%= form.commit_button %>
-  <% end %>
-<% end %>
-
-<ul>
-  <% collection.each do |item| %>
-    <li>
-      <%= link_to item, item %>
-    </li>
-  <% end %>
-</ul>
-
+<%= render :partial => 'papers/search_form', :locals => { :klass => 'document'} %>
+<%= render :partial => 'admin/papers/papers_list', :locals => { :collection => collection }%>
