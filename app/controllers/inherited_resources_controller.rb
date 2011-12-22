@@ -3,6 +3,20 @@ class InheritedResourcesController < ApplicationController
 
   has_searcher
 
+  respond_to :html, :json
+
+  def index
+    index! { |success|
+      success.json { render :json => collection.map(&:to_json) }
+    }
+  end
+
+  def show
+    show! { |success|
+      success.json { render :json => resource.to_json }
+    }
+  end
+
   protected
     def collection
       get_collection_ivar || set_collection_ivar(search_and_paginate_collection)
