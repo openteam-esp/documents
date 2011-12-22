@@ -19,4 +19,8 @@ class Document < Paper
   alias :assertations :assertations_for_project
   alias :cancels      :cancels_for_documents
   alias :changes      :changes_for_documents
+
+  def to_json
+    super.merge!('kind' => human_kind, 'approved_on' => approved_on, 'number' => number)
+  end
 end

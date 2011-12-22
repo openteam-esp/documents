@@ -5,7 +5,7 @@ class Paper < ActiveRecord::Base
 
   validates_presence_of :kind, :authority, :title, :published_on
 
-  has_enum :kind, %w[decision direction order]
+  has_enums
 
   searchable do
     text :title
@@ -15,10 +15,19 @@ class Paper < ActiveRecord::Base
     res = "#{authority}, #{human_kind.mb_chars.downcase} "
     res << "от #{I18n.l(approved_on)} " if approved_on
     res << "№#{number}" if number
-    res
   end
 
   def to_json
-    as_json(:methods => 'description', :only => [:description])
+    hash = {}
+
+    common_attributes.each do |attribute|
+      hash[attribute] = self.send(attribute)
+    end
+
+    hash
+  end
+
+  def common_attributes
+    %w[title authority title published_on]
   end
 end
