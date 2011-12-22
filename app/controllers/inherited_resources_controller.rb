@@ -1,6 +1,8 @@
 class InheritedResourcesController < ApplicationController
   inherit_resources
 
+  has_searcher
+
   respond_to :html, :json
 
   def index

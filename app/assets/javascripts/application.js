@@ -21,7 +21,7 @@ function add_datepicker(){
 };
 
 function search_documents(){
-  $('.paper_search')
+  $('.document_search, .project_search')
     .bind('ajax:success', function(evt, data, status, xhr){
       var search_form         = $(this);
       var search_result_block = search_form.siblings('.search_result_block');

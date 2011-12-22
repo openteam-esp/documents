@@ -2,7 +2,7 @@
 
 <%= render :partial => 'admin/papers/papers_list', :locals => { :collection => collection }%>
 
-<%= render :partial => 'admin/papers/search_form', :locals => { :klass => 'Project', :subject => @subject, :association => controller_name } %>
+<%= render :partial => 'admin/papers/search_form', :locals => { :klass => 'projects', :subject => @subject, :association => controller_name } %>
 
 <div class="search_result_block">
 </div>

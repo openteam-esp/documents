@@ -3,7 +3,7 @@ ru:
   assertation:                  Утверждает проект
   back:                         Назад
   cancel:                       Отмена
-  cancel:                       Отменяет
+  canceled:                     Отменяет
   change:                       Вносит изменения
   delete:                       Удалить
   documents:                    Нормативные документы

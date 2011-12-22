@@ -3,7 +3,7 @@
     <li class=<%= cycle('odd', 'even') %>>
       <%= render item %>
 
-      <% if defined? need_add_button %>
+      <% if @association %>
         <%= semantic_form_for @subject.send(@association.to_sym).build,
                               :url => eval("admin_document_#{@association}_path(@subject)"),
                               :html => { :class => 'add_form_button' } do |form| %>
