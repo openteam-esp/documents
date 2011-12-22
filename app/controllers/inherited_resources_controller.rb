@@ -1,7 +1,5 @@
-class Admin::PapersController < Admin::ApplicationController
-  actions :index
-
-  has_scope :page, :default => 1, :only => :index
+class InheritedResourcesController < ApplicationController
+  inherit_resources
 
   has_searcher
 
@@ -25,5 +23,4 @@ class Admin::PapersController < Admin::ApplicationController
         :per_page   => 10
       }.merge(options)
     end
-
 end

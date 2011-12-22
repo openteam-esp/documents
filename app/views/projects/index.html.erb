@@ -1,4 +1,4 @@
-<%= semantic_search_form_for :paper do |form| %>
+<%= semantic_search_form_for :project, :url => projects_path do |form| %>
   <%= form.inputs do %>
     <%= form.input :keywords, :as => :string %>
   <% end %>
@@ -11,7 +11,9 @@
 <ul>
   <% collection.each do |item| %>
     <li>
-      <%= link_to item, [:admin, item] %>
+      <%= link_to item, item %>
     </li>
   <% end %>
 </ul>
+
+

@@ -1,3 +1,2 @@
-class Admin::ApplicationController < ApplicationController
-  inherit_resources
+class Admin::ApplicationController < InheritedResourcesController
 end

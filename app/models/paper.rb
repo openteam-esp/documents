@@ -2,15 +2,13 @@
 
 class Paper < ActiveRecord::Base
   alias_attribute :to_s,  :title
-  alias_attribute :klass, :type
 
   validates_presence_of :kind, :authority, :title, :published_on
 
   has_enum :kind, %w[decision direction order]
 
   searchable do
-    string  :klass
-    text    :title
+    text :title
   end
 
   def description
