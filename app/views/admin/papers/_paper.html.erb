@@ -1,0 +1,3 @@
+<%= link_to paper, eval("admin_#{paper.class.name.downcase}_path(paper)") %>
+<span class='description'><%= paper.description %></span>
+<span class='published_on'><%= t('published') %><%= l paper.published_on, :format => :long %></span>

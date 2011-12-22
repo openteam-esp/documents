@@ -1,0 +1,3 @@
+<%= link_to t("new_#{controller_name.singularize}"), new_resource_path, :class => 'new button icon add' %>
+
+<%= render :partial => 'admin/papers/papers_list', :locals => { :collection => collection }%>

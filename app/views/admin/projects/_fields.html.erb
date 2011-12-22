@@ -1,7 +1,7 @@
 <%= form.inputs do %>
   <%= form.input :kind, :collection => form.object.class.values_for_select_tag(:kind) %>
   <%= form.input :authority %>
-  <%= form.input :published_on, :as => :date_picker, :format => "%d.%m.%Y" %>
   <%= form.input :title %>
+  <%= form.input :published_on, :as => :date_picker, :format => "%d.%m.%Y" %>
 <% end %>
 

@@ -1,12 +1,6 @@
 <%= render :partial => 'admin/documents/view', :locals => { :resource => @subject } %>
 
-<ul>
-  <% collection.each do |cancel| %>
-    <li>
-      <%= cancel.objekt %>
-    </li>
-  <% end %>
-</ul>
+<%= render :partial => 'admin/papers/papers_list', :locals => { :collection => collection }%>
 
 <%= render :partial => 'admin/papers/search_form', :locals => { :klass => 'Document', :subject => @subject, :association => controller_name } %>
 

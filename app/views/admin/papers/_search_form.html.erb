@@ -1,9 +1,9 @@
 <%= semantic_search_form_for :paper, :url => admin_papers_path, :remote => true do |form| %>
   <%= form.inputs do %>
     <%= form.input :klass, :as => :hidden, :value => klass %>
-    <%= form.input :keywords, :as => :string %>
-    <li><%= hidden_field_tag :subject_id, subject.id %></li>
-    <li><%= hidden_field_tag :association, association %></li>
+    <%= form.input :keywords, :as => :string, :label => search_label %>
+    <li class='hidden'><%= hidden_field_tag :subject_id, subject.id %></li>
+    <li class='hidden'><%= hidden_field_tag :association, association %></li>
   <% end %>
 
   <%= form.buttons do %>

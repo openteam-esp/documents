@@ -1,16 +1,26 @@
 ru:
-  published:                    Добавлен
+  add:                          Добавить
+  assertation:                  Утверждает проект
   back:                         Назад
   cancel:                       Отмена
+  cancel:                       Отменяет
+  change:                       Вносит изменения
   delete:                       Удалить
+  documents:                    Нормативные документы
   edit:                         Редактировать
   new_document:                 Добавить нормативный документ
   new_project:                  Добавить проект документа
-  documents:                    Нормативные документы
   projects:                     Проекты документов
+  published:                    Добавлен
+  search:                       Найти
 
   activerecord:
     attributes:
+      paper_search:
+        cancel_keywords:        Чтобы добавить отмененный документ введите название документа и нажмите "Найти"
+        change_keywords:        Чтобы добавить измененный документ введите название документа и нажмите "Найти"
+        assertation_keywords:   Чтобы добавить принятый проект введите название проекта и нажмите "Найти"
+
       document:
         approved_on:            Дата утверждения
         number:                 Номер
@@ -31,11 +41,12 @@ ru:
           decision:             Проект постановления
           direction:            Проект распоряжения
           order:                Проект приказа
-          state:                Статус
-          state_enum:
-            actual:             Актуальный
-            asserted:           Утвержденный
-            deflected:          Отклоненный
+
+      state:
+        state_enum:
+          actual:               Актуальный
+          asserted:             Утвержденный
+          deflected:            Отклоненный
 
     models:
       document:                 Нормативный документ

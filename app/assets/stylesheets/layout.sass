@@ -1,11 +1,16 @@
 @import "compass/reset"
 @import "compass/utilities"
-
+@import "compass/css3"
 
 html, body
   background: #fff
   font-family: Helvetica, Verdana, Arial,  sans-serif
 
+@for $i from 1 through 5
+  h#{$i}
+    font-size: 28px - $i * 4
+    font-weight: normal
+    line-height: 32px - $i * 4
 
 body
   margin: 0 auto
@@ -100,10 +105,17 @@ body
             font-size: 12px
             margin: 0 0 10px 0
 
-        #document_kind_input, #project_kind_input, #document_authority_input, #project_authority_input, #document_number_input, #project_number_input
+        #document_kind_input, #project_kind_input, #document_number_input, #project_number_input
           float: left
           height: 70px
           width: 296px
+
+        #document_authority_input, #project_authority_input,
+          float: left
+          height: 70px
+
+          input
+            width: 562px
 
         #document_approved_on_input, #project_published_on_input, #document_published_on_input
           float: left
@@ -160,6 +172,73 @@ body
             color: #333
             float: right
             font-size: 11px
+
+      .tabs
+        +clearfix
+        border-top: 1px solid #ebebeb
+        border-bottom: 1px solid #ebebeb
+        margin: 15px 0
+        padding: 15px 215px
+
+        li
+          float: left
+          padding: 5px
+
+          a
+            display: block
+
+      .document_show
+        color: #404040
+        margin: 25px 0
+
+        h2
+          margin: 0 0 15px 0
+
+        .description
+          margin: 0 0 10px 0
+
+        .published_on
+          margin: 0 0 10px 0
+
+      .paper_search
+        +clearfix
+        margin: 25px 0 15px
+
+        .hidden
+          display: none
+          margin: 0
+          padding: 0
+
+        .inputs
+          float: left
+
+        .buttons
+          margin: 27px 0 0 0
+
+        li
+          margin: 0
+
+          label
+            font-size: 16px
+
+          input
+            margin: 0 7px 0 0
+            width: 792px
+
+      .search_result_block
+        .add_form_button
+          .inputs
+            .hidden
+              display: none
+              margin: 0
+              padding: 0
+
+          .buttons
+            margin: 5px 0
+
+      .button
+        &.edit
+          float: right
 
   .footer
     +clearfix
