@@ -1,4 +1,6 @@
 class Admin::ProjectsController < Admin::ApplicationController
+  custom_actions :resource => [:to_actual, :to_deflected]
+
   has_scope :page, :default => 1, :only => :index
 
   def index

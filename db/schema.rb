@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20111222094222) do
     t.string   "type"
     t.string   "state"
     t.string   "file_url"
+    t.date     "deflected_on"
   end
 
 end

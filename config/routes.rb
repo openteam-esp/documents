@@ -6,7 +6,12 @@ Documents::Application.routes.draw do
       resources :assertations, :only => [:create, :index]
     end
 
-    resources :projects
+    resources :projects do
+      member do
+        put :to_actual
+        put :to_deflected
+      end
+    end
 
     root :to => 'documents#index'
   end

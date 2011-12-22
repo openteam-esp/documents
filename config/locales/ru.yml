@@ -45,6 +45,7 @@ ru:
         title:                  Название
 
       project:
+        deflected_on:           Дата оклонения
         kind_enum:
           decision:             Проект постановления
           direction:            Проект распоряжения
