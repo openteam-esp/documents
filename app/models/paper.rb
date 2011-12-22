@@ -15,6 +15,7 @@ class Paper < ActiveRecord::Base
     res = "#{authority}, #{human_kind.mb_chars.downcase} "
     res << "от #{I18n.l(approved_on)} " if approved_on
     res << "№#{number}" if number
+    res
   end
 
   def to_json
