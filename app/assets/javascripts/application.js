@@ -47,13 +47,12 @@ function choose_file(){
     dialog.load_iframe();
 
     input.change(function(){
-      var file_link = input.parent().parent().find('.file_link');
+      var attached_file_wrapper = $('.attached_file');
+      var file_url              = input.val();
+      var file_name = decodeURIComponent(file_url).match(/([^\/.]+)(\.(.{3}))?$/);
 
-      if (file_link.length != 0 ){
-        file_link.attr('src', input.val());
-      }else{
-        input.parent().after('<img src="'+input.val()+'" width="200px" />');
-      };
+      attached_file_wrapper.children('span, a').replaceWith('<a href="'+file_url+'" class="'+file_name[3]+'"><span></span>'+file_name[1]+'</a>');
+
       input.unbind('change');
     });
 

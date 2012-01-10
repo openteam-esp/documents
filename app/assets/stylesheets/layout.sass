@@ -64,6 +64,48 @@ body
     background: #eee
     padding: 5px
 
+    .attached_file
+      float: left
+      font-size: 13px
+      height: 70px
+      padding-right: 15px
+
+      .label
+        margin: 0 0 16px 0 !important
+
+      a, span
+        +clearfix
+        color: #646464
+
+        span
+          +inline-block
+          background-image: image_url('mime.png')
+          background-repeat: no-repeat
+          background-position: -52px 0
+          height: 17px
+          margin: 0 5px 0 0
+          width: 16px
+
+      .pdf
+        span
+          background-position: -1037px 0
+
+      .txt
+        span
+          background-position: -1326px 0
+
+      .doc
+        span
+          background-position: -408px 0
+
+      .xls
+        span
+          background-position: -255px 0
+
+      .png, .jpg, .jpeg, .tiff
+        span
+          background-position: 0 0
+
     .main
       background: #fff
       border: 1px solid #ddd

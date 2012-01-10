@@ -1,3 +1,10 @@
 <%= link_to paper, [controller_namespace, paper] %>
 <span class='description'><%= paper.description %></span>
 <span class='published_on'><%= t('published') %> <%= l paper.published_on, :format => :long %></span>
+
+<div class='attached_file'>
+  <% if paper.file_url %>
+    <% file_name, name, sg, type = URI.decode(paper.file_url).match(/([^\/.]+)(\.(.{3}))?$/).to_a %>
+    <%= link_to content_tag(:span)+name, paper.file_url, :class => type %>
+  <% end %>
+</div>

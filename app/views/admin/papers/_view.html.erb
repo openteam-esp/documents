@@ -15,6 +15,13 @@
     <%= resource.description %>
   </div>
 
+  <div class='attached_file'>
+    <% if resource.file_url %>
+      <% file_name, name, sg, type = URI.decode(resource.file_url).match(/([^\/.]+)(\.(.{3}))?$/).to_a %>
+      <%= link_to content_tag(:span)+name, resource.file_url, :class => type %>
+    <% end %>
+  </div>
+
   <div class='published_on'>
     <%= t('published') %> <%= l resource.published_on, :format => :long %>
   </div>
