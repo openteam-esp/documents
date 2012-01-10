@@ -1,3 +1,6 @@
-<%= link_to t("new_#{controller_name.singularize}"), new_resource_path, :class => 'new button icon add' %>
+<% unless @association %>
+  <%= render :partial => 'papers/search_form', :locals => { :klass => 'project' } %>
+  <%= link_to t("new_#{controller_name.singularize}"), new_resource_path, :class => 'new button icon add' %>
+<% end %>
 
 <%= render :partial => 'admin/papers/papers_list', :locals => { :collection => collection }%>

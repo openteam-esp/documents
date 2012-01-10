@@ -34,7 +34,36 @@ function search_documents(){
     });
 };
 
+function choose_file(){
+  $('.choose_file').click(function(){
+    var link = $(this);
+    var origin_id = 'file_url';
+    var input = $('#'+origin_id);
+
+    var dialog = link.create_or_return_dialog('elfinder_picture_dialog');
+
+    dialog.attr('id_data', origin_id);
+
+    dialog.load_iframe();
+
+    input.change(function(){
+      var file_link = input.parent().parent().find('.file_link');
+
+      if (file_link.length != 0 ){
+        file_link.attr('src', input.val());
+      }else{
+        input.parent().after('<img src="'+input.val()+'" width="200px" />');
+      };
+      input.unbind('change');
+    });
+
+    return false;
+  });
+};
+
 $(function(){
   add_datepicker();
   search_documents();
+  choose_file();
 });
+

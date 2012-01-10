@@ -1,4 +1,4 @@
-<%= semantic_search_form_for klass.to_sym, :url => eval("#{klass.pluralize}_path") do |form| %>
+<%= semantic_search_form_for klass.to_sym, :url => [controller_namespace, klass.pluralize.to_sym ] do |form| %>
   <%= form.inputs do %>
     <%= form.input :keywords, :as => :string %>
   <% end %>

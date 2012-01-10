@@ -1,7 +1,9 @@
 source :rubygems
 
 gem 'client_side_validations'
+gem 'configliere'
 gem 'default_value_for'
+gem 'el_vfs_client'
 gem 'formtastic'
 gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
 gem 'has_enum'
@@ -23,6 +25,7 @@ end
 
 group :development do
   gem 'hirb',                                     :require => false
+  gem 'rails-erd'
   gem 'itslog'
   gem 'therubyracer'
 end

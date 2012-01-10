@@ -3,6 +3,8 @@
   <%= form.input :authority %>
   <%= form.input :number  %>
   <%= form.input :approved_on, :as => :date_picker, :format => "%d.%m.%Y" %>
-  <%= form.input :title %>
+  <%= form.input :title, :input_html => {:class => 'for_info_path'} %>
   <%= form.input :published_on, :as => :date_picker, :format => "%d.%m.%Y" %>
+  <%= form.input :file_url, :as => :hidden, :input_html => {:id => 'file_url'} %>
+  <%= link_to t('choose_file'), '#', :class => 'choose_file button icon settings', :id => Time.now.to_i %>
 <% end %>

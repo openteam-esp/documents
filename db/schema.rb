@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221043622) do
+ActiveRecord::Schema.define(:version => 20111222094222) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20111221043622) do
     t.date     "approved_on"
     t.string   "type"
     t.string   "state"
+    t.string   "file_url"
   end
 
 end

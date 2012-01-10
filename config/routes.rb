@@ -19,5 +19,7 @@ Documents::Application.routes.draw do
 
   resources :projects, :only => [:index, :show]
 
+  mount ElVfsClient::Engine => '/'
+
   root :to => 'documents#index'
 end
