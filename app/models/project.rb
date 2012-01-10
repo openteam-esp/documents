@@ -4,6 +4,8 @@ class Project < Paper
     text   :title
   end
 
+  scope :by_state, ->(state) { where(:state => state) }
+
   has_enum :state, %w[actual asserted deflected]
 
   state_machine :initial => :actual do

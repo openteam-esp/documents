@@ -1,12 +1,15 @@
 ru:
+  actual:                       Актуальные
   add:                          Добавить
   are_you_sure:                 Вы уверены в том что хотите удалить документ?
   assertation:                  Утверждает проект
+  asserted:                     Утвержденные
   back:                         Назад
   cancel:                       Отмена
   canceled:                     Отменяет
   change:                       Вносит изменения
   choose_file:                  Выбрать файл
+  deflected:                    Отклоненные
   delete:                       Удалить
   documents:                    Нормативные документы
   edit:                         Редактировать

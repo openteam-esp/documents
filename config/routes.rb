@@ -7,6 +7,10 @@ Documents::Application.routes.draw do
     end
 
     resources :projects do
+      %w[actual asserted deflected].each do |state|
+        get state, :action => :index, :on => :collection, :defaults => { :by_state => state }
+      end
+
       member do
         put :to_actual
         put :to_deflected

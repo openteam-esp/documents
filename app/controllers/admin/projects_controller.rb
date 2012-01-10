@@ -3,6 +3,8 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   has_scope :page, :default => 1, :only => :index
 
+  has_scope :by_state, :only => :index
+
   def index
     index! {
       @association = params[:association]
