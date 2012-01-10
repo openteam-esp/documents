@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'rails',                                      :require => false
 gem 'russian'
+gem 'state_machine'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 

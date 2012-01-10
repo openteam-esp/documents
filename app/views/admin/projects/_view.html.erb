@@ -1,7 +1,9 @@
 <%= render :partial => 'admin/papers/view', :locals => { :resource => resource } %>
 
-<% if resource.state_actual? %>
+<% if resource.actual? %>
   <%= semantic_form_for resource, :url => to_deflected_admin_project_path(resource) do |form| %>
+    <%= form.semantic_errors %>
+
     <%= form.inputs do %>
       <%= form.input :deflected_on, :as => :date_picker, :format => "%d.%m.%Y" %>
     <% end %>
@@ -12,7 +14,7 @@
   <% end %>
 <% end %>
 
-<% if resource.state_deflected? %>
+<% if resource.deflected? %>
   <%= semantic_form_for resource, :url => to_actual_admin_project_path(resource) do |form| %>
     <%= form.buttons do %>
       <%= form.commit_button %>

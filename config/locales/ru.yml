@@ -51,11 +51,10 @@ ru:
           direction:            Проект распоряжения
           order:                Проект приказа
 
-      state:
         state_enum:
-          actual:               Актуальный
-          asserted:             Утвержденный
-          deflected:            Отклоненный
+          actual:             Актуальный
+          asserted:           Утвержденный
+          deflected:          Отклоненный
 
     models:
       document:                 Нормативный документ

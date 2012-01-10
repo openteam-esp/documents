@@ -3,12 +3,15 @@ require 'spec_helper'
 describe Project do
   subject { Fabricate(:project) }
 
-  it { should validate_presence_of :state }
-  it { Project.new.state.should == 'actual' }
+  it { Project.new.should be_actual }
 
-  it { should allow_value('actual').for(:state) }
-  it { should allow_value('asserted').for(:state) }
-  it { should allow_value('deflected').for(:state) }
+  describe 'should validate deflected_on when fire to_deflected' do
+    let(:project) { Fabricate(:project) }
 
-  it { should_not allow_value('blablabla').for(:state) }
+    before do
+      project.to_deflected
+    end
+
+    it { project.errors[:deflected_on].should_not be_empty }
+  end
 end

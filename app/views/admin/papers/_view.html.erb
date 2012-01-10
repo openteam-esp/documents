@@ -2,8 +2,14 @@
 <%= link_to t('edit'), eval("edit_admin_#{resource.class.name.downcase}_path(resource)"), :class => 'button icon edit' if controller_namespace%>
 
 <div class="document_show">
-  <h2><%= resource.title %></h2>
+  <% if resource.deflected? %>
+    <div>
+      <%= resource.human_state %>
+      <%= l resource.deflected_on %>
+    </div>
+  <% end %>
 
+  <h2><%= resource.title %></h2>
 
   <div class='description'>
     <%= resource.description %>

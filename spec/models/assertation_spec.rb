@@ -13,7 +13,7 @@ describe Assertation do
     let(:assertation) { document.assertations_for_project.create(:objekt => project) }
 
     describe 'create should change state of project to asserted' do
-      it { assertation.objekt.should be_state_asserted }
+      it { assertation.objekt.should be_asserted }
     end
 
     describe 'destroy should cnahge state of project to actual' do
@@ -21,7 +21,7 @@ describe Assertation do
         assertation.destroy
       end
 
-      it { project.should be_state_actual }
+      it { project.should be_actual }
     end
   end
 end

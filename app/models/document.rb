@@ -20,6 +20,10 @@ class Document < Paper
   alias :cancels      :cancels_for_documents
   alias :changes      :changes_for_documents
 
+  def deflected?
+    false
+  end
+
   def to_json
     super.merge!('kind' => human_kind, 'approved_on' => approved_on, 'number' => number)
   end
