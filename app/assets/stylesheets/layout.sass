@@ -67,7 +67,6 @@ body
     .attached_file
       float: left
       font-size: 13px
-      height: 70px
       padding-right: 15px
 
       .label
@@ -162,7 +161,7 @@ body
           input
             width: 562px
 
-        #document_approved_on_input, #project_published_on_input, #document_published_on_input
+        #document_approved_on_input, #project_published_on_input, #document_published_on_input, #project_deflected_on_input, #project_actual_on_input
           float: left
           height: 70px
           width: 150px
@@ -236,6 +235,7 @@ body
             display: block
 
       .document_show
+        +clearfix
         color: #404040
         margin: 25px 0
 
@@ -247,6 +247,21 @@ body
 
         .published_on
           margin: 0 0 10px 0
+
+      .project_state
+        +clearfix
+        border-top: 1px solid #aaa
+        color: #404040
+
+        h4
+          font-size: 14px
+          margin: 15px 0
+
+        .inputs
+          float: left
+
+        .buttons
+          margin: 23px 0 0 0
 
       .document_search, .project_search
         +clearfix
