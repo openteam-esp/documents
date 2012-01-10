@@ -5,13 +5,26 @@ describe Project do
 
   it { Project.new.should be_actual }
 
-  describe 'should validate deflected_on when fire to_deflected' do
+  describe 'should' do
     let(:project) { Fabricate(:project) }
 
-    before do
-      project.to_deflected
+    describe 'validate deflected_on when fire to_deflected' do
+      before do
+        project.to_deflected
+      end
+
+      it { project.errors[:deflected_on].should_not be_empty }
     end
 
-    it { project.errors[:deflected_on].should_not be_empty }
+    describe 'set deflected_on to nil when fire to_actual' do
+      before do
+        project.deflected_on = Date.today
+        project.to_deflected
+
+        project.to_actual
+      end
+
+      it { project.deflected_on.should be_nil }
+    end
   end
 end

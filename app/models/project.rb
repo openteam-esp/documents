@@ -7,6 +7,8 @@ class Project < Paper
   has_enum :state, %w[actual asserted deflected]
 
   state_machine :initial => :actual do
+    before_transition :deflected => :actual, :do => :reset_deflected_on
+
     event :to_actual do
       transition [:asserted, :deflected] => :actual
     end
@@ -23,4 +25,9 @@ class Project < Paper
       validates_presence_of :deflected_on
     end
   end
+
+  private
+    def reset_deflected_on
+      self.deflected_on = nil
+    end
 end

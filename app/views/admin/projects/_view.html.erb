@@ -9,7 +9,7 @@
     <% end %>
 
     <%= form.buttons do %>
-      <%= form.commit_button %>
+      <%= form.commit_button t('to_deflected') %>
     <% end %>
   <% end %>
 <% end %>
@@ -17,7 +17,7 @@
 <% if resource.deflected? %>
   <%= semantic_form_for resource, :url => to_actual_admin_project_path(resource) do |form| %>
     <%= form.buttons do %>
-      <%= form.commit_button %>
+      <%= form.commit_button t('to_actual') %>
     <% end %>
   <% end %>
 <% end %>

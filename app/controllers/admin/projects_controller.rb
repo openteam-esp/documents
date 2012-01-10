@@ -10,6 +10,14 @@ class Admin::ProjectsController < Admin::ApplicationController
     }
   end
 
+  def to_actual
+    to_actual! {
+      @project.to_actual
+
+      redirect_to resource_path and return
+    }
+  end
+
   def to_deflected
     to_deflected! {
       @project.attributes = params[:project]
@@ -19,7 +27,6 @@ class Admin::ProjectsController < Admin::ApplicationController
       else
         render :show and return
       end
-
     }
   end
 end
