@@ -1,6 +1,6 @@
 module ApplicationHelper
   def is_active(item)
-    'active' if controller_name.singularize == item
+    'active' if (controller_name.singularize == item) || (params[:by_state] == item)
   end
 
   def search_label
