@@ -15,8 +15,6 @@ Documents::Application.routes.draw do
         put :to_actual
         put :to_deflected
       end
-
-      root :to => :index, :defaults => { :by_state => 'actual' }
     end
 
     root :to => 'documents#index'
