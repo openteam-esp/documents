@@ -7,4 +7,16 @@ class Admin::DocumentsController < Admin::ApplicationController
       @subject = Document.find(params[:subject_id]) if params[:subject_id]
     }
   end
+
+  protected
+    def collection
+      if params[:utf8]
+        searcher.pagination = paginate_options
+
+        @results ||= searcher.results
+        @results = @subject.nil? ? @results : @results - [@subject] - @subject.send(@association).map(&:objekt)
+      else
+        end_of_association_chain
+      end
+    end
 end
