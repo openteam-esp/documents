@@ -32,6 +32,7 @@ class InheritedResourcesController < ApplicationController
     end
 
     def per_page
+      puts "\e[31mWARNING: change per_page value at app/controllers/inherited_resources_controller.rb:36"
       1
     end
 

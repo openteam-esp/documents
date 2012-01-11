@@ -17,7 +17,11 @@
       <%= link_to t('documents'), [controller_namespace, :documents] %>
     </li>
     <li class='projects <%= "active" if controller_name == 'projects' %>'>
-      <%= link_to t('projects'), [controller_namespace, :projects] %>
+      <% if controller_namespace.to_s == 'admin' %>
+        <%= link_to t('projects'), actual_admin_projects_path %>
+      <% else %>
+        <%= link_to t('projects'), projects_path %>
+      <% end %>
     </li>
   </ul>
 
