@@ -1,2 +1,5 @@
 <%= render :partial => 'papers/search_form', :locals => { :klass => 'document'} %>
+
 <%= render :partial => 'admin/papers/papers_list', :locals => { :collection => collection }%>
+
+<%= paginate collection %>

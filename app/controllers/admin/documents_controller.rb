@@ -16,7 +16,7 @@ class Admin::DocumentsController < Admin::ApplicationController
         @results ||= searcher.results
         @results = @subject.nil? ? @results : @results - [@subject] - @subject.send(@association).map(&:objekt)
       else
-        end_of_association_chain
+        end_of_association_chain.page(params[:page]).per(per_page)
       end
     end
 end

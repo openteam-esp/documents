@@ -27,14 +27,18 @@ class InheritedResourcesController < ApplicationController
         searcher.pagination = paginate_options
         searcher.results
       else
-        end_of_association_chain
+        end_of_association_chain.page(params[:page]).per(per_page)
       end
+    end
+
+    def per_page
+      1
     end
 
     def paginate_options(options={})
       {
         :page       => params[:page],
-        :per_page   => 10
+        :per_page   => per_page
       }.merge(options)
     end
 end
