@@ -69,8 +69,12 @@ body
       font-size: 13px
       padding-right: 15px
 
-      .label
-        margin: 0 0 16px 0 !important
+      .wrapper
+        height: 28px
+        line-height: 28px
+
+      .delete_file
+        margin: 0 0 0 5px
 
       a, span
         +clearfix
@@ -113,6 +117,11 @@ body
 
       .formtastic
         +clearfix
+
+        .hidden
+          display: none
+          margin: 0
+          padding: 0
 
         li
           +clearfix
@@ -182,7 +191,7 @@ body
           margin: 0 15px
 
         .choose_file
-          margin: 22px 0 0 0
+          margin: 23px 0 0 0
 
       .new
         float: right

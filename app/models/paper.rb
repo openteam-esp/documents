@@ -5,6 +5,8 @@ class Paper < ActiveRecord::Base
 
   validates_presence_of :kind, :authority, :title, :published_on
 
+  after_validation :reset_file_url
+
   has_enums
 
   searchable do
@@ -30,5 +32,11 @@ class Paper < ActiveRecord::Base
 
   def common_attributes
     %w[title authority title published_on]
+  end
+
+  private
+
+  def reset_file_url
+    self.file_url = nil if self.file_url.blank?
   end
 end

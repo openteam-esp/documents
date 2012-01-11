@@ -51,10 +51,21 @@ function choose_file(){
       var file_url              = input.val();
       var file_name = decodeURIComponent(file_url).match(/([^\/.]+)(\.(.{3}))?$/);
 
-      attached_file_wrapper.children('span, a').replaceWith('<a href="'+file_url+'" class="'+file_name[3]+'"><span></span>'+file_name[1]+'</a>');
+      attached_file_wrapper
+        .children('.wrapper')
+        .html('<a href="'+file_url+'" class="'+file_name[3]+'"><span></span>'+file_name[1]+'</a> <a href="#" class="button icon remove danger delete_file">Удалить</a>');
 
       input.unbind('change');
     });
+
+    return false;
+  });
+};
+
+function delete_file(){
+  $('.delete_file').live('click', function(){
+    $('.attached_file .wrapper').html('<span>Файл не выбран</span>');
+    $('#file_url').val('');
 
     return false;
   });
@@ -64,5 +75,6 @@ $(function(){
   add_datepicker();
   search_documents();
   choose_file();
+  delete_file();
 });
 
