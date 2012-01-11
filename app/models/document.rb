@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Document < Paper
   has_many :assertations_for_project, :class_name => 'Assertation', :foreign_key => :subject_id, :dependent => :destroy
   has_many :asserted_projects, :through => :assertations_for_project, :source => :objekt
