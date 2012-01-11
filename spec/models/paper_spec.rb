@@ -13,4 +13,12 @@ describe Paper do
   it { should allow_value('order').for(:kind) }
 
   it { should_not allow_value('blablabla').for(:kind) }
+
+  describe 'defalut values' do
+    let(:document) { Fabricate(:document) }
+
+    describe 'for published on' do
+      it { document.published_on.should == Date.today }
+    end
+  end
 end

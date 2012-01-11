@@ -1,11 +1,15 @@
 # encoding: utf-8
 
 class Paper < ActiveRecord::Base
+  abstract_class = true
+
   alias_attribute :to_s,  :title
 
   validates_presence_of :kind, :authority, :title, :published_on
 
   after_validation :reset_file_url
+
+  default_value_for :published_on, Date.today
 
   has_enums
 
@@ -35,8 +39,7 @@ class Paper < ActiveRecord::Base
   end
 
   private
-
-  def reset_file_url
-    self.file_url = nil if self.file_url.blank?
-  end
+    def reset_file_url
+      self.file_url = nil if self.file_url.blank?
+    end
 end

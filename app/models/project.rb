@@ -1,4 +1,6 @@
 class Project < Paper
+  default_scope order('published_on DESC')
+
   scope :by_state, ->(state) { where(:state => state) }
 
   has_enum :state, %w[actual asserted deflected]

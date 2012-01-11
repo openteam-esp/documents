@@ -23,7 +23,7 @@ ru:
   projects:                     Проекты документов
   published:                    Добавлен
   search:                       Найти
-  to_actual:                    Переместить в актуальные
+  to_actual:                    Вернуть в актуальные
   to_deflected:                 Переместить в отклонённые
 
   activerecord:
