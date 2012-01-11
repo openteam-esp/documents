@@ -32,6 +32,7 @@ group :development do
 end
 
 group :production do
+  gem 'hoptoad_notifier'
   gem 'pg'
   gem 'unicorn',                                  :require => false
 end

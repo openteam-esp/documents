@@ -1,2 +1,6 @@
+hoptoad:
+  api_key:              api_key
+  host:                 errors.openteam.ru
+
 vfs:
   url:                  http://pool.openteam.ru

@@ -16,6 +16,7 @@
 
 /bin
 /config/database.yml
+/config/settings.yml
 /config/sunspot.yml
 /solr/data
 /solr/pids
