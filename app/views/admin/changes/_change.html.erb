@@ -1,2 +1,4 @@
 <%= render :partial => 'admin/papers/paper', :locals => { :paper => change.objekt } %>
 
+<%= link_to t('destroy_relation'), admin_document_change_path(change.subject, change), :method => :delete %>
+

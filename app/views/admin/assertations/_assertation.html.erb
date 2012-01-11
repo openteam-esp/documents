@@ -1,2 +1,4 @@
 <%= render :partial => 'admin/papers/paper', :locals => { :paper => assertation.objekt } %>
 
+<%= link_to t('destroy_relation'), admin_document_assertation_path(assertation.subject, assertation), :method => :delete %>
+

@@ -1,5 +1,5 @@
 class Admin::AssertationsController < Admin::ApplicationController
-  actions :create, :index
+  actions :create, :destroy, :index
 
   belongs_to :subject, :class_name => 'Document', :param => :document_id, :route_name => :document
 end
