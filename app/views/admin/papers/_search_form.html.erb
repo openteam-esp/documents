@@ -3,10 +3,9 @@
     <%= form.input :keywords, :as => :string, :label => search_label %>
     <li class='hidden'><%= hidden_field_tag :subject_id, subject.id %></li>
     <li class='hidden'><%= hidden_field_tag :association, association %></li>
+    <li><div class="ajax_loading"></div></li>
   <% end %>
-
   <%= form.buttons do %>
     <%= button_tag t('search'), :class => 'button icon search' %>
   <% end %>
 <% end %>
-
