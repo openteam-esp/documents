@@ -2,21 +2,20 @@ class Admin::DocumentsController < Admin::ApplicationController
   has_scope :page, :default => 1, :only => :index
 
   def index
-    index! {
-      @association = params[:association]
-      @subject = Document.find(params[:subject_id]) if params[:subject_id]
-    }
+    @association = params[:association]
+    @subject = Document.find(params[:subject_id]) if params[:subject_id]
+
+    index!
   end
 
   protected
-    def collection
-      if params[:utf8]
-        searcher.pagination = paginate_options
+    def search_results
+      @results = @subject.nil? ? super : super - [@subject] - @subject.send(@association).map(&:objekt)
 
-        @results ||= searcher.results
-        @results = @subject.nil? ? @results : @results - [@subject] - @subject.send(@association).map(&:objekt)
-      else
-        end_of_association_chain.page(params[:page]).per(per_page)
-      end
+      Kaminari.paginate_array(@results).page(params[:page]).per(per_page)
+    end
+
+    def per_page
+      @subject.nil? ? super : 10
     end
 end

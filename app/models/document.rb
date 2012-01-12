@@ -12,10 +12,6 @@ class Document < Paper
 
   validates_presence_of :number, :approved_on
 
-  accepts_nested_attributes_for :assertations_for_project
-  accepts_nested_attributes_for :cancels_for_documents
-  accepts_nested_attributes_for :changes_for_documents
-
   alias :assertations :assertations_for_project
   alias :cancels      :cancels_for_documents
   alias :changes      :changes_for_documents

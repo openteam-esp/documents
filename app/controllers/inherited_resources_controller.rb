@@ -23,12 +23,16 @@ class InheritedResourcesController < ApplicationController
     end
 
     def search_and_paginate_collection
-      if params[:utf8]
-        searcher.pagination = paginate_options
-        searcher.results
-      else
-        end_of_association_chain.page(params[:page]).per(per_page)
-      end
+      params[:utf8] ? search_results : results
+    end
+
+    def results
+      end_of_association_chain.page(params[:page]).per(per_page)
+    end
+
+    def search_results
+      searcher.pagination = paginate_options
+      searcher.results
     end
 
     def per_page
