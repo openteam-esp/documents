@@ -9,7 +9,6 @@
 //= require jquery.ui.datepicker.ru.js
 //= require jquery_ujs
 //= require rails.validations
-//= require_tree
 
 function add_datepicker(){
   $('input.ui-date-picker').datepicker({
@@ -22,6 +21,8 @@ function add_datepicker(){
 
 function search_documents(){
   $('.document_search, .project_search')
+    .bind('ajax:before', function() {
+    })
     .bind('ajax:success', function(evt, data, status, xhr){
       var search_form         = $(this);
       var search_result_block = search_form.siblings('.search_result_block');
@@ -29,6 +30,21 @@ function search_documents(){
       search_result_block.html(xhr.responseText);
     })
     .bind('ajax:error', function(evt, xhr, status, error){
+      var result = xhr.responseText.replace(/<head>(?:.|\s)*?<\/head>/g, '');
+      $('<div id="ajax_error" />')
+        .appendTo('body')
+        .hide()
+        .html(result);
+      $('#ajax_error').dialog({
+        title: error,
+        width: '80%',
+        height: '500',
+        modal: true,
+        resizable: false,
+        close: function() {
+          $(this).remove();
+        }
+      });
     })
     .bind('ajax:complete', function(evt, xhr, status){
     });
