@@ -77,3 +77,10 @@ ru:
 
     required:                   обязательное поле
 
+  views:
+    pagination:
+      first: "&laquo; первая"
+      last: "последняя &raquo;"
+      previous: "&larr; предыдущая"
+      next: "следующая &rarr;"
+      truncate: "..."
