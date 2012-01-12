@@ -23,6 +23,7 @@ function search_documents(){
   $('.document_search, .project_search')
     .bind('ajax:before', function() {
       $('body .main_wrapper .main .document_search .inputs .ajax_loading').addClass('loading');
+      $('body .main_wrapper .main .project_search  .inputs .ajax_loading').addClass('loading');
     })
     .bind('ajax:success', function(evt, data, status, xhr){
       var search_form         = $(this);
@@ -49,6 +50,7 @@ function search_documents(){
     })
     .bind('ajax:complete', function(evt, xhr, status){
       $('body .main_wrapper .main .document_search .inputs .ajax_loading').removeClass('loading');
+      $('body .main_wrapper .main .project_search  .inputs .ajax_loading').removeClass('loading');
     });
 };
 
