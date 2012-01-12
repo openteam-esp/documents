@@ -35,7 +35,7 @@ class Paper < ActiveRecord::Base
   end
 
   def common_attributes
-    %w[title authority title published_on]
+    %w[title authority id published_on]
   end
 
   private
