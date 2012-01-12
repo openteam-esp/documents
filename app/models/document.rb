@@ -20,6 +20,10 @@ class Document < Paper
     false
   end
 
+  def canceled?
+    state == 'canceled'
+  end
+
   def to_json
     super.merge!('kind' => human_kind, 'approved_on' => approved_on, 'number' => number)
   end
