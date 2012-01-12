@@ -18,5 +18,7 @@
 /config/database.yml
 /config/settings.yml
 /config/sunspot.yml
+/public/assets
+/public/stylesheets
 /solr/data
 /solr/pids
