@@ -26,7 +26,8 @@ Documents::Application.routes.draw do
       resources :changes,       :only => :index
   end
 
-  resources :projects, :only => [:index, :show]
+  resources :papers,    :only => :show
+  resources :projects,  :only => [:index, :show]
 
   mount ElVfsClient::Engine => '/'
 
