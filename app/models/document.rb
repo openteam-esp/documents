@@ -25,6 +25,6 @@ class Document < Paper
   end
 
   def to_json
-    super.merge!('kind' => human_kind, 'approved_on' => approved_on, 'number' => number)
+    super.merge!('kind' => human_kind, 'approved_on' => approved_on, 'number' => number, 'link' => id)
   end
 end
