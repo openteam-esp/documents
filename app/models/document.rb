@@ -25,6 +25,10 @@ class Document < Paper
   end
 
   def to_json
-    super.merge!('kind' => human_kind, 'approved_on' => approved_on, 'number' => number)
+    super.merge!('approved_on' => approved_on, 'number' => number).tap do |hash|
+      hash['asserted_projects']   = asserted_projects.map(&:to_json)
+      hash['canceled_documents']  = canceled_documents.map(&:to_json)
+      hash['changed_documents']   = changed_documents.map(&:to_json)
+    end
   end
 end

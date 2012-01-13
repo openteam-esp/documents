@@ -25,13 +25,13 @@ class Paper < ActiveRecord::Base
   end
 
   def to_json
-    hash = {}
+    {}.tap do |hash|
+      common_attributes.each do |attribute|
+        hash[attribute] = self.send(attribute)
+      end
 
-    common_attributes.each do |attribute|
-      hash[attribute] = self.send(attribute)
+      hash['kind'] = self.human_kind
     end
-
-    hash
   end
 
   def common_attributes
