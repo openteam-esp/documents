@@ -32,11 +32,17 @@ class InheritedResourcesController < ApplicationController
 
     def search_results
       searcher.pagination = paginate_options
-      searcher.results
+
+      results = searcher.results
+
+      headers['X-Current-Page'] = results.current_page.to_s
+      headers['X-Total-Pages'] = results.total_pages.to_s
+
+      results
     end
 
     def per_page
-      20
+      params[:per_page] || 20
     end
 
     def paginate_options(options={})

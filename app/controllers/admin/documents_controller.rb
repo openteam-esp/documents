@@ -15,7 +15,11 @@ class Admin::DocumentsController < Admin::ApplicationController
       Kaminari.paginate_array(@results).page(params[:page]).per(per_page)
     end
 
+    def searching_per_page_value
+      10
+    end
+
     def per_page
-      @subject.nil? ? super : 10
+      @subject.nil? ? super : searching_per_page_value
     end
 end
