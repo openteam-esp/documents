@@ -9,6 +9,7 @@
 //= require jquery.ui.datepicker.ru.js
 //= require jquery_ujs
 //= require rails.validations
+//= require jquery.scrollto
 
 function add_datepicker(){
   $('input.ui-date-picker').datepicker({
@@ -25,13 +26,17 @@ function search_documents(){
       $('body .main_wrapper .main .document_search .inputs .ajax_loading').addClass('loading');
       $('body .main_wrapper .main .project_search  .inputs .ajax_loading').addClass('loading');
     })
-    .bind('ajax:success', function(evt, data, status, xhr){
+    .bind('ajax:success', function(evt, data, status, xhr) {
       var search_form         = $(this);
       var search_result_block = search_form.siblings('.search_result_block');
-
       search_result_block.html(xhr.responseText);
+      if ($('.paper_list', search_result_block).length) {
+        if ($.fn.scrollTo) {
+          $.scrollTo(search_form, 1000, { margin: true });
+        };
+      };
     })
-    .bind('ajax:error', function(evt, xhr, status, error){
+    .bind('ajax:error', function(evt, xhr, status, error) {
       var result = xhr.responseText.replace(/<head>(?:.|\s)*?<\/head>/g, '');
       $('<div id="ajax_error" />')
         .appendTo('body')
