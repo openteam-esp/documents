@@ -2,7 +2,6 @@
   <ul class='paper_list'>
     <% collection.each do |item| %>
       <li class=<%= cycle('odd', 'even') %>>
-        <%= render item %>
         <% if @association %>
           <%= semantic_form_for @subject.send(@association.to_sym).build,
             :url => eval("admin_document_#{@association}_path(@subject)"),
@@ -12,10 +11,11 @@
               <%= form.input :objekt_id, :as => :hidden, :value => item.id %>
             <% end %>
             <%= form.buttons do %>
-              <%= button_tag t('add'), :class => 'button icon add primary' %>
+              <li><%= button_tag t('add'), :class => 'button icon add primary' %></li>
             <% end %>
           <% end %>
         <% end %>
+        <%= render item %>
       </li>
     <% end %>
   </ul>

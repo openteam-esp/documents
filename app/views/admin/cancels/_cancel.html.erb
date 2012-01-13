@@ -1,4 +1,4 @@
+<div class='actions'>
+  <%= link_to t('destroy_relation'), admin_document_cancel_path(cancel.subject, cancel), :method => :delete, :class => 'button icon trash primary' %>
+</div>
 <%= render :partial => 'admin/papers/paper', :locals => { :paper => cancel.objekt } %>
-
-<%= link_to t('destroy_relation'), admin_document_cancel_path(cancel.subject, cancel), :method => :delete %>
-
