@@ -25,3 +25,14 @@ describe Assertation do
     end
   end
 end
+# == Schema Information
+#
+# Table name: assertations
+#
+#  id         :integer         not null, primary key
+#  subject_id :integer
+#  objekt_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+

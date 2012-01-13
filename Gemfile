@@ -19,12 +19,13 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 
 group :assets do
-  gem 'compass',            '~> 0.12.alpha.2'
+  gem 'compass',                '~> 0.12.alpha.2'
   gem 'sass-rails'
   gem 'uglifier'
 end
 
 group :development do
+  gem 'annotate',               '~> 2.4.1.beta1', :require => false
   gem 'hirb',                                     :require => false
   gem 'rails-erd'
   gem 'itslog'
