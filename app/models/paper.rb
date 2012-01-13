@@ -31,6 +31,7 @@ class Paper < ActiveRecord::Base
       end
 
       hash['kind'] = self.human_kind
+      hash['canceled'] = self.canceled?
     end
   end
 

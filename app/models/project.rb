@@ -30,6 +30,10 @@ class Project < Paper
     text   :title
   end
 
+  def canceled?
+    false
+  end
+
   private
     def reset_deflected_on
       self.deflected_on = nil
