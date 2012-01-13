@@ -8,6 +8,7 @@
 //= require jquery-ui
 //= require jquery.ui.datepicker.ru.js
 //= require jquery_ujs
+//= require info_plugin
 //= require rails.validations
 //= require jquery.scrollto
 
