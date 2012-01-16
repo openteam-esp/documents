@@ -3,7 +3,7 @@ class InheritedResourcesController < ApplicationController
 
   has_searcher
 
-  respond_to :html, :json
+  respond_to :html, :json, :rss
 
   def index
     index! { |success|

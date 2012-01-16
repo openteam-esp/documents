@@ -21,13 +21,18 @@ Documents::Application.routes.draw do
   end
 
   resources :documents, :only => [:index, :show] do
-      resources :assertations,  :only => :index
-      resources :cancels,       :only => :index
-      resources :changes,       :only => :index
+    get :rss, :to => :index, :on => :collection, :defaults => { :format => :rss }
+
+    resources :assertations,  :only => :index
+    resources :cancels,       :only => :index
+    resources :changes,       :only => :index
+  end
+
+  resources :projects,  :only => [:index, :show] do
+    get :rss, :to => :index, :on => :collection, :defaults => { :format => :rss }
   end
 
   resources :papers,    :only => :show
-  resources :projects,  :only => [:index, :show]
 
   mount ElVfsClient::Engine => '/'
 
