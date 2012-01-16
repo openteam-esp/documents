@@ -34,4 +34,8 @@
   <div class='published_on'>
     <%= t('published') %> <%= l resource.published_on, :format => :long %>
   </div>
+<%= content_tag :div, :class => 'asserted_by' do %>
+  Утверждён нормативным документом
+  <%= link_to raw("&laquo;#{resource.asserted_by.first.title}&raquo;"), admin_document_assertations_path(resource.asserted_by.first.id) %>
+<% end if resource.asserted_by.any? %>
 </div>

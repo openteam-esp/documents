@@ -53,7 +53,7 @@ ru:
 
         published_on:           Дата размещения
         title:                  Название
-        file_url:               ""
+        file_url:               Файл
 
       project:
         deflected_on:           Дата оклонения
