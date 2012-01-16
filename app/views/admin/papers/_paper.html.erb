@@ -1,10 +1,15 @@
-<div class='title'><%= link_to paper, [controller_namespace, paper] %></div>
+<div class='title'>
+  <%= content_tag :span, '[отклонён]', :class => 'deflected' if paper.deflected? %>
+  <%= link_to paper, [controller_namespace, paper] %>
+</div>
 <div class='description'><%= paper.description %></div>
 <div class='published_on'><%= t('published') %> <%= l paper.published_on, :format => :long %></div>
 
+
+<%= content_tag :div, "Отклонён #{l paper.deflected_on, :format => :long}", :class => 'deflected_on' if paper.deflected? %>
 <% if paper.file_url %>
   <div class='attached_file'>
     <% file_name, name, sg, type = URI.decode(paper.file_url).match(/([^\/.]+)(\.(.{3}))?$/).to_a %>
-    <%= link_to content_tag(:span)+name, paper.file_url, :class => type %>
+    <%= link_to content_tag(:span) + "#{name} #{paper.file_url}", paper.file_url, :class => type %>
   </div>
 <% end %>

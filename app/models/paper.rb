@@ -5,7 +5,7 @@ class Paper < ActiveRecord::Base
 
   alias_attribute :to_s,  :title
 
-  validates_presence_of :kind, :authority, :title, :published_on
+  validates_presence_of :kind, :authority, :title, :published_on, :file_url
 
   after_validation :reset_file_url
 

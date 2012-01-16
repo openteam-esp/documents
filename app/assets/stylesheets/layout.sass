@@ -75,6 +75,16 @@ body
       .delete_file
         margin: 0 0 0 5px
 
+      .errors
+        background: image_url('inline_error_arrow.png') no-repeat 2px 5px
+        clear: both
+        color: red
+        display: block
+        font-size: 11px
+        height: 16px
+        padding: 5px 0 0 16px
+
+
       a, span
         +clearfix
         color: #646464
@@ -224,6 +234,9 @@ body
 
           .title
             margin-bottom: 10px
+            .deflected
+              color: #992f2f
+              margin-right: 5px
 
           .description
             color: #333
@@ -234,6 +247,11 @@ body
             color: #333
             float: right
             font-size: 11px
+          .deflected_on
+            color: #333
+            float: left
+            font-size: 11px
+            margin-right: 10px
 
           form
             float: right
