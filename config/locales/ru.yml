@@ -78,6 +78,16 @@ ru:
 
     required:                   обязательное поле
 
+  paper:
+    pluralize:
+      one: "%{count} нормативный документ"
+      few: "%{count} нормативных документа"
+      many: "%{count} нормативных документа"
+    assertations:
+      one: "%{count} проект документа"
+      few: "%{count} проекта документов"
+      many: "%{count} проекта документов"
+
   views:
     pagination:
       first: "&laquo; первая"

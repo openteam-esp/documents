@@ -37,6 +37,14 @@ class Project < Paper
     false
   end
 
+  def cancels
+    []
+  end
+
+  def assertations
+    []
+  end
+
   private
     def reset_deflected_on
       self.deflected_on = nil

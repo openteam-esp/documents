@@ -17,3 +17,15 @@
   Утверждён нормативным документом
   <%= link_to raw("&laquo;#{paper.asserted_by.first.title}&raquo;"), admin_document_assertations_path(paper.asserted_by.first.id) %>
 <% end if paper.asserted_by.any? %>
+
+<%= content_tag :div, :class => 'cancels' do %>
+  Отменяет <%= t 'paper.pluralize', :count => paper.cancels.count %>
+<% end if paper.cancels.any? %>
+
+<%= content_tag :div, :class => 'changes' do %>
+  Вносит изменения в <%= t 'paper.pluralize', :count => paper.changes.count %>
+<% end if paper.changes.any? %>
+
+<%= content_tag :div, :class => 'assertations' do %>
+  Утверждает <%= t 'paper.assertations', :count => paper.assertations.count %>
+<% end if paper.assertations.any? %>
