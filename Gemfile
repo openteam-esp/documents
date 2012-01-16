@@ -29,13 +29,13 @@ group :development do
   gem 'hirb',                                     :require => false
   gem 'rails-erd'
   gem 'itslog'
-  gem 'therubyracer'
+  gem 'therubyracer'                                                      unless RUBY_PLATFORM =~ /freebsd/
 end
 
 group :production do
   gem 'hoptoad_notifier'
   gem 'pg'
-  gem 'unicorn',                                  :require => false
+  gem 'unicorn',                                  :require => false       unless ENV['SHARED_DATABASE_URL']
 end
 
 group :test do
