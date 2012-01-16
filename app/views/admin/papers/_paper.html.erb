@@ -5,11 +5,15 @@
 <div class='description'><%= paper.description %></div>
 <div class='published_on'><%= t('published') %> <%= l paper.published_on, :format => :long %></div>
 
-
 <%= content_tag :div, "Отклонён #{l paper.deflected_on, :format => :long}", :class => 'deflected_on' if paper.deflected? %>
 <% if paper.file_url %>
   <div class='attached_file'>
     <% file_name, name, sg, type = URI.decode(paper.file_url).match(/([^\/.]+)(\.(.{3}))?$/).to_a %>
-    <%= link_to content_tag(:span) + "#{name} #{paper.file_url}", paper.file_url, :class => type %>
+    <%= link_to content_tag(:span) + name, paper.file_url, :class => type %>
   </div>
 <% end %>
+
+<%= content_tag :div, :class => 'asserted_by' do %>
+  Утверждён нормативным документом
+  <%= link_to raw("&laquo;#{paper.asserted_by.first.title}&raquo;"), admin_document_assertations_path(paper.asserted_by.first.id) %>
+<% end if paper.asserted_by.any? %>

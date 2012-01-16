@@ -20,6 +20,10 @@ class Document < Paper
     false
   end
 
+  def asserted_by
+    []
+  end
+
   def canceled?
     state == 'canceled'
   end

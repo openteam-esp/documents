@@ -1,4 +1,7 @@
 class Project < Paper
+  has_many :assertations_for_project, :class_name => 'Assertation', :foreign_key => :objekt_id, :dependent => :destroy
+  has_many :asserted_by, :through => :assertations_for_project, :source => :subject
+
   default_scope order('published_on DESC')
 
   scope :by_state, ->(state) { where(:state => state) }
