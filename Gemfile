@@ -14,13 +14,13 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'rails',                                      :require => false
 gem 'russian'
+gem 'sass-rails'
 gem 'state_machine'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
 group :assets do
   gem 'compass',                '~> 0.12.alpha.2'
-  gem 'sass-rails'
   gem 'uglifier'
 end
 
