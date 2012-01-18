@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe Project do
-  subject { Fabricate(:project) }
+  subject { Fabricate :project }
 
   it { Project.new.should be_actual }
 
-  describe 'should' do
-    let(:project) { Fabricate(:project) }
+  context 'should' do
+    let(:project) { Fabricate :project }
 
-    describe 'validate deflected_on when fire to_deflected' do
+    context 'validate deflected_on when fire to_deflected' do
       before do
         project.to_deflected
       end
@@ -16,7 +16,7 @@ describe Project do
       it { project.errors[:deflected_on].should_not be_empty }
     end
 
-    describe 'set deflected_on to nil when fire to_actual' do
+    context 'set deflected_on to nil when fire to_actual' do
       before do
         project.deflected_on = Date.today
         project.to_deflected

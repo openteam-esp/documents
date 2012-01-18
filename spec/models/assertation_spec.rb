@@ -7,16 +7,16 @@ describe Assertation do
   it { should validate_presence_of :objekt }
   it { should validate_presence_of :subject }
 
-  describe 'after' do
-    let(:document) { Fabricate(:document) }
-    let(:project) { Fabricate(:project) }
+  context 'after' do
+    let(:document) { Fabricate :document }
+    let(:project) { Fabricate :project }
     let(:assertation) { document.assertations_for_project.create(:objekt => project) }
 
-    describe 'create should change state of project to asserted' do
+    context 'create should change state of project to asserted' do
       it { assertation.objekt.should be_asserted }
     end
 
-    describe 'destroy should cnahge state of project to actual' do
+    context 'destroy should cnahge state of project to actual' do
       before do
         assertation.destroy
       end

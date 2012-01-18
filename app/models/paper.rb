@@ -7,7 +7,7 @@ class Paper < ActiveRecord::Base
 
   validates_presence_of :kind, :authority, :title, :published_on, :file_url
 
-  after_validation :reset_file_url
+  after_validation :reset_file_url, :unless => :file_url?
 
   default_value_for :published_on, Date.today
 
@@ -41,7 +41,7 @@ class Paper < ActiveRecord::Base
 
   private
     def reset_file_url
-      self.file_url = nil if self.file_url.blank?
+      self.file_url = nil
     end
 end
 # == Schema Information

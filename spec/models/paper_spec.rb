@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Paper do
-  subject { Fabricate(:project) }
+  subject { Fabricate :project }
 
   it { should validate_presence_of :kind }
   it { should validate_presence_of :authority }
@@ -14,8 +14,8 @@ describe Paper do
 
   it { should_not allow_value('blablabla').for(:kind) }
 
-  describe 'defalut values' do
-    let(:document) { Fabricate(:document) }
+  context 'defalut values' do
+    let(:document) { Fabricate :document }
 
     describe 'for published on' do
       it { document.published_on.should == Date.today }
