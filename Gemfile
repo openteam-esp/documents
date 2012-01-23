@@ -17,7 +17,6 @@ gem 'russian'
 gem 'sass-rails'
 gem 'state_machine'
 gem 'sunspot_rails'
-gem 'sunspot_solr'
 
 group :assets do
   gem 'compass',                '~> 0.12.alpha.2'
@@ -29,6 +28,7 @@ group :development do
   gem 'hirb',                                     :require => false
   gem 'rails-erd'
   gem 'itslog'
+  gem 'sunspot_solr',                             :require => false
   gem 'therubyracer'                                                      unless RUBY_PLATFORM =~ /freebsd/
 end
 
@@ -44,7 +44,7 @@ group :test do
   gem 'guard-spork'
   gem 'libnotify'
   gem 'rb-inotify'
-  gem 'rspec-rails',            '~> 2.6.0'
+  gem 'rspec-rails'
   gem 'shoulda-matchers',                         :require => false
   gem 'spork',                  '~> 0.9.0.rc9'
   gem 'sqlite3'
