@@ -35,6 +35,13 @@ class Document < Paper
       hash['changed_documents']   = changed_documents.map(&:to_json)
     end
   end
+
+  def cancel_candidates(search_options, paginate_options)
+    self.class.search do
+      keywords search_options.try(:[], :keywords) || ''
+      paginate paginate_options
+    end.results
+  end
 end
 # == Schema Information
 #

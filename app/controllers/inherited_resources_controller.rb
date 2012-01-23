@@ -42,7 +42,7 @@ class InheritedResourcesController < ApplicationController
     end
 
     def per_page
-      params[:per_page] || 20
+      params[:per_page] || 1
     end
 
     def paginate_options(options={})

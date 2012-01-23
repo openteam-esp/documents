@@ -4,6 +4,8 @@ Documents::Application.routes.draw do
       resources :assertations,  :only => [:create, :destroy, :index]
       resources :cancels,       :only => [:create, :destroy, :index]
       resources :changes,       :only => [:create, :destroy, :index]
+
+      resources :cancel_candidates, :only => :index
     end
 
     resources :projects do

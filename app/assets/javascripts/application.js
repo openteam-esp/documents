@@ -102,5 +102,9 @@ $(function(){
   search_documents();
   choose_file();
   delete_file();
+
+  $('.pagination a').live('ajax:success', function(evt, data, status, xhr) {
+    $('.search_result_block').html(data);
+  });
 });
 
