@@ -59,6 +59,14 @@ class Document < Paper
       without   :object_id, [id] + changed_document_ids
     end.results
   end
+
+  def assertation_candidates(search_options, paginate_options)
+    Project.search do
+      keywords  search_options.try(:[], :keywords) || ''
+      paginate  paginate_options
+      without   :object_id, [id] + asserted_project_ids
+    end.results
+  end
 end
 # == Schema Information
 #
