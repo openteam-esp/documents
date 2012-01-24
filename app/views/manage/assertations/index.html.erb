@@ -1,0 +1,12 @@
+<%= render :partial => 'manage/documents/view', :locals => { :resource => @subject } %>
+
+<%= render :partial => 'manage/papers/papers_list', :locals => { :collection => collection }%>
+
+<%= render :partial => 'manage/papers/search_form',
+           :locals => {
+             :klass => 'project',
+             :subject => @subject, :association => controller_name
+           } %>
+
+<div class="search_result_block">
+</div>

@@ -1,0 +1,32 @@
+<%= render :partial => 'manage/papers/view', :locals => { :resource => resource } %>
+
+<div class="project_state">
+  <% if resource.actual? %>
+    <h4><%= t('deflected_notice') %></h4>
+    <%= semantic_form_for resource, :url => to_deflected_manage_project_path(resource) do |form| %>
+      <%= form.semantic_errors %>
+
+      <%= form.inputs do %>
+        <%= form.input :deflected_on, :as => :date_picker, :format => "%d.%m.%Y" %>
+      <% end %>
+
+      <%= form.buttons do %>
+        <li>
+          <%= button_tag t('to_deflected'), :class => 'button icon reload' %>
+        </li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if resource.deflected? %>
+    <h4><%= t('actual_notice') %></h4>
+    <%= semantic_form_for resource, :url => to_actual_manage_project_path(resource) do |form| %>
+      <%= form.buttons do %>
+        <li>
+          <%= button_tag t('to_actual'), :class => 'button icon approve' %>
+        </li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+</div>

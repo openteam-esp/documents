@@ -1,0 +1,13 @@
+<%= semantic_search_form_for klass.to_sym,
+                             :url => eval("manage_document_#{controller_name.singularize}_candidates_path(#{@document})"),
+                             :remote => true do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :keywords, :as => :string, :label => search_label %>
+    <li class='hidden'><%= hidden_field_tag :subject_id, subject.id %></li>
+    <li class='hidden'><%= hidden_field_tag :association, association %></li>
+    <li><div class="ajax_loading"></div></li>
+  <% end %>
+  <%= form.buttons do %>
+    <%= button_tag t('search'), :class => 'button icon search' %>
+  <% end %>
+<% end %>

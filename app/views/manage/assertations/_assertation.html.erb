@@ -1,0 +1,4 @@
+<div class='actions'>
+  <%= link_to t('destroy_relation'), manage_document_assertation_path(assertation.subject, assertation), :method => :delete, :class => 'button icon trash primary' %>
+</div>
+<%= render :partial => 'manage/papers/paper', :locals => { :paper => assertation.objekt } %>

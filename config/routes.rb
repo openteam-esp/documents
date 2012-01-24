@@ -1,5 +1,5 @@
 Documents::Application.routes.draw do
-  namespace :admin do
+  namespace :manage do
     resources :documents do
       resources :assertations,  :only => [:create, :destroy, :index]
       resources :cancels,       :only => [:create, :destroy, :index]
@@ -22,9 +22,7 @@ Documents::Application.routes.draw do
     end
 
     root :to => 'documents#index'
-  end
 
-  namespace :manage do
     mount EspPermissions::Engine => 'permissions'
   end
 

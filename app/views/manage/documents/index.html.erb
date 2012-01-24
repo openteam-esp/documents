@@ -1,0 +1,8 @@
+<% unless @association %>
+  <%= render :partial => 'papers/search_form', :locals => { :klass => 'document'} %>
+  <%= link_to t("new_#{controller_name.singularize}"), new_resource_path, :class => 'new button icon add' %>
+<% end %>
+
+<%= render :partial => 'manage/papers/papers_list', :locals => { :collection => collection }%>
+
+<%= paginate collection %>
