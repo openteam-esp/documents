@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    attributes:
+      permission:
+        role_enum:
+          manager:              Менеджер
+          document_operator:    Оператор документов
+          project_operator:     Оператор проектов документов

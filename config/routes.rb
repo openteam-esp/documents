@@ -24,6 +24,10 @@ Documents::Application.routes.draw do
     root :to => 'documents#index'
   end
 
+  namespace :manage do
+    mount EspPermissions::Engine => 'permissions'
+  end
+
   resources :documents, :only => [:index, :show] do
     get :rss, :to => :index, :on => :collection, :defaults => { :format => :rss }
 

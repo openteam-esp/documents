@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222094222) do
+ActiveRecord::Schema.define(:version => 20120124092956) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(:version => 20111222094222) do
   add_index "changes", ["objekt_id"], :name => "index_changes_on_objekt_id"
   add_index "changes", ["subject_id"], :name => "index_changes_on_subject_id"
 
+  create_table "contexts", :force => true do |t|
+    t.string   "type"
+    t.string   "title"
+    t.string   "ancestry"
+    t.string   "weight"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contexts", ["ancestry"], :name => "index_contexts_on_ancestry"
+  add_index "contexts", ["weight"], :name => "index_contexts_on_weight"
+
   create_table "papers", :force => true do |t|
     t.string   "kind"
     t.string   "authority"
@@ -54,8 +67,41 @@ ActiveRecord::Schema.define(:version => 20111222094222) do
     t.date     "approved_on"
     t.string   "type"
     t.string   "state"
-    t.string   "file_url"
     t.date     "deflected_on"
+    t.string   "file_url"
   end
+
+  create_table "permissions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "context_id"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "uid"
+    t.text     "name"
+    t.text     "email"
+    t.text     "nickname"
+    t.text     "first_name"
+    t.text     "last_name"
+    t.text     "location"
+    t.text     "description"
+    t.text     "image"
+    t.text     "phone"
+    t.text     "urls"
+    t.text     "raw_info"
+    t.integer  "sign_in_count",      :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "permissions_count"
+  end
+
+  add_index "users", ["uid"], :name => "index_users_on_uid"
 
 end
