@@ -67,7 +67,8 @@ end
 #  approved_on  :date
 #  type         :string(255)
 #  state        :string(255)
-#  file_url     :string(255)
 #  deflected_on :date
+#  file_url     :string(255)
+#  context_id   :integer
 #
 

@@ -42,14 +42,6 @@ class Document < Paper
     end
   end
 
-  def cancel_candidates(search_options, paginate_options, user)
-    candidates_of(search_options, paginate_options, user, canceled_document_ids)
-  end
-
-  def change_candidates(search_options, paginate_options, user)
-    candidates_of(search_options, paginate_options, user, changed_document_ids)
-  end
-
   def assertation_candidates(search_options, paginate_options, user)
     Project.search do
       keywords  search_options.try(:[], :keywords) || ''
@@ -58,6 +50,14 @@ class Document < Paper
       with      :object_id, available_project_ids_for(user)
       without   :object_id, [id] + asserted_project_ids
     end.results
+  end
+
+  def cancel_candidates(search_options, paginate_options, user)
+    candidates_of(search_options, paginate_options, user, canceled_document_ids)
+  end
+
+  def change_candidates(search_options, paginate_options, user)
+    candidates_of(search_options, paginate_options, user, changed_document_ids)
   end
 
   protected
@@ -95,7 +95,8 @@ end
 #  approved_on  :date
 #  type         :string(255)
 #  state        :string(255)
-#  file_url     :string(255)
 #  deflected_on :date
+#  file_url     :string(255)
+#  context_id   :integer
 #
 
