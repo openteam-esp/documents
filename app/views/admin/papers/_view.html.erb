@@ -1,8 +1,8 @@
 <% if resource.instance_of?(Project) %>
-  <% if controller_name.to_s == 'admin' %>
+  <% if controller_namespace.to_s == 'admin' %>
     <%= link_to t('back'), [resource.state, controller_namespace, resource.class.name.pluralize.downcase.to_sym], :class => 'button icon arrowleft'%>
-    <% else %>
-      <%= link_to t('back'), [resource.class.name.pluralize.downcase.to_sym], :class => 'button icon arrowleft'%>
+  <% else %>
+    <%= link_to t('back'), [resource.class.name.pluralize.downcase.to_sym], :class => 'button icon arrowleft'%>
   <% end %>
 <% else %>
   <%= link_to t('back'), [controller_namespace, resource.class.name.pluralize.downcase.to_sym], :class => 'button icon arrowleft'%>

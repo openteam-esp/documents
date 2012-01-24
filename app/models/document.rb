@@ -44,6 +44,7 @@ class Document < Paper
     end
   end
 
+  # TODO: как-нибудь отрефакторить следующие три метода
   def cancel_candidates(search_options, paginate_options)
     self.class.search do
       keywords  search_options.try(:[], :keywords) || ''
