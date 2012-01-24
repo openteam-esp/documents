@@ -51,6 +51,14 @@ class Document < Paper
       without   :object_id, [id] + canceled_document_ids
     end.results
   end
+
+  def change_candidates(search_options, paginate_options)
+    self.class.search do
+      keywords  search_options.try(:[], :keywords) || ''
+      paginate  paginate_options
+      without   :object_id, [id] + changed_document_ids
+    end.results
+  end
 end
 # == Schema Information
 #
