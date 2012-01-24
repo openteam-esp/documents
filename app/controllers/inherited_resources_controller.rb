@@ -45,10 +45,10 @@ class InheritedResourcesController < ApplicationController
       params[:per_page] || 1
     end
 
-    def paginate_options(options={})
+    def paginate_options
       {
         :page       => params[:page],
         :per_page   => per_page
-      }.merge(options)
+      }
     end
 end

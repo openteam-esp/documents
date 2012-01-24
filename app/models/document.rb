@@ -16,6 +16,14 @@ class Document < Paper
   alias :cancels      :cancels_for_documents
   alias :changes      :changes_for_documents
 
+  searchable do
+    integer :object_id do |document|
+      document.id
+    end
+
+    text :title
+  end
+
   def deflected?
     false
   end
@@ -38,8 +46,9 @@ class Document < Paper
 
   def cancel_candidates(search_options, paginate_options)
     self.class.search do
-      keywords search_options.try(:[], :keywords) || ''
-      paginate paginate_options
+      keywords  search_options.try(:[], :keywords) || ''
+      paginate  paginate_options
+      without   :object_id, [id] + canceled_document_ids
     end.results
   end
 end
