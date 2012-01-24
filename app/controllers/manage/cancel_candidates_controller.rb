@@ -1,4 +1,4 @@
-class Admin::CancelCandidatesController < Admin::CandidatesController
+class Manage::CancelCandidatesController < Manage::CandidatesController
   protected
     def search_and_paginate_collection
       @document.cancel_candidates(params[:document_search], paginate_options)

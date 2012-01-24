@@ -6,7 +6,19 @@ class Ability
     alias_action :create, :read, :update, :destroy, :to => :modify
 
     can :modify, Context do | context |
-      (user.contexts.where(:permissions => {:role => :manager}) & context.ancestors + [context]).any?
+      (user.contexts_for(:manager) & context.ancestors + [context]).any?
+    end
+
+    can :modify, Paper do | paper |
+      can? :modify, paper.context
+    end
+
+    can :modify, Document do | document |
+      (user.contexts_for(:document_operator) & document.context.ancestors + [document.context]).any?
+    end
+
+    can :modify, Project do | project |
+      (user.contexts_for(:project_operator) & project.context.ancestors + [project.context]).any?
     end
 
     can :modify, Permission do | permission |

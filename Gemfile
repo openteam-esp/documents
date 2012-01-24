@@ -13,7 +13,7 @@ gem 'has_searcher'
 gem 'inherited_resources'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'rails',                    '~> 3.2.0',                 :require => false
+gem 'rails',                                     :require => false
 gem 'russian'
 gem 'sass-rails'
 gem 'state_machine'
@@ -41,11 +41,13 @@ end
 
 group :test do
   gem 'fabrication',                              :require => false
+  gem 'forgery'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'libnotify'
   gem 'rb-inotify'
   gem 'rspec-rails'
+  gem 'ryba'
   gem 'shoulda-matchers',                         :require => false
   gem 'spork',                  '~> 0.9.0.rc9'
   gem 'sqlite3'

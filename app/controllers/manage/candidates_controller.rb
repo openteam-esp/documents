@@ -1,4 +1,4 @@
-class Admin::CandidatesController < Admin::ApplicationController
+class Manage::CandidatesController < Manage::ApplicationController
   has_scope :page, :default => 1
 
   layout false

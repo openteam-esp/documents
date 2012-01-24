@@ -4,10 +4,10 @@ class Manage::AssertationsController < Manage::ApplicationController
   belongs_to :subject, :class_name => 'Document', :param => :document_id
 
   def create
-    create! { admin_document_assertations_path(@subject) }
+    create! { manage_document_assertations_path(@subject) }
   end
 
   def destroy
-    destroy! { admin_document_assertations_path(@subject) }
+    destroy! { manage_document_assertations_path(@subject) }
   end
 end

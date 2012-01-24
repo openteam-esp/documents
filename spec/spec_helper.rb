@@ -6,8 +6,9 @@ Spork.prefork do
 
   require File.expand_path("../../config/environment", __FILE__)
 
-  require 'fabrication'
   require 'rspec/rails'
+  require 'cancan/matchers'
+  require 'fabrication'
   require 'shoulda-matchers'
   require 'sunspot_matchers'
 
