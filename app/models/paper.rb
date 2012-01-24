@@ -3,9 +3,9 @@
 class Paper < ActiveRecord::Base
   abstract_class = true
 
-  belongs_to :context
-
   alias_attribute :to_s,  :title
+
+  belongs_to :context, :counter_cache => true
 
   validates_presence_of :kind, :title, :published_on, :file_url, :context
 

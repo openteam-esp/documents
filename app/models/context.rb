@@ -7,12 +7,21 @@ class Context < ActiveRecord::Base
   has_many :permissions
   has_many :users, :through => :permissions
 
+  scope :with_papers, where('papers_count > 0')
+
   alias_attribute :to_s, :title
 
   has_ancestry
 
   searchable do
     text :title
+  end
+
+  def to_json
+    {
+      :id => id,
+      :title => title
+    }
   end
 
 end

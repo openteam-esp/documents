@@ -26,6 +26,8 @@ Documents::Application.routes.draw do
     mount EspPermissions::Engine => 'permissions'
   end
 
+  resources :contexts, :only => :index, :defaults => { :format => :json }
+
   resources :documents, :only => [:index, :show] do
     get :rss, :to => :index, :on => :collection, :defaults => { :format => :rss }
 
