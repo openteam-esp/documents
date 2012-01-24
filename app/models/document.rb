@@ -64,6 +64,7 @@ class Document < Paper
     Project.search do
       keywords  search_options.try(:[], :keywords) || ''
       paginate  paginate_options
+      with      :state, 'actual'
       without   :object_id, [id] + asserted_project_ids
     end.results
   end
