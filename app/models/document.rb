@@ -42,27 +42,12 @@ class Document < Paper
     end
   end
 
-  # TODO: как-нибудь отрефакторить следующие три метода
-  def cancel_candidates(search_options, paginate_options)
-    self.class.search do
-      keywords  search_options.try(:[], :keywords) || ''
-      paginate  paginate_options
-      without   :object_id, [id] + canceled_document_ids
-    end.results
+  def cancel_candidates(search_options, paginate_options, user)
+    candidates_of(search_options, paginate_options, user, canceled_document_ids)
   end
 
   def change_candidates(search_options, paginate_options, user)
-    self.class.search do
-      keywords  search_options.try(:[], :keywords) || ''
-      paginate  paginate_options
-      without   :object_id, [id] + changed_document_ids
-      document_ids = Document.where(:context_id => user.contexts_subtree_for(:document_operator)).map(&:id)
-      if document_ids.any?
-        with(:object_id, document_ids)
-      else
-        with(:object_id, nil)
-      end
-    end.results
+    candidates_of(search_options, paginate_options, user, changed_document_ids)
   end
 
   def assertation_candidates(search_options, paginate_options)
@@ -73,6 +58,23 @@ class Document < Paper
       without   :object_id, [id] + asserted_project_ids
     end.results
   end
+
+  protected
+
+    def candidates_of(search_options, paginate_options, user, document_ids)
+      self.class.search do
+        keywords  search_options.try(:[], :keywords) || ''
+        paginate  paginate_options
+        without   :object_id, [id] + document_ids
+        with(:object_id, available_document_ids_for(user))
+      end.results
+    end
+
+    def available_document_ids_for(user)
+      available_document_ids = Document.where(:context_id => user.contexts_subtree_for(:document_operator)).map(&:id)
+      available_document_ids.any? ? available_document_ids : nil
+    end
+
 end
 # == Schema Information
 #
