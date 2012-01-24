@@ -13,7 +13,7 @@ gem 'has_searcher'
 gem 'inherited_resources'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'rails',                                      :require => false
+gem 'rails',                    '~> 3.2.0',                 :require => false
 gem 'russian'
 gem 'sass-rails'
 gem 'state_machine'
