@@ -12,6 +12,8 @@ describe Document do
 
   it { should have_many(:changes_for_documents).class_name('Change').dependent(:destroy) }
   it { should have_many :changed_documents }
+
+  it { subject.class.scoped.to_sql.should == subject.class.order('approved_on DESC').to_sql }
 end
 
 # == Schema Information

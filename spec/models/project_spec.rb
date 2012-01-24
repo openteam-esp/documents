@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Project do
   subject { Fabricate :project }
 
+  it { subject.class.scoped.to_sql.should == subject.class.order('published_on DESC').to_sql }
+
   it { Project.new.should be_actual }
 
   context 'should' do

@@ -97,14 +97,17 @@ function delete_file(){
   });
 };
 
+function ajaxify_pagination(){
+  $('.pagination a').live('ajax:success', function(evt, data, status, xhr) {
+    $('.search_result_block').html(data);
+  });
+};
+
 $(function(){
   add_datepicker();
   search_documents();
   choose_file();
   delete_file();
-
-  $('.pagination a').live('ajax:success', function(evt, data, status, xhr) {
-    $('.search_result_block').html(data);
-  });
+  ajaxify_pagination();
 });
 

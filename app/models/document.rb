@@ -17,9 +17,7 @@ class Document < Paper
   alias :changes      :changes_for_documents
 
   searchable do
-    integer :object_id do |document|
-      document.id
-    end
+    integer :object_id do |d| document.id end
 
     text :title
   end
