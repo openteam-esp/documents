@@ -7,9 +7,11 @@ class Paper < ActiveRecord::Base
 
   alias_attribute :to_s,  :title
 
-  validates_presence_of :kind, :authority, :title, :published_on, :file_url
+  validates_presence_of :kind, :title, :published_on, :file_url, :context
 
   after_validation :reset_file_url, :unless => :file_url?
+
+  before_save :set_authority
 
   default_value_for :published_on, Date.today
 
@@ -40,6 +42,10 @@ class Paper < ActiveRecord::Base
   private
     def reset_file_url
       self.file_url = nil
+    end
+
+    def set_authority
+      self.authority = self.context.title
     end
 end
 # == Schema Information

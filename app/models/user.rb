@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     contexts_subtree_for(:manager)
   end
 
+  def available_contexts_for(role)
+    (contexts_subtree_for(:manager) + contexts_for(role)).uniq
+  end
+
   def manager?
     permissions.where(:role => :manager).exists?
   end

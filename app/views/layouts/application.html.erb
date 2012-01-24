@@ -23,6 +23,19 @@
         <%= link_to t('projects'), projects_path %>
       <% end %>
     </li>
+
+    <% if can?(:create, Permission.new) %>
+      <li>
+        <%= link_to t('permissions.title'), manage_esp_permissions_path %>
+      </li>
+    <% end %>
+
+    <% if current_user %>
+      <li class='user_name'>
+        <%= current_user.name %>
+        <%= link_to t('sign_out'), '/sso/sign_out' %>
+      </li>
+    <% end %>
   </ul>
 
   <div class='main_wrapper'>

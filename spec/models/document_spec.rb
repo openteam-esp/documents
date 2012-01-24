@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'spec_helper'
 
 describe Document do
@@ -14,6 +16,11 @@ describe Document do
   it { should have_many :changed_documents }
 
   it { subject.class.scoped.to_sql.should == subject.class.order('approved_on DESC').to_sql }
+
+  it "должен сохранять название органа власти" do
+    document = Fabricate(:document, :context => Fabricate(:context, :title => 'Администрация ТО'))
+    document.authority.should eql 'Администрация ТО'
+  end
 end
 
 # == Schema Information
