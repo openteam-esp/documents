@@ -17,7 +17,7 @@ class Document < Paper
   alias :changes      :changes_for_documents
 
   searchable do
-    integer :object_id do |d| document.id end
+    integer :object_id do |d| d.id end
 
     text :title
   end
@@ -51,11 +51,17 @@ class Document < Paper
     end.results
   end
 
-  def change_candidates(search_options, paginate_options)
+  def change_candidates(search_options, paginate_options, user)
     self.class.search do
       keywords  search_options.try(:[], :keywords) || ''
       paginate  paginate_options
       without   :object_id, [id] + changed_document_ids
+      document_ids = Document.where(:context_id => user.contexts_subtree_for(:document_operator)).map(&:id)
+      if document_ids.any?
+        with(:object_id, document_ids)
+      else
+        with(:object_id, nil)
+      end
     end.results
   end
 
