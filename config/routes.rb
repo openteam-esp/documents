@@ -28,6 +28,8 @@ Documents::Application.routes.draw do
     root :to => 'documents#index'
   end
 
+  resources :contexts, :only => :index, :defaults => { :format => :json }
+
   resources :documents, :only => [:index, :show] do
     resources :assertations,  :only => :index
     resources :cancels,       :only => :index
