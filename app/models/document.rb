@@ -48,16 +48,16 @@ class Document < Paper
       paginate  paginate_options
       with      :state, 'actual'
       with      :object_id, available_project_ids_for(user)
-      without   :object_id, [id] + asserted_project_ids
+      without   :object_id, [id] + asserted_projects.pluck('papers.id')
     end.results
   end
 
   def cancel_candidates(search_options, paginate_options, user)
-    candidates_of(search_options, paginate_options, user, canceled_document_ids)
+    candidates_of(search_options, paginate_options, user, canceled_documents.pluck('papers.id'))
   end
 
   def change_candidates(search_options, paginate_options, user)
-    candidates_of(search_options, paginate_options, user, changed_document_ids)
+    candidates_of(search_options, paginate_options, user, changed_documents.pluck('papers.id'))
   end
 
   private
