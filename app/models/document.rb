@@ -60,7 +60,7 @@ class Document < Paper
     candidates_of(search_options, paginate_options, user, changed_document_ids)
   end
 
-  protected
+  private
     def candidates_of(search_options, paginate_options, user, document_ids)
       self.class.search do
         keywords  search_options.try(:[], :keywords) || ''

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   devise :omniauthable, :trackable, :timeoutable
+
   attr_accessible :name, :email, :nickname, :first_name, :last_name, :location, :description, :image, :phone, :urls, :raw_info, :uid
+
   validates_presence_of :uid
 
   has_many :permissions
@@ -8,12 +10,12 @@ class User < ActiveRecord::Base
 
   before_create :set_name, :unless => :name?
 
+  scope :with_permissions, where('permissions_count > 0')
+
   searchable do
     text :name, :email, :nickname, :phone, :last_name, :first_name
     integer :permissions_count
   end
-
-  scope :with_permissions, where('permissions_count > 0')
 
   def self.from_omniauth(hash)
     User.find_or_initialize_by_uid(hash['uid']).tap do |user|
@@ -46,7 +48,6 @@ class User < ActiveRecord::Base
   end
 
   protected
-
     def set_name
       self.name = [first_name, last_name].join(' ')
     end

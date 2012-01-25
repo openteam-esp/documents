@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120124101537) do
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
     t.integer  "objekt_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "assertations", ["objekt_id"], :name => "index_assertations_on_objekt_id"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20120124101537) do
   create_table "cancels", :force => true do |t|
     t.integer  "subject_id"
     t.integer  "objekt_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "cancels", ["objekt_id"], :name => "index_cancels_on_objekt_id"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20120124101537) do
   create_table "changes", :force => true do |t|
     t.integer  "subject_id"
     t.integer  "objekt_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "changes", ["objekt_id"], :name => "index_changes_on_objekt_id"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(:version => 20120124101537) do
     t.string   "authority"
     t.text     "title"
     t.date     "published_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "number"
     t.date     "approved_on"
     t.string   "type"

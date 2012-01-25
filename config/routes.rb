@@ -1,5 +1,9 @@
 Documents::Application.routes.draw do
+  mount ElVfsClient::Engine => '/'
+
   namespace :manage do
+    mount EspPermissions::Engine => 'permissions'
+
     resources :documents do
       resources :assertations,  :only => [:create, :destroy, :index]
       resources :cancels,       :only => [:create, :destroy, :index]
@@ -22,27 +26,21 @@ Documents::Application.routes.draw do
     end
 
     root :to => 'documents#index'
-
-    mount EspPermissions::Engine => 'permissions'
   end
 
-  resources :contexts, :only => :index, :defaults => { :format => :json }
+  resources :contexts, :only => :index, :defaults => { :format => :json } do
+    resources :documents, :only => :index, :defaults => { :format => :json }
+    resources :projects,  :only => :index, :defaults => { :format => :json }
+  end
 
   resources :documents, :only => [:index, :show] do
-    get :rss, :to => :index, :on => :collection, :defaults => { :format => :rss }
-
     resources :assertations,  :only => :index
     resources :cancels,       :only => :index
     resources :changes,       :only => :index
   end
 
-  resources :projects,  :only => [:index, :show] do
-    get :rss, :to => :index, :on => :collection, :defaults => { :format => :rss }
-  end
-
   resources :papers,    :only => :show
-
-  mount ElVfsClient::Engine => '/'
+  resources :projects,  :only => [:index, :show]
 
   root :to => 'documents#index'
 end
