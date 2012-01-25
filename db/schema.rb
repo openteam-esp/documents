@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124101537) do
+ActiveRecord::Schema.define(:version => 20120125025355) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -49,9 +49,8 @@ ActiveRecord::Schema.define(:version => 20120124101537) do
     t.string   "ancestry"
     t.string   "weight"
     t.integer  "position"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "papers_count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "contexts", ["ancestry"], :name => "index_contexts_on_ancestry"

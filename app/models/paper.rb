@@ -5,7 +5,7 @@ class Paper < ActiveRecord::Base
 
   alias_attribute :to_s,  :title
 
-  belongs_to :context, :counter_cache => true
+  belongs_to :context
 
   validates_presence_of :kind, :title, :published_on, :file_url, :context
 

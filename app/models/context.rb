@@ -3,14 +3,13 @@ class Context < ActiveRecord::Base
 
   attr_accessible :id, :title, :ancestry, :weight
 
-  has_many :documents
+  has_many :papers
   has_many :permissions
-  has_many :projects
   has_many :users, :through => :permissions
 
   default_scope order('weight')
 
-  scope :with_papers, where('papers_count > 0')
+  scope :with_papers, joins(:papers)
 
   has_ancestry
 
