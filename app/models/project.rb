@@ -29,6 +29,7 @@ class Project < Paper
   end
 
   searchable do
+    integer :context_id
     integer :object_id do |d| d.id end
 
     string :state

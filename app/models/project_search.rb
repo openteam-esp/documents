@@ -1,6 +1,7 @@
 class ProjectSearch < Search
-  column :keywords, :text
-  column :state,    :string
+  column :context_id, :integer
+  column :keywords,   :text
+  column :state,      :string
 
   default_value_for :state, 'actual'
 end

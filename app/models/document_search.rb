@@ -1,5 +1,6 @@
 class DocumentSearch < Search
-  column :keywords, :text
+  column :context_id, :integer
+  column :keywords,   :text
 end
 # == Schema Information
 #
