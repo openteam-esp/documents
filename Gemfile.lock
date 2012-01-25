@@ -68,7 +68,7 @@ GEM
       rails
     erubis (2.7.0)
     escape (0.0.4)
-    esp-permissions (0.0.10)
+    esp-permissions (0.0.12)
       ancestry
       cancan
       compass (>= 0.12.alpha.2)
@@ -83,7 +83,6 @@ GEM
       rails
       sass
       sass-rails
-      spork (>= 0.9.0.rc9)
       sso_client
       sunspot_rails
       whenever
@@ -114,7 +113,7 @@ GEM
     has_searcher (0.0.11)
       rails
     hashie (1.2.0)
-    highline (1.6.9)
+    highline (1.6.11)
     hike (1.2.1)
     hirb (0.6.0)
     hoptoad_notifier (2.4.11)
