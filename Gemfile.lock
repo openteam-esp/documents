@@ -68,7 +68,7 @@ GEM
       rails
     erubis (2.7.0)
     escape (0.0.4)
-    esp-permissions (0.0.12)
+    esp-permissions (0.0.18)
       ancestry
       cancan
       compass (>= 0.12.alpha.2)
@@ -194,7 +194,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
-    responders (0.6.4)
+    responders (0.6.5)
     rsolr (1.0.6)
       builder (>= 2.1.2)
     rspec (2.8.0)
