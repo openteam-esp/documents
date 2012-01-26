@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
   has_many :permissions
   has_many :contexts, :through => :permissions
 
-  before_create :set_name, :unless => :name?
-
   scope :with_permissions, where('permissions_count > 0')
+
+  before_create :set_name, :unless => :name?
 
   searchable do
     text :name, :email, :nickname, :phone, :last_name, :first_name
