@@ -12,6 +12,10 @@ class Manage::ProjectsController < Manage::ApplicationController
     }
   end
 
+  def destroy
+    destroy! { redirect_to [@project.state, :manage, :projects] and return }
+  end
+
   def to_actual
     to_actual! {
       @project.to_actual
