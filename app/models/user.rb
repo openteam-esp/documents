@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   devise :omniauthable, :trackable, :timeoutable
-
   attr_accessible :name, :email, :nickname, :first_name, :last_name, :location, :description, :image, :phone, :urls, :raw_info, :uid
-
   validates_presence_of :uid
 
   has_many :permissions
@@ -39,15 +37,16 @@ class User < ActiveRecord::Base
     contexts_subtree_for(:manager)
   end
 
+  def manager?
+    permissions.for_roles(:manager).exists?
+  end
+
   def available_contexts_for(role)
     (contexts_subtree_for(:manager) + contexts_for(role)).uniq
   end
 
-  def manager?
-    permissions.where(:role => :manager).exists?
-  end
-
   protected
+
     def set_name
       self.name = [first_name, last_name].join(' ')
     end

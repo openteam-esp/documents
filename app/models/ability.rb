@@ -1,36 +1,36 @@
 class Ability
   include CanCan::Ability
 
+
   def initialize(user)
+
     return unless user
 
-    alias_action :create, :read, :update, :destroy, :to => :modify
-
-    can :modify, Context do | context |
-      (user.contexts_for(:manager) & context.ancestors + [context]).any?
+    can :manage, Context do | context |
+      user.permissions.for_roles(:manager).for_context(context).exists?
     end
 
-    can :modify, Paper do | paper |
-      can? :modify, paper.context
+    can :manage, Paper do | paper |
+      can? :manage, paper.context
     end
 
-    can :modify, Document do | document |
-      (user.contexts_for(:document_operator) & document.context.ancestors + [document.context]).any?
+    can :manage, Document do | document |
+      user.permissions.for_roles(:document_operator).for_context(document.context).exists?
     end
 
-    can :modify, Project do | project |
-      (user.contexts_for(:project_operator) & project.context.ancestors + [project.context]).any?
+    can :manage, Project do | project |
+      user.permissions.for_roles(:project_operator).for_context(project.context).exists?
     end
 
-    can :modify, Permission do | permission |
-      can? :modify, permission.context
+    can :manage, Permission do | permission |
+      can? :manage, permission.context
     end
 
-    can :modify, Permission do | permission |
-      !permission.context && user.manager?
+    can :create, Permission do | permission |
+      user.manager?
     end
 
-    can :modify, User do
+    can :manage, User do
       user.manager?
     end
   end

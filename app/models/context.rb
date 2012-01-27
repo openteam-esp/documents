@@ -1,5 +1,6 @@
 class Context < ActiveRecord::Base
-  alias_attribute :to_s, :title
+
+  default_scope order('weight')
 
   attr_accessible :id, :title, :ancestry, :weight
 
@@ -7,9 +8,9 @@ class Context < ActiveRecord::Base
   has_many :permissions
   has_many :users, :through => :permissions
 
-  default_scope order('weight')
-
   scope :with_papers, joins(:papers)
+
+  alias_attribute :to_s, :title
 
   has_ancestry
 
@@ -17,9 +18,6 @@ class Context < ActiveRecord::Base
     text :title
   end
 
-  def to_json
-    { :id => id, :title => title }
-  end
 end
 # == Schema Information
 #
@@ -30,7 +28,6 @@ end
 #  title      :string(255)
 #  ancestry   :string(255)
 #  weight     :string(255)
-#  position   :integer
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
