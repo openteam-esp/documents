@@ -30,6 +30,7 @@ describe Project do
     end
   end
 end
+
 # == Schema Information
 #
 # Table name: papers

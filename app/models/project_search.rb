@@ -5,6 +5,7 @@ class ProjectSearch < Search
 
   default_value_for :state, 'actual'
 end
+
 # == Schema Information
 #
 # Table name: searches

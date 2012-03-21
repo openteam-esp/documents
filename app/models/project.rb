@@ -53,6 +53,7 @@ class Project < Paper
       self.deflected_on = nil
     end
 end
+
 # == Schema Information
 #
 # Table name: papers

@@ -1,12 +1,11 @@
 class Context < ActiveRecord::Base
-
-  default_scope order('weight')
-
   attr_accessible :id, :title, :ancestry, :weight
 
   has_many :papers
   has_many :permissions
   has_many :users, :through => :permissions
+
+  default_scope order('weight')
 
   scope :with_papers, joins(:papers)
 
@@ -17,8 +16,8 @@ class Context < ActiveRecord::Base
   searchable do
     text :title
   end
-
 end
+
 # == Schema Information
 #
 # Table name: contexts

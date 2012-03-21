@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   devise :omniauthable, :trackable, :timeoutable
+
   attr_accessible :name, :email, :nickname, :first_name, :last_name, :location, :description, :image, :phone, :urls, :raw_info, :uid
+
   validates_presence_of :uid
 
   has_many :permissions
@@ -51,8 +53,6 @@ class User < ActiveRecord::Base
       self.name = [first_name, last_name].join(' ')
     end
 end
-
-
 
 # == Schema Information
 #

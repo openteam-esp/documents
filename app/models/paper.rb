@@ -48,6 +48,7 @@ class Paper < ActiveRecord::Base
       self.authority = self.context.title
     end
 end
+
 # == Schema Information
 #
 # Table name: papers

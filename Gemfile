@@ -1,7 +1,6 @@
 source :rubygems
 
 gem 'client_side_validations'
-gem 'configliere'
 gem 'default_value_for'
 gem 'el_vfs_client'
 gem 'esp-permissions'
@@ -13,6 +12,7 @@ gem 'has_searcher'
 gem 'inherited_resources'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'openteam-commons'
 gem 'rails',                                     :require => false
 gem 'russian'
 gem 'sass-rails'
@@ -34,9 +34,7 @@ group :development do
 end
 
 group :production do
-  gem 'hoptoad_notifier'
   gem 'pg'
-  gem 'unicorn',                                  :require => false       unless ENV['SHARED_DATABASE_URL']
 end
 
 group :test do

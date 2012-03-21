@@ -7,6 +7,7 @@ describe Change do
   it { should validate_presence_of :objekt }
   it { should validate_presence_of :subject }
 end
+
 # == Schema Information
 #
 # Table name: changes
