@@ -1,27 +1,29 @@
 source :rubygems
 
-gem 'client_side_validations'
-gem 'default_value_for'
-gem 'el_vfs_client'
-gem 'esp-permissions'
-gem 'formtastic'
-gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
-gem 'has_enum'
-gem 'has_scope'
-gem 'has_searcher'
-gem 'inherited_resources'
-gem 'jquery-rails'
-gem 'kaminari'
-gem 'openteam-commons'
-gem 'rails',                                     :require => false
-gem 'russian'
-gem 'sass-rails'
-gem 'state_machine'
-gem 'sunspot_rails'
-
 group :assets do
-  gem 'compass',                '~> 0.12.alpha.2'
+  gem 'sass-rails'
+  gem 'compass-rails'
   gem 'uglifier'
+end
+
+group :default do
+  gem 'client_side_validations'
+  gem 'default_value_for'
+  gem 'el_vfs_client'
+  gem 'esp-permissions'
+  gem 'formtastic'
+  gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
+  gem 'has_enum'
+  gem 'has_scope'
+  gem 'has_searcher'
+  gem 'inherited_resources'
+  gem 'jquery-rails'
+  gem 'kaminari'
+  gem 'openteam-commons'
+  gem 'rails',                                     :require => false
+  gem 'russian'
+  gem 'state_machine'
+  gem 'sunspot_rails'
 end
 
 group :development do
