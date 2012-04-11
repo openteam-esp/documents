@@ -7,7 +7,7 @@ class Context < ActiveRecord::Base
 
   default_scope order('weight')
 
-  scope :with_papers, joins(:papers)
+  scope :with_papers, joins(:papers).uniq
 
   alias_attribute :to_s, :title
 
@@ -15,6 +15,10 @@ class Context < ActiveRecord::Base
 
   searchable do
     text :title
+  end
+
+  def to_json
+    { title => id }
   end
 end
 
