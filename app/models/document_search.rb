@@ -1,6 +1,9 @@
 class DocumentSearch < Search
   column :context_ids,  :string
   column :keywords,     :text
+  column :order_by,     :string
+
+  default_value_for :order_by, 'approved_on desc'
 end
 
 # == Schema Information
