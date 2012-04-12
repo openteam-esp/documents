@@ -33,8 +33,10 @@ class Project < Paper
 
     integer :object_id do |d| d.id end
 
-    string :state
-    text   :title
+    string  :state
+
+    text    :title
+    text    :context_title
   end
 
   def canceled?

@@ -21,7 +21,9 @@ class Document < Paper
 
     integer :object_id do |d| d.id end
 
-    text :title
+    text    :title
+    text    :context_title
+    text    :number
   end
 
   def deflected?

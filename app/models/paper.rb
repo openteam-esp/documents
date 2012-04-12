@@ -7,6 +7,8 @@ class Paper < ActiveRecord::Base
 
   belongs_to :context
 
+  delegate :title, :to => :context, :prefix => true
+
   validates_presence_of :kind, :title, :published_on, :file_url, :context
 
   after_validation :reset_file_url, :unless => :file_url?
