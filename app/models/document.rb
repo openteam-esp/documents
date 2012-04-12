@@ -17,7 +17,8 @@ class Document < Paper
   alias :changes      :changes_for_documents
 
   searchable do
-    integer :context_id
+    integer :context_ids, :multiple => true do |d| [d.context_id] end
+
     integer :object_id do |d| d.id end
 
     text :title

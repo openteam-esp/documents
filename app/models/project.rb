@@ -29,7 +29,8 @@ class Project < Paper
   end
 
   searchable do
-    integer :context_id
+    integer :context_ids, :multiple => true do |d| [d.context_id] end
+
     integer :object_id do |d| d.id end
 
     string :state
