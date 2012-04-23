@@ -10,5 +10,5 @@
  *= require jquery_ui
  *= require pagination
  *= require layout
- *= require esp_permissions/shared
+ *= require esp_auth/shared
  */

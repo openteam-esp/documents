@@ -1,5 +1,5 @@
 class Context < ActiveRecord::Base
-  esp_auth_context
+  esp_auth_context :subcontext => false
 end
 
 # == Schema Information
