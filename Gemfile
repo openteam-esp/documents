@@ -10,7 +10,7 @@ group :default do
   gem 'client_side_validations'
   gem 'default_value_for'
   gem 'el_vfs_client'
-  gem 'esp-permissions'
+  gem 'esp-auth'
   gem 'formtastic'
   gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
   gem 'has_enum'

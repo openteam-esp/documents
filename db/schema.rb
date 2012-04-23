@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125025355) do
+ActiveRecord::Schema.define(:version => 20120423152216) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20120125025355) do
   add_index "changes", ["subject_id"], :name => "index_changes_on_subject_id"
 
   create_table "contexts", :force => true do |t|
-    t.string   "type"
     t.string   "title"
     t.string   "ancestry"
     t.string   "weight"
@@ -74,10 +73,13 @@ ActiveRecord::Schema.define(:version => 20120125025355) do
   create_table "permissions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "context_id"
+    t.string   "context_type"
     t.string   "role"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
+
+  add_index "permissions", ["user_id", "role", "context_id", "context_type"], :name => "by_user_and_role_and_context"
 
   create_table "users", :force => true do |t|
     t.string   "uid"
@@ -92,14 +94,13 @@ ActiveRecord::Schema.define(:version => 20120125025355) do
     t.text     "phone"
     t.text     "urls"
     t.text     "raw_info"
-    t.integer  "sign_in_count",      :default => 0
+    t.integer  "sign_in_count"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.integer  "permissions_count"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_index "users", ["uid"], :name => "index_users_on_uid"

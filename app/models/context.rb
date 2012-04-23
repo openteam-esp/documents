@@ -1,25 +1,5 @@
 class Context < ActiveRecord::Base
-  attr_accessible :id, :title, :ancestry, :weight
-
-  has_many :papers
-  has_many :permissions
-  has_many :users, :through => :permissions
-
-  default_scope order('weight')
-
-  scope :with_papers, joins(:papers).uniq
-
-  alias_attribute :to_s, :title
-
-  has_ancestry
-
-  searchable do
-    text :title
-  end
-
-  def to_json
-    { title => id }
-  end
+  esp_auth_context
 end
 
 # == Schema Information
@@ -27,7 +7,6 @@ end
 # Table name: contexts
 #
 #  id         :integer         not null, primary key
-#  type       :string(255)
 #  title      :string(255)
 #  ancestry   :string(255)
 #  weight     :string(255)

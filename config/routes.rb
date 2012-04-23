@@ -2,7 +2,6 @@ Documents::Application.routes.draw do
   mount ElVfsClient::Engine => '/'
 
   namespace :manage do
-    mount EspPermissions::Engine => 'permissions'
 
     resources :documents do
       resources :assertations,  :only => [:create, :destroy, :index]
