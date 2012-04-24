@@ -43,7 +43,7 @@ class Ability
     end
 
     can :manage, Document do |document|
-      !document.context && user.document_operator_of?(document.context)
+      !document.context && user.document_operator?
     end
 
     can :manage, Project do |project|
@@ -51,7 +51,7 @@ class Ability
     end
 
     can :manage, Project do |project|
-      !project.context && user.project_operator_of?(project.context)
+      !project.context && user.project_operator?
     end
   end
 end
