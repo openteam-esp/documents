@@ -12,7 +12,6 @@ group :default do
   gem 'default_value_for'
   gem 'el_vfs_client'
   gem 'esp-auth'
-  gem 'esp-commons'
   gem 'formtastic'
   gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
   gem 'has_enum'
@@ -21,6 +20,7 @@ group :default do
   gem 'inherited_resources'
   gem 'jquery-rails'
   gem 'kaminari'
+  gem 'esp-commons'
   gem 'rails',                                     :require => false
   gem 'russian'
   gem 'state_machine'

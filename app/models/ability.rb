@@ -31,15 +31,27 @@ class Ability
 
     ## app specific
     can :manage, Paper do |paper|
-      user.manager_of? paper.context
+      paper.context && user.manager_of?(paper.context)
+    end
+
+    can :manage, Paper do |paper|
+      !paper.context && user.manager?
     end
 
     can :manage, Document do |document|
-      user.document_operator_of? document.context
+      document.context && user.document_operator_of?(document.context)
+    end
+
+    can :manage, Document do |document|
+      !document.context && user.document_operator_of?(document.context)
     end
 
     can :manage, Project do |project|
-      user.project_operator_of? project.context
+      project.context && user.project_operator_of?(project.context)
+    end
+
+    can :manage, Project do |project|
+      !project.context && user.project_operator_of?(project.context)
     end
   end
 end
