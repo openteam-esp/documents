@@ -1,5 +1,13 @@
 class Context < ActiveRecord::Base
   esp_auth_context :subcontext => false
+
+  has_many :papers
+
+  scope :with_papers, joins(:papers).uniq
+
+  def to_json
+    { title => id }
+  end
 end
 
 # == Schema Information
