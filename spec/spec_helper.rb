@@ -12,7 +12,10 @@ Spork.prefork do
   require 'shoulda-matchers'
   require 'sunspot_matchers'
 
+  Dir[Rails.root.join("spec/support/helpers/*.rb")].each {|f| require f}
+
   RSpec.configure do |config|
+    config.include DocumentsSpecHelper
     config.include SunspotMatchers
 
     config.mock_with :rspec
@@ -21,6 +24,10 @@ Spork.prefork do
 
     config.before do
       Sunspot.session = SunspotMatchers::SunspotSessionSpy.new(Sunspot.session)
+    end
+
+    config.before do
+      stub_message_maker
     end
   end
 end
