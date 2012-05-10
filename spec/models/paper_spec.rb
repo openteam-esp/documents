@@ -21,6 +21,19 @@ describe Paper do
       it { document.published_on.should == Date.today }
     end
   end
+
+  describe 'should send message to queue <esp.documents.cms>' do
+    let(:project) { Fabricate :project }
+
+    let(:message) {
+      { 'context_id' => project.context.id, 'id' => project.id }
+    }
+
+    before { MessageMaker.should_receive(:make_message).with('esp.documents.cms', 'add', message) }
+    before { MessageMaker.should_receive(:make_message).with('esp.documents.cms', 'remove', message) }
+
+    specify { project.destroy }
+  end
 end
 
 # == Schema Information
