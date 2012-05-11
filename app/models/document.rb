@@ -12,6 +12,8 @@ class Document < Paper
 
   validates_presence_of :number, :approved_on
 
+  after_save :send_add_message
+
   alias :assertations :assertations_for_project
   alias :cancels      :cancels_for_documents
   alias :changes      :changes_for_documents
@@ -85,6 +87,7 @@ class Document < Paper
       available_project_ids.any? ? available_project_ids : nil
     end
 end
+
 # == Schema Information
 #
 # Table name: papers

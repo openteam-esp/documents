@@ -15,8 +15,6 @@ class Paper < ActiveRecord::Base
 
   before_save :set_authority
 
-  after_save :send_add_message
-
   after_destroy :send_remove_message
 
   default_value_for :published_on, Date.today
@@ -55,7 +53,7 @@ class Paper < ActiveRecord::Base
     end
 
     def message_for_queue
-      { 'context_id' => context.id, 'id' => id }
+      { 'context_id' => context_id, 'id' => id }
     end
 
     def send_add_message
@@ -63,7 +61,7 @@ class Paper < ActiveRecord::Base
     end
 
     def send_remove_message
-      MessageMaker.make_message 'esp.documents.cms', 'remove', message_for_queue
+      MessageMaker.make_message 'esp.documents.cms', 'remove', message_for_queue 
     end
 end
 

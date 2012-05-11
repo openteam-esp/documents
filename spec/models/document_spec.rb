@@ -21,6 +21,29 @@ describe Document do
     document = Fabricate(:document, :context => Fabricate(:context, :title => 'Администрация ТО'))
     document.authority.should eql 'Администрация ТО'
   end
+
+  describe 'should send message to queue <esp.documents.cms>' do
+    let(:document) { Fabricate :document }
+
+    before { Document.any_instance.stub(:id).and_return(888) }
+    before { Document.any_instance.stub(:context_id).and_return(3) }
+
+    let(:message) {
+      { 'context_id' => 3, 'id' => 888 }
+    }
+
+    describe '<add> when save' do
+      before { MessageMaker.should_receive(:make_message).with('esp.documents.cms', 'add', message) }
+
+      specify { document }
+    end
+
+    describe '<remove> when destroy' do
+      before { MessageMaker.should_receive(:make_message).with('esp.documents.cms', 'remove', message) }
+
+      specify { document.destroy }
+    end
+  end
 end
 
 # == Schema Information

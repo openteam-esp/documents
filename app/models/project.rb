@@ -2,6 +2,8 @@ class Project < Paper
   has_many :assertations_for_project, :class_name => 'Assertation', :foreign_key => :objekt_id, :dependent => :destroy
   has_many :asserted_by, :through => :assertations_for_project, :source => :subject
 
+  after_save :send_add_message, :if => :actual?
+
   default_scope order('published_on DESC')
 
   scope :by_state, ->(state) { where(:state => state) }
@@ -10,6 +12,12 @@ class Project < Paper
 
   state_machine :initial => :actual do
     before_transition :deflected => :actual, :do => :reset_deflected_on
+
+    after_transition any => :actual, :do => :send_add_message
+
+    after_transition any => :deflected, :do => :send_remove_message
+
+    after_transition any => :asserted, :do => :send_remove_message
 
     event :to_actual do
       transition [:asserted, :deflected] => :actual
