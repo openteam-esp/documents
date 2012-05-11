@@ -27,7 +27,7 @@ class InheritedResourcesController < ApplicationController
     end
 
     def results
-      end_of_association_chain.page(params[:page]).per(per_page)
+      end_of_association_chain.page(page).per(per_page)
     end
 
     def search_results
@@ -42,13 +42,17 @@ class InheritedResourcesController < ApplicationController
       results
     end
 
+    def page
+      params[:page].blank? ? 1 : params[:page].to_i
+    end
+
     def per_page
-      params[:per_page] || 20
+      params[:per_page].to_i.zero? ? 20 : params[:per_page].to_i
     end
 
     def paginate_options
       {
-        :page       => params[:page],
+        :page       => page,
         :per_page   => per_page
       }
     end
