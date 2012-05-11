@@ -53,7 +53,7 @@ class Paper < ActiveRecord::Base
     end
 
     def message_for_queue
-      { 'context_id' => context_id, 'id' => id }
+      { 'context_id' => context_id, 'id' => id, 'kind' => self.class.name.underscore }
     end
 
     def send_add_message

@@ -29,7 +29,7 @@ describe Document do
     before { Document.any_instance.stub(:context_id).and_return(3) }
 
     let(:message) {
-      { 'context_id' => 3, 'id' => 888 }
+      { 'context_id' => 3, 'id' => 888, 'kind' => 'document' }
     }
 
     describe '<add> when save' do

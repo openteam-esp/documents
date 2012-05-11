@@ -28,7 +28,7 @@ describe Project do
 
   describe 'should' do
     let(:message) {
-      { 'context_id' => 3, 'id' => 888 }
+      { 'context_id' => 3, 'id' => 888, 'kind' => 'project' }
     }
 
     before { Project.any_instance.stub(:id).and_return(888) }
