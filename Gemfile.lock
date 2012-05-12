@@ -105,7 +105,7 @@ GEM
       progress_bar
       sunspot_rails
       whenever
-    esp-commons (0.4.1)
+    esp-commons (0.4.2)
       active_attr
       amqp
       bunny
