@@ -17,7 +17,9 @@ class Paper < ActiveRecord::Base
 
   after_destroy :send_remove_message
 
-  default_value_for :published_on, Date.today
+  default_value_for :published_on do
+    Date.today
+  end
 
   has_enums
 
@@ -61,7 +63,7 @@ class Paper < ActiveRecord::Base
     end
 
     def send_remove_message
-      MessageMaker.make_message 'esp.documents.cms', 'remove', message_for_queue 
+      MessageMaker.make_message 'esp.documents.cms', 'remove', message_for_queue
     end
 end
 
