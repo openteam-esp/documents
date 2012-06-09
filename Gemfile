@@ -21,18 +21,18 @@ group :default do
   gem 'jquery-rails'
   gem 'kaminari'
   gem 'esp-commons'
-  gem 'rails',                                     :require => false
+  gem 'rails',                                      :require => false
   gem 'russian'
   gem 'state_machine'
-  gem 'sunspot_rails'
+  gem 'sunspot_rails',   '>= 2.0.0.pre.120417'
 end
 
 group :development do
-  gem 'annotate',               '~> 2.4.1.beta1', :require => false
-  gem 'hirb',                                     :require => false
+  gem 'annotate',        '~> 2.4.1.beta1',          :require => false
+  gem 'hirb',                                       :require => false
   gem 'rails-erd'
   gem 'itslog'
-  gem 'sunspot_solr',                             :require => false
+  gem 'sunspot_solr',    '>= 2.0.0.pre.120417',     :require => false
   gem 'therubyracer'                                                      unless RUBY_PLATFORM =~ /freebsd/
 end
 
@@ -50,7 +50,7 @@ group :test do
   gem 'rspec-rails'
   gem 'ryba'
   gem 'shoulda-matchers',                         :require => false
-  gem 'spork',                  '~> 0.9.0.rc9'
+  gem 'spork',            '~> 0.9.0.rc9'
   gem 'sqlite3'
   gem 'sunspot_matchers',                         :require => false
 end
