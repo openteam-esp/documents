@@ -12,7 +12,7 @@ group :default do
   gem 'default_value_for'
   gem 'el_vfs_client'
   gem 'esp-auth'
-  gem 'formtastic'
+  gem 'formtastic',     '< 2.2.0'
   gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
   gem 'has_enum'
   gem 'has_scope'
@@ -31,7 +31,6 @@ group :development do
   gem 'annotate',        '~> 2.4.1.beta1',          :require => false
   gem 'hirb',                                       :require => false
   gem 'rails-erd'
-  gem 'itslog'
   gem 'sunspot_solr',    '>= 2.0.0.pre.120417',     :require => false
   gem 'therubyracer'                                                      unless RUBY_PLATFORM =~ /freebsd/
 end
@@ -41,7 +40,7 @@ group :production do
 end
 
 group :test do
-  gem 'fabrication',                              :require => false
+  gem 'fabrication',     '< 2.0.0',                 :require => false
   gem 'forgery'
   gem 'guard-rspec'
   gem 'guard-spork'
@@ -49,9 +48,9 @@ group :test do
   gem 'rb-inotify'
   gem 'rspec-rails'
   gem 'ryba'
-  gem 'shoulda-matchers',                         :require => false
+  gem 'shoulda-matchers',                           :require => false
   gem 'spork',            '~> 0.9.0.rc9'
   gem 'sqlite3'
-  gem 'sunspot_matchers',                         :require => false
+  gem 'sunspot_matchers',                           :require => false
 end
 
