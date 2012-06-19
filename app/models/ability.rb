@@ -29,6 +29,10 @@ class Ability
       user.manager?
     end
 
+    can :manage, :audits do
+      user.manager_of? Context.first
+    end
+
     ## app specific
     can :manage, Paper do |paper|
       paper.context && user.manager_of?(paper.context)

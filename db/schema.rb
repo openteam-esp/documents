@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423152216) do
+ActiveRecord::Schema.define(:version => 20120619072702) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -22,6 +22,27 @@ ActiveRecord::Schema.define(:version => 20120423152216) do
 
   add_index "assertations", ["objekt_id"], :name => "index_assertations_on_objekt_id"
   add_index "assertations", ["subject_id"], :name => "index_assertations_on_subject_id"
+
+  create_table "audits", :force => true do |t|
+    t.integer  "auditable_id"
+    t.string   "auditable_type"
+    t.integer  "associated_id"
+    t.string   "associated_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "username"
+    t.string   "action"
+    t.text     "audited_changes"
+    t.integer  "version",         :default => 0
+    t.string   "comment"
+    t.string   "remote_address"
+    t.datetime "created_at"
+  end
+
+  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
+  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
+  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
+  add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
   create_table "cancels", :force => true do |t|
     t.integer  "subject_id"
