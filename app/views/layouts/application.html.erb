@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Documents</title>
-  <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Documents</title>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <%= render :partial => 'esp_auth/shared/header' %>
+    <%= render :partial => 'esp_auth/shared/header' %>
 
-  <div class='header'>
-    <h1>Подсистема публикации нормативных документов</h1>
-  </div>
-
-  <ul class='top_navigation'>
-    <li class='documents <%= "active" if controller_name == 'documents' %>'>
-      <%= link_to t('documents'), [controller_namespace, :documents] %>
-    </li>
-    <li class='projects <%= "active" if controller_name == 'projects' %>'>
-      <% if controller_namespace.to_s == 'manage' %>
-        <%= link_to t('projects'), actual_manage_projects_path %>
-      <% else %>
-        <%= link_to t('projects'), projects_path %>
-      <% end %>
-    </li>
-  </ul>
-
-  <div class='main_wrapper'>
-    <div class='main'>
-      <%= yield %>
+    <div class='header'>
+      <h1>Подсистема публикации нормативных документов</h1>
     </div>
-  </div>
 
-  <%= render :partial => 'esp_auth/shared/footer' %>
-</body>
+    <ul class='top_navigation'>
+      <li class='documents <%= "active" if controller_name == 'documents' %>'>
+        <%= link_to t('documents'), [controller_namespace, :documents] %>
+      </li>
+      <li class='projects <%= "active" if controller_name == 'projects' %>'>
+        <% if controller_namespace.to_s == 'manage' %>
+          <%= link_to t('projects'), actual_manage_projects_path %>
+        <% else %>
+          <%= link_to t('projects'), projects_path %>
+        <% end %>
+      </li>
+    </ul>
+
+    <div class='main_wrapper'>
+      <div class='main'>
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render :partial => 'esp_auth/shared/footer' %>
+  </body>
 </html>
