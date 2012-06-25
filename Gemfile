@@ -1,17 +1,17 @@
 source :rubygems
 
 group :assets do
-  gem 'sass-rails'
-  gem 'compass-rails'
   gem 'uglifier'
 end
 
 group :default do
   gem 'client_side_validations'
+  gem 'compass-rails'
   gem 'curb'
   gem 'default_value_for'
   gem 'el_vfs_client'
   gem 'esp-auth'
+  gem 'esp-commons'
   gem 'formtastic',     '< 2.2.0'
   gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
   gem 'has_enum'
@@ -20,9 +20,9 @@ group :default do
   gem 'inherited_resources'
   gem 'jquery-rails'
   gem 'kaminari'
-  gem 'esp-commons'
   gem 'rails',                                      :require => false
   gem 'russian'
+  gem 'sass-rails'
   gem 'state_machine'
   gem 'sunspot_rails',   '>= 2.0.0.pre.120417'
 end
