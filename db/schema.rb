@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619072702) do
+ActiveRecord::Schema.define(:version => 20120717031839) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20120619072702) do
     t.string   "type"
     t.string   "state"
     t.date     "deflected_on"
-    t.string   "file_url"
+    t.text     "file_url"
     t.integer  "context_id"
   end
 
