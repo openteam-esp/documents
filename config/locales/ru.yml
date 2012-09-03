@@ -65,6 +65,7 @@ ru:
           decision:             Проект постановления
           direction:            Проект распоряжения
           order:                Проект приказа
+          project:              Проект
 
         state_enum:
           actual:             Актуальный

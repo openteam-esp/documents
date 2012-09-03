@@ -14,6 +14,8 @@ class Document < Paper
 
   after_save :send_add_message
 
+  has_enum :kind, %w[decision direction project]
+
   alias :assertations :assertations_for_project
   alias :cancels      :cancels_for_documents
   alias :changes      :changes_for_documents

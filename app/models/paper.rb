@@ -21,8 +21,6 @@ class Paper < ActiveRecord::Base
     Date.today
   end
 
-  has_enums
-
   audited
 
   def description

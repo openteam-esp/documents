@@ -8,7 +8,8 @@ class Project < Paper
 
   scope :by_state, ->(state) { where(:state => state) }
 
-  has_enum :state, %w[actual asserted deflected]
+  has_enum :state,  %w[actual asserted deflected]
+  has_enum :kind,   %w[decision direction order project]
 
   state_machine :initial => :actual do
     before_transition :deflected => :actual, :do => :reset_deflected_on
