@@ -1,6 +1,7 @@
 source :rubygems
 
 group :assets do
+  gem 'therubyracer'                                                      unless RUBY_PLATFORM =~ /freebsd/
   gem 'uglifier'
 end
 
@@ -30,9 +31,9 @@ end
 group :development do
   gem 'annotate',        '~> 2.4.1.beta1',          :require => false
   gem 'hirb',                                       :require => false
+  gem 'rvm-capistrano'
   gem 'rails-erd'
   gem 'sunspot_solr',    '>= 2.0.0.pre.120417',     :require => false
-  gem 'therubyracer'                                                      unless RUBY_PLATFORM =~ /freebsd/
 end
 
 group :production do
