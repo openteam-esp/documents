@@ -51,7 +51,7 @@ class Paper < ActiveRecord::Base
     end
 
     def set_authority
-      self.authority = self.context.title
+      self.authority = context_title
     end
 
     def message_for_queue

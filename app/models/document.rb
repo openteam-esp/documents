@@ -27,7 +27,7 @@ class Document < Paper
     integer :object_id do |d| d.id end
 
     text    :title
-    text    :context_title
+    text    :authority
     text    :number
   end
 

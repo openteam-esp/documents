@@ -46,7 +46,7 @@ class Project < Paper
     string  :state
 
     text    :title
-    text    :context_title
+    text    :authority
   end
 
   def canceled?
