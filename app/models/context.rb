@@ -2,6 +2,7 @@ class Context < ActiveRecord::Base
   esp_auth_context :subcontext => false
 
   has_many :papers
+  has_many :categories
 
   scope :with_papers, joins(:papers).uniq
 

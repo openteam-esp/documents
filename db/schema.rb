@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120717031839) do
+ActiveRecord::Schema.define(:version => 20130118091242) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -53,6 +53,25 @@ ActiveRecord::Schema.define(:version => 20120717031839) do
 
   add_index "cancels", ["objekt_id"], :name => "index_cancels_on_objekt_id"
   add_index "cancels", ["subject_id"], :name => "index_cancels_on_subject_id"
+
+  create_table "categories", :force => true do |t|
+    t.integer  "context_id"
+    t.text     "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "categories", ["context_id"], :name => "index_categories_on_context_id"
+
+  create_table "categories_papers", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "paper_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "categories_papers", ["category_id"], :name => "index_categories_papers_on_category_id"
+  add_index "categories_papers", ["paper_id"], :name => "index_categories_papers_on_paper_id"
 
   create_table "changes", :force => true do |t|
     t.integer  "subject_id"
