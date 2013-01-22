@@ -63,11 +63,9 @@ ActiveRecord::Schema.define(:version => 20130118091242) do
 
   add_index "categories", ["context_id"], :name => "index_categories_on_context_id"
 
-  create_table "categories_papers", :force => true do |t|
-    t.integer  "category_id"
-    t.integer  "paper_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "categories_papers", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "paper_id"
   end
 
   add_index "categories_papers", ["category_id"], :name => "index_categories_papers_on_category_id"

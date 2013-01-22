@@ -1,5 +1,6 @@
 class DocumentSearch < Search
   column :context_ids,  :string
+  column :category_ids, :integer
   column :keywords,     :text
   column :order_by,     :string
 

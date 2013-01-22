@@ -24,6 +24,7 @@ class Document < Paper
     date    :approved_on
 
     integer :context_ids, :multiple => true do |d| [d.context_id] end
+    integer :category_ids, :multiple => true
     integer :object_id do |d| d.id end
 
     text    :title
