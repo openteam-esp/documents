@@ -58,6 +58,7 @@ ru:
         published_on:           Дата размещения
         title:                  Название
         file_url:               Файл
+        categories:             Категории
 
       project:
         deflected_on:           Дата оклонения

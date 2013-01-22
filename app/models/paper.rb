@@ -7,7 +7,7 @@ class Paper < ActiveRecord::Base
 
   belongs_to :context
 
-  delegate :title, :to => :context, :prefix => true
+  delegate :title, :categories, :to => :context, :prefix => true
 
   validates_presence_of :kind, :title, :published_on, :file_url, :context
 
@@ -16,6 +16,8 @@ class Paper < ActiveRecord::Base
   before_save :set_authority
 
   after_destroy :send_remove_message
+
+  has_and_belongs_to_many :categories
 
   default_value_for :published_on do
     Date.today
