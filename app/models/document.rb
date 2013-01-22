@@ -14,7 +14,7 @@ class Document < Paper
 
   after_save :send_add_message
 
-  has_enum :kind, %w[decision direction order]
+  has_enum :kind, %w[decision direction order law]
 
   alias :assertations :assertations_for_project
   alias :cancels      :cancels_for_documents
