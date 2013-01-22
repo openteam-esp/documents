@@ -7,7 +7,7 @@ class Paper < ActiveRecord::Base
 
   belongs_to :context
 
-  delegate :title, :categories, :to => :context, :prefix => true
+  delegate :title, :categories, :to => :context, :prefix => true, :allow_nil => true
 
   validates_presence_of :kind, :title, :published_on, :file_url, :context
 
