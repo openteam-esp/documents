@@ -24,6 +24,8 @@ Documents::Application.routes.draw do
       end
     end
 
+    match '/context/get_categories', :to => 'contexts#get_categories'
+
     root :to => 'documents#index'
   end
 

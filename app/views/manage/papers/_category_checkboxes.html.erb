@@ -1,0 +1,4 @@
+<%= form.input :categories,
+               :as => :check_boxes,
+               :collection => form.object.context_categories,
+               :hint => "#{form.object.context_categories.any? ? '' : 'Нет категорий'}" %>

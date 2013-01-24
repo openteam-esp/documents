@@ -103,11 +103,31 @@ function ajaxify_pagination(){
   });
 };
 
+function context_categories() {
+  var context_id = null;
+  select = $('#project_context_id, #document_context_id')
+  context_id = select.val();
+
+  select.on('change', function(){
+    context_id = $(this).val();
+    $.ajax({
+      url: '/manage/context/get_categories',
+      data: {
+        id: context_id,
+        paper_type: select.closest('form').attr('class').replace(/formtastic /, '')
+      }
+    }).success(function(data, state, jqXHR){
+      $('#project_categories_input, #document_categories_input').replaceWith($(jqXHR.responseText).find('#project_categories_input, #document_categories_input')[0]);
+    })
+  })
+};
+
 $(function(){
   add_datepicker();
   search_documents();
   choose_file();
   delete_file();
   ajaxify_pagination();
+  context_categories();
 });
 

@@ -5,7 +5,7 @@
                              :include_blank => t('commons.not_selected') %>
   <%= form.input :title %>
   <%= form.input :published_on, :as => :date_picker, :format => "%d.%m.%Y" %>
-  <%= form.input :categories, :as => :check_boxes, :collection => form.object.context_categories %>
+  <%= render :partial => 'manage/papers/category_checkboxes', :locals => { :form => form } %>
   <%= render :partial => 'manage/papers/attached_file', :locals => { :form => form } %>
 <% end %>
 

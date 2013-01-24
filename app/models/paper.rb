@@ -7,7 +7,7 @@ class Paper < ActiveRecord::Base
 
   belongs_to :context
 
-  delegate :title, :categories, :to => :context, :prefix => true, :allow_nil => true
+  delegate :title, :to => :context, :prefix => true, :allow_nil => true
 
   validates_presence_of :kind, :title, :published_on, :file_url, :context
 
@@ -30,6 +30,10 @@ class Paper < ActiveRecord::Base
     res << "от #{I18n.l(approved_on)} " if approved_on
     res << "№#{number}" if number
     res
+  end
+
+  def context_categories
+    context ? context.categories : []
   end
 
   def to_json
