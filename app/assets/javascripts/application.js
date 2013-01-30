@@ -8,7 +8,6 @@
 //= require jquery-ui
 //= require jquery.ui.datepicker.ru.js
 //= require jquery_ujs
-//= require info_plugin
 //= require rails.validations
 //= require jquery.scrollto
 
@@ -60,43 +59,6 @@ function search_documents(){
     });
 };
 
-function choose_file(){
-  $('.choose_file').click(function(){
-    var link = $(this);
-    var origin_id = 'file_url';
-    var input = $('#'+origin_id);
-
-    var dialog = link.create_or_return_dialog('elfinder_picture_dialog');
-
-    dialog.attr('id_data', origin_id);
-
-    dialog.load_iframe();
-
-    input.change(function(){
-      var attached_file_wrapper = $('.attached_file');
-      var file_url              = input.val();
-      var file_name = decodeURIComponent(file_url).match(/([^\/.]+)(\.(.{3}))?$/);
-
-      attached_file_wrapper
-        .children('.wrapper')
-        .html('<a href="'+file_url+'" class="'+file_name[3]+'"><span></span>'+file_name[1]+'</a> <a href="#" class="button icon remove danger delete_file">Удалить</a>');
-
-      input.unbind('change');
-    });
-
-    return false;
-  });
-};
-
-function delete_file(){
-  $('.delete_file').live('click', function(){
-    $('.attached_file .wrapper').html('<span>Файл не выбран</span>');
-    $('#file_url').val('');
-
-    return false;
-  });
-};
-
 function ajaxify_pagination(){
   $('.pagination a').live('ajax:success', function(evt, data, status, xhr) {
     $('.search_result_block').html(data);
@@ -125,8 +87,6 @@ function context_categories() {
 $(function(){
   add_datepicker();
   search_documents();
-  choose_file();
-  delete_file();
   ajaxify_pagination();
   context_categories();
 });

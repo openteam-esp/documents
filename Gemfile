@@ -10,7 +10,6 @@ group :default do
   gem 'compass-rails'
   gem 'curb'
   gem 'default_value_for'
-  gem 'el_vfs_client'
   gem 'esp-auth'
   gem 'esp-commons'
   gem 'formtastic',     '< 2.2.0'
@@ -21,6 +20,7 @@ group :default do
   gem 'inherited_resources'
   gem 'jquery-rails'
   gem 'kaminari'
+  gem 'paperclip-elvfs'
   gem 'rails',                                      :require => false
   gem 'russian'
   gem 'sass-rails'

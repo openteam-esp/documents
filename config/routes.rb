@@ -1,6 +1,4 @@
 Documents::Application.routes.draw do
-  mount ElVfsClient::Engine => '/'
-
   namespace :manage do
 
     resources :documents do

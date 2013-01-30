@@ -4,14 +4,15 @@ class Paper < ActiveRecord::Base
   abstract_class = true
 
   alias_attribute :to_s,  :title
+  has_attached_file :attachment, :storage => :elvfs, :elvfs_url => Settings['storage.url']
 
   belongs_to :context
 
   delegate :title, :to => :context, :prefix => true, :allow_nil => true
 
-  validates_presence_of :kind, :title, :published_on, :file_url, :context
-
-  after_validation :reset_file_url, :unless => :file_url?
+  validates_presence_of :kind, :title, :published_on, :context
+  validates_presence_of :attachment, :unless => :attachment?
+  validates_attachment :attachment, :content_type => { :content_type => "application/pdf" }
 
   before_save :set_authority
 
@@ -52,10 +53,6 @@ class Paper < ActiveRecord::Base
   end
 
   private
-    def reset_file_url
-      self.file_url = nil
-    end
-
     def set_authority
       self.authority = context_title
     end

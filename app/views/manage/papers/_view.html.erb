@@ -25,9 +25,13 @@
   </div>
 
   <div class='attached_file'>
-    <% if resource.file_url %>
-      <% file_name, name, sg, type = URI.decode(resource.file_url).match(/([^\/.]+)(\.(.{3}))?$/).to_a %>
-      <%= link_to content_tag(:span)+name, resource.file_url, :class => type %>
+    <% if resource.attachment? %>
+      <div class='attached_file'>
+        <% url = resource.attachment_url %>
+        <% filename = resource.attachment_file_name %>
+        <% type = resource.attachment_content_type.match(/\/(.+)$/).try(:[], 1) %>
+        <%= link_to content_tag(:span) + filename, url, :class => type %>
+      </div>
     <% end %>
   </div>
 

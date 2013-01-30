@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118091242) do
+ActiveRecord::Schema.define(:version => 20130129094726) do
 
   create_table "assertations", :force => true do |t|
     t.integer  "subject_id"
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(:version => 20130118091242) do
     t.string   "authority"
     t.text     "title"
     t.date     "published_on"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "number"
     t.date     "approved_on"
     t.string   "type"
@@ -106,6 +106,11 @@ ActiveRecord::Schema.define(:version => 20130118091242) do
     t.date     "deflected_on"
     t.text     "file_url"
     t.integer  "context_id"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.text     "attachment_url"
   end
 
   create_table "permissions", :force => true do |t|

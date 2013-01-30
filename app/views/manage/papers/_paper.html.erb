@@ -6,10 +6,12 @@
 <div class='published_on'><%= t('published') %> <%= l paper.published_on, :format => :long %></div>
 
 <%= content_tag :div, "Отклонён #{l paper.deflected_on, :format => :long}", :class => 'deflected_on' if paper.deflected? %>
-<% if paper.file_url %>
+<% if paper.attachment? %>
   <div class='attached_file'>
-    <% file_name, name, sg, type = URI.decode(paper.file_url).match(/([^\/.]+)(\.(.{3}))?$/).to_a %>
-    <%= link_to content_tag(:span) + name, paper.file_url, :class => type %>
+    <% url = paper.attachment_url %>
+    <% filename = paper.attachment_file_name %>
+    <% type = paper.attachment_content_type.match(/\/(.+)$/).try(:[], 1) %>
+    <%= link_to content_tag(:span) + filename, url, :class => type %>
   </div>
 <% end %>
 
