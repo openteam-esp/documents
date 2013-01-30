@@ -49,7 +49,7 @@ class Paper < ActiveRecord::Base
   end
 
   def common_attributes
-    %w[authority file_url id published_on title]
+    %w[authority attachment_url id published_on title]
   end
 
   private
