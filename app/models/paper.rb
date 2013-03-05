@@ -24,8 +24,6 @@ class Paper < ActiveRecord::Base
     Date.today
   end
 
-  audited
-
   def description
     res = "#{authority}, #{human_kind.mb_chars.downcase} "
     res << "от #{I18n.l(approved_on)} " if approved_on

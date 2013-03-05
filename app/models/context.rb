@@ -1,9 +1,9 @@
 class Context < ActiveRecord::Base
-  esp_auth_context :subcontext => false
-
   has_many :papers
   has_many :categories
+  has_ancestry
 
+  default_scope order('weight')
   scope :with_papers, joins(:papers).uniq
 
   def to_json

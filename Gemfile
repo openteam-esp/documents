@@ -10,10 +10,12 @@ group :default do
   gem 'compass-rails'
   gem 'curb'
   gem 'default_value_for'
-  gem 'esp-auth'
+  gem 'sso-auth'
+  gem 'esp-views'
   gem 'esp-commons'
   gem 'formtastic',     '< 2.2.0'
   gem 'formtastic_datepicker-rails3x',              :git => 'git://github.com/kristianmandrup/formtastic_datepicker-rails3x.git'
+  gem 'ancestry'
   gem 'has_enum'
   gem 'has_scope'
   gem 'has_searcher'
@@ -21,7 +23,7 @@ group :default do
   gem 'jquery-rails'
   gem 'kaminari'
   gem 'paperclip-elvfs'
-  gem 'rails',                                      :require => false
+  gem 'rails', '~> 3.2.12'
   gem 'russian'
   gem 'sass-rails'
   gem 'state_machine'
@@ -30,8 +32,10 @@ end
 
 group :development do
   gem 'annotate',        '~> 2.4.1.beta1',          :require => false
+  gem 'brakeman'
   gem 'hirb',                                       :require => false
   gem 'rvm-capistrano'
+  gem 'capistrano-ext'
   gem 'rails-erd'
   gem 'sunspot_solr',    '>= 2.0.0.pre.120417',     :require => false
 end

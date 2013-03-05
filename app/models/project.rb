@@ -1,4 +1,8 @@
 class Project < Paper
+  attr_accessible :kind, :authority, :title, :published_on, :number,
+                  :approved_on, :type, :state, :deflected_on, :file_url,
+                  :context_id, :category_ids, :attachment
+
   has_many :assertations_for_project, :class_name => 'Assertation', :foreign_key => :objekt_id, :dependent => :destroy
   has_many :asserted_by, :through => :assertations_for_project, :source => :subject
 

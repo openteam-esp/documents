@@ -1,5 +1,7 @@
 class Permission < ActiveRecord::Base
-  esp_auth_permission
+  attr_accessible :context, :role, :user_uid, :user_name, :user_email, :polymorphic_context, :user_search
+
+  sso_auth_permission :roles => [:manager, :document_operator, :project_operator]
 end
 
 # == Schema Information

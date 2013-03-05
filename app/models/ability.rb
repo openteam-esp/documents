@@ -4,6 +4,12 @@ class Ability
   def initialize(user)
     return unless user
 
+    can :manage, :all if user.manager?
+
+    can :manage, :application do
+      user.permissions.any?
+    end
+
     ## common
     can :manage, Context do | context |
       user.manager_of? context
@@ -19,10 +25,6 @@ class Ability
 
     can [:search, :index], User do
       user.manager?
-    end
-
-    can :manage, :application do
-      user.have_permissions?
     end
 
     can :manage, :permissions do

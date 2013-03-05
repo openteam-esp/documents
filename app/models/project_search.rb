@@ -1,4 +1,6 @@
 class ProjectSearch < Search
+  attr_accessible :keywords
+
   column :context_ids,  :string
   column :category_ids, :integer
   column :keywords,     :text
