@@ -345,6 +345,7 @@ DEPENDENCIES
   default_value_for
   esp-commons
   esp-views
+  execjs
   fabrication (< 2.0.0)
   forgery
   formtastic (< 2.2.0)

@@ -1,13 +1,14 @@
 source :rubygems
 
 group :assets do
-  gem 'therubyracer'                                                      unless RUBY_PLATFORM =~ /freebsd/
+  gem 'compass-rails'
+  gem 'sass-rails'
+  gem 'execjs'
   gem 'uglifier'
 end
 
 group :default do
   gem 'client_side_validations'
-  gem 'compass-rails'
   gem 'curb'
   gem 'default_value_for'
   gem 'sso-auth'
@@ -25,7 +26,6 @@ group :default do
   gem 'paperclip-elvfs'
   gem 'rails', '~> 3.2.12'
   gem 'russian'
-  gem 'sass-rails'
   gem 'state_machine'
   gem 'sunspot_rails',   '>= 2.0.0.pre.120417'
 end
@@ -35,6 +35,7 @@ group :development do
   gem 'brakeman'
   gem 'hirb',                                       :require => false
   gem 'rvm-capistrano'
+  gem 'therubyracer'
   gem 'capistrano-ext'
   gem 'rails-erd'
   gem 'sunspot_solr',    '>= 2.0.0.pre.120417',     :require => false
