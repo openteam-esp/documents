@@ -79,42 +79,47 @@ namespace :deploy do
     run "/etc/init.d/#{unicorn_instance_name} restart"
   end
 
+  desc "Update crontab tasks"
+  task :crontab do
+    run "cd #{deploy_to}/current && exec bundle exec whenever --update-crontab --load-file #{deploy_to}/current/config/schedule.rb"
+  end
+
   desc "Airbrake notify"
   task :airbrake do
     run "cd #{deploy_to}/current && RAILS_ENV=production TO=production bin/rake airbrake:deploy"
   end
+end
 
-  namespace :unicorn do
-    desc "Start Unicorn"
-    task :start do
-      run "/usr/local/etc/rc.d/unicorn start"
-    end
-
-    desc "Stop Unicorn"
-    task :stop do
-      run "/usr/local/etc/rc.d/unicorn stop"
-    end
-
-    desc "Reload Unicorn"
-    task :reload do
-      run "/usr/local/etc/rc.d/unicorn reload"
-    end
-
-    desc "Restart Unicorn"
-    task :restart do
-      run "/usr/local/etc/rc.d/unicorn restart"
-    end
+namespace :unicorn do
+  desc "Start Unicorn"
+  task :start do
+    run "/usr/local/etc/rc.d/unicorn start"
   end
 
+  desc "Stop Unicorn"
+  task :stop do
+    run "/usr/local/etc/rc.d/unicorn stop"
+  end
+
+  desc "Reload Unicorn"
+  task :reload do
+    run "/usr/local/etc/rc.d/unicorn reload"
+  end
+
+  desc "Restart Unicorn"
+  task :restart do
+    run "/usr/local/etc/rc.d/unicorn restart"
+  end
 end
 
 # deploy
 after "deploy:finalize_update", "deploy:config_app"
 after "deploy", "deploy:migrate"
 after "deploy", "deploy:copy_unicorn_config"
-after "deploy", "deploy:unicorn:reload"
+after "deploy", "unicorn:reload"
 after "deploy:restart", "deploy:cleanup"
+after "deploy", "deploy:crontab"
 after "deploy", "deploy:airbrake"
 
 # deploy:rollback
-after "deploy:rollback", "deploy:unicorn:restart"
+after "deploy:rollback", "unicorn:restart"
