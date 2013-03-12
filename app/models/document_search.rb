@@ -1,5 +1,5 @@
 class DocumentSearch < Search
-  attr_accessible :keywords
+  attr_accessible :keywords, :context_ids, :category_ids
 
   column :context_ids,  :string
   column :category_ids, :integer
