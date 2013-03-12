@@ -83,6 +83,13 @@ GEM
     chunky_png (1.2.5)
     client_side_validations (3.1.4)
     cocaine (0.4.2)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.3.3)
     compass (0.12.1)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -100,6 +107,8 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.1.3)
+    enumerize (0.5.1)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     esp-commons (0.5.1)
       active_attr
@@ -347,9 +356,11 @@ DEPENDENCIES
   brakeman
   capistrano-ext
   client_side_validations
+  coffee-rails
   compass-rails
   curb
   default_value_for
+  enumerize
   esp-commons
   esp-views
   execjs

@@ -1,7 +1,16 @@
 class Permission < ActiveRecord::Base
-  attr_accessible :context, :role, :user_uid, :user_name, :user_email, :polymorphic_context, :user_search
+  extend Enumerize
 
-  sso_auth_permission :roles => [:manager, :document_operator, :project_operator]
+  attr_accessible :context, :role, :user_uid, :user_name, :user_email, :polymorphic_context, :user_search
+  attr_accessible :user_id, :context_id
+
+  belongs_to :user
+  belongs_to :context
+
+  validates_presence_of :context_id
+
+  sso_auth_permission roles: [:manager, :document_operator, :project_operator]
+  enumerize :role, in: [:manager, :document_operator, :project_operator]
 end
 
 # == Schema Information

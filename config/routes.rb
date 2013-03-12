@@ -1,6 +1,14 @@
 Documents::Application.routes.draw do
   namespace :manage do
 
+    resources :permissions, :only => [:new, :create, :destroy]
+
+    resources :users, :only => :index do
+      resources :permissions, :only => [:new, :create]
+
+      get :search, on: :collection
+    end
+
     resources :documents do
       resources :assertations,  :only => [:create, :destroy, :index]
       resources :cancels,       :only => [:create, :destroy, :index]

@@ -29,6 +29,19 @@ ru:
   to_actual:                    Вернуть в актуальные
   to_deflected:                 Переместить в отклонённые
 
+  permissions:
+    'You are adding role to': Вы добавляете роль для
+    back_to_manage:           Назад в раздел управления контентом
+    cancel:                   Отмена
+    create:                   Создать
+    create_permission:        Создать право доступа
+    delete:                   Удалить
+    new:                      Добавить право доступа
+    search:                   Поиск
+    show_permissions:         Показать права доступа
+    sign_out:                 Выход
+    title:                    Управление правами доступа
+
   activerecord:
     attributes:
       project_search:
@@ -71,13 +84,20 @@ ru:
           law:                  Проект закона Томской области
 
         state_enum:
-          actual:             Актуальный
-          asserted:           Утвержденный
-          deflected:          Отклоненный
+          actual:               Актуальный
+          asserted:             Утвержденный
+          deflected:            Отклоненный
+
+      permission:
+        polymorphic_context:    Контекст
+        context_id:             Категория
+        role:                   Роль
+        user_search:            Пользователь
 
     models:
       document:                 Нормативный документ
       project:                  Проект документа
+      permission:               Право доступа
 
   formtastic:
     actions:
@@ -103,3 +123,9 @@ ru:
       previous: "&larr; предыдущая"
       next: "следующая &rarr;"
       truncate: "..."
+
+  enumerize:
+    role:
+      manager: Менеджер
+      document_operator: Оператор документов
+      project_operator: Оператор проектов

@@ -3,6 +3,7 @@ source :rubygems
 group :assets do
   gem 'compass-rails'
   gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'execjs'
   gem 'uglifier'
 end
@@ -12,6 +13,7 @@ group :default do
   gem 'client_side_validations'
   gem 'curb'
   gem 'default_value_for'
+  gem 'enumerize'
   gem 'esp-commons'
   gem 'esp-views'
   gem 'formtastic',     '< 2.2.0'

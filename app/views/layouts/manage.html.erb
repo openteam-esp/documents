@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= t('permissions.title') %></title>
+    <%= stylesheet_link_tag 'manage/application' %>
+    <%= javascript_include_tag 'manage/application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render :partial => 'esp/views/header' %>
+    <h1><%= yield(:esp_auth_title).presence || t('permissions.title') %></h1>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render :partial => 'esp/views/footer' %>
+  </body>
+</html>
+
+
