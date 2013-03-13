@@ -79,18 +79,18 @@ class Document < Paper
       self.class.search do
         keywords  search_options.try(:[], :keywords) || ''
         paginate  paginate_options
-        with      :object_id, available_document_ids_for(user)
-        without   :object_id, [id] + document_ids
+        with :object_id, available_document_ids_for(user)
+        without :object_id, [id] + document_ids
       end.results
     end
 
     def available_document_ids_for(user)
-      available_document_ids = Document.where(:context_id => user.contexts_subtree_for([:document_operator, :manager])).map(&:id)
+      available_document_ids = Document.where(:context_id => user.contexts_subtree_for([:operator, :manager])).map(&:id)
       available_document_ids.any? ? available_document_ids : nil
     end
 
     def available_project_ids_for(user)
-      available_project_ids = Project.where(:context_id => user.contexts_for(:document_operator) + user.contexts_subtree_for(:manager)).map(&:id)
+      available_project_ids = Project.where(:context_id => user.contexts_for(:operator) + user.contexts_subtree_for(:manager)).map(&:id)
       available_project_ids.any? ? available_project_ids : nil
     end
 end

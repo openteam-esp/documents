@@ -127,5 +127,4 @@ ru:
   enumerize:
     role:
       manager: Менеджер
-      document_operator: Оператор документов
-      project_operator: Оператор проектов
+      operator: Оператор

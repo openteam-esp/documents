@@ -8,9 +8,9 @@ class Permission < ActiveRecord::Base
   default_value_for :context_type, Context.model_name
 
   extend Enumerize
-  enumerize :role, in: [:manager, :document_operator, :project_operator]
+  enumerize :role, in: [:manager, :operator]
 
-  sso_auth_permission roles: [:manager, :document_operator, :project_operator]
+  sso_auth_permission roles: [:manager, :operator]
 end
 
 # == Schema Information

@@ -7,13 +7,13 @@ Documents::Application.routes.draw do
     end
 
     resources :documents do
-      resources :assertations,  :only => [:create, :destroy, :index]
-      resources :cancels,       :only => [:create, :destroy, :index]
-      resources :changes,       :only => [:create, :destroy, :index]
+      #resources :assertations,  :only => [:create, :destroy, :index]
+      #resources :cancels,       :only => [:create, :destroy, :index]
+      #resources :changes,       :only => [:create, :destroy, :index]
 
-      resources :assertation_candidates,  :only => :index
-      resources :cancel_candidates,       :only => :index
-      resources :change_candidates,       :only => :index
+      #resources :assertation_candidates,  :only => :index
+      #resources :cancel_candidates,       :only => :index
+      #resources :change_candidates,       :only => :index
     end
 
     resources :projects do
