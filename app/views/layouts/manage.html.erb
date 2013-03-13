@@ -8,6 +8,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= content_for(:esp_views_manage_links) do %>
+      <%= link_to 'Система управления', manage_root_path %>
+      <%= link_to 'Права доступа', manage_users_path %>
+    <% end %>
     <%= render :partial => 'esp/views/header' %>
     <h1><%= yield(:esp_auth_title).presence || t('permissions.title') %></h1>
     <div class="container">
@@ -16,5 +20,3 @@
     <%= render :partial => 'esp/views/footer' %>
   </body>
 </html>
-
-
