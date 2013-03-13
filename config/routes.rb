@@ -1,10 +1,7 @@
 Documents::Application.routes.draw do
   namespace :manage do
-
-    resources :permissions, :only => [:new, :create, :destroy]
-
     resources :users, :only => :index do
-      resources :permissions, :only => [:new, :create]
+      resources :permissions, :only => [:new, :create, :destroy]
 
       get :search, on: :collection
     end

@@ -9,6 +9,8 @@ class Context < ActiveRecord::Base
   def to_json
     { title => id }
   end
+
+  alias_attribute :to_s, :title
 end
 
 # == Schema Information

@@ -7,10 +7,6 @@
   <% end %>
 <% end %>
 
-<%= link_to "&#43;#{t('permissions.create_permission')}".html_safe,
-            new_manage_permission_path,
-            :class => 'new_permission' %>
-
 <ul class='collection_list'>
   <% collection.each do |user| %>
     <li class='user'>
@@ -29,13 +25,13 @@
       <ul class='permission_list'>
         <% user.permissions.group_by(&:role).each do |role, permissions| %>
           <li>
-            <h4><%#= permissions.first.human_role %></h4>
+            <h4><%= (Permission.role.values[Permission.role.values.index(role)]).text %></h4>
             <ul>
               <% permissions.each do |permission| %>
                 <li>
                   <%= permission.context.respond_to?(:esp_to_s) ? permission.context.esp_to_s : permission.context %>
                   <%= link_to t('commons.delete'),
-                    manage_permission_path(permission),
+                    manage_user_permission_path(permission.user, permission),
                     :method => :delete,
                     :confirm => t('commons.confirm'),
                     :class => 'buttton icon remove danger' if can?(:destroy, permission) %>

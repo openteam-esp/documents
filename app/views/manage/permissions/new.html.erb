@@ -2,23 +2,15 @@
   <%= "#{t('permissions.You are adding role to')}  #{@user.try(:name)}" %>
 </h3>
 
-<%= semantic_form_for resource,
-                      :url => (@user ? manage_user_permissions_path(@user) : manage_permissions_path) do |form| %>
+<%= semantic_form_for resource, :url => manage_user_permissions_path(@user) do |form| %>
   <%= form.inputs do  %>
-    <% unless @user %>
-      <%= form.input :user_id, as: :select, collection: User.all %>
-    <% else %>
-      <%= form.input :user_id, as: :hidden %>
-    <% end %>
-
     <%= form.input :context_id,
       as: :select,
       collection: current_user.context_tree,
       :member_label => ->(c) { ('&nbsp;' * 2 * c.depth + (c.respond_to?(:esp_title) ? c.esp_title : c.title)).html_safe },
       :include_blank => t('commons.not_selected'),
-      :selected => form.object.respond_to?(:selected_context) ? form.object.selected_context : nil,
+      :required => true,
       :disabled => form.object.respond_to?(:disabled_contexts) ? form.object.disabled_contexts : [] %>
-
 
     <%= form.input :role, :as => :select, :include_blank => t('commons.not_selected') %>
   <% end %>

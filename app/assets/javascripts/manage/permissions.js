@@ -26,37 +26,4 @@ $(function(){
 
     return false;
   });
-
-  $('#permission_user_search').autocomplete({
-    source: function( request, response ) {
-      $.ajax({
-        url: '/esp-auth/users/search?term='+$('#permission_user_search').val(),
-        dataType: "json",
-        data: request.term,
-        success: function(data) {
-         response($.map(data, function(item){
-           var item_label = item.name
-
-           if (item.email.length > 0) {
-             item_label += ' <' + item.email + '>'
-           }
-
-           return {
-             uid:   item.uid,
-             label: item_label,
-             value: item_label,
-             name:  item.name,
-             email: item.email
-           }
-         }));
-        }
-      })
-    },
-    minLength: 2,
-    select: function(event, ui){
-      $('#permission_user_uid').val(ui.item.uid);
-      $('#permission_user_name').val(ui.item.name);
-      $('#permission_user_email').val(ui.item.email);
-    }
-  });
 });

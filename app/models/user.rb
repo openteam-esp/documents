@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
   def context_tree_of(klass)
     context_tree.select{|node| node.is_a?(klass)}
   end
-
 end
 
 # == Schema Information
