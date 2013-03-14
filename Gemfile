@@ -1,4 +1,4 @@
-source :rubygems
+source 'http://rubygems.org'
 
 group :assets do
   gem 'compass-rails'
@@ -39,7 +39,6 @@ group :development do
   gem 'brakeman'
   gem 'hirb',                                       :require => false
   gem 'rvm-capistrano'
-  gem 'therubyracer'
   gem 'capistrano-ext'
   gem 'rails-erd'
   gem 'sunspot_solr',    '>= 2.0.0.pre.120417',     :require => false
