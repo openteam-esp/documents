@@ -1,2 +1,2 @@
 desc 'Execute periodical tasks'
-task :cron => 'esp_auth:sync'
+task :cron => 'contexts:sync'

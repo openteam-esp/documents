@@ -1,4 +1,6 @@
 class Context < ActiveRecord::Base
+  attr_accessible :title, :ancestry, :weight
+
   has_many :papers
   has_many :categories
   has_ancestry
