@@ -1,10 +1,11 @@
 source 'http://rubygems.org'
 
 group :assets do
-  gem 'compass-rails'
-  gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'compass-rails'
   gem 'execjs'
+  gem 'sass-rails'
+  gem 'turbo-sprockets-rails3'
   gem 'uglifier'
 end
 
@@ -30,18 +31,18 @@ group :default do
   gem 'russian'
   gem 'sso-auth'
   gem 'state_machine'
-  gem 'sunspot_rails',   '>= 2.0.0.pre.120417'
+  gem 'sunspot_rails'
   gem 'timecop',                                    :require => false
 end
 
 group :development do
-  gem 'annotate',        '~> 2.4.1.beta1',          :require => false
+  gem 'annotate'
   gem 'brakeman'
-  gem 'hirb',                                       :require => false
-  gem 'rvm-capistrano'
   gem 'capistrano-ext'
+  gem 'hirb',                                       :require => false
   gem 'rails-erd'
-  gem 'sunspot_solr',    '>= 2.0.0.pre.120417',     :require => false
+  gem 'rvm-capistrano'
+  gem 'sunspot_solr'
 end
 
 group :production do
@@ -51,14 +52,9 @@ end
 group :test do
   gem 'fabrication',     '< 2.0.0',                 :require => false
   gem 'forgery'
-  gem 'guard-rspec'
-  gem 'guard-spork'
-  gem 'libnotify'
-  gem 'rb-inotify'
   gem 'rspec-rails'
   gem 'ryba'
   gem 'shoulda-matchers',                           :require => false
-  gem 'spork',            '~> 0.9.0.rc9'
   gem 'sqlite3'
   gem 'sunspot_matchers',                           :require => false
 end
