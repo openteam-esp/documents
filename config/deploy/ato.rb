@@ -14,7 +14,6 @@ set :ssh_options, { :forward_agent => true }
 set :rails_env, "production"
 set :deploy_to, "/srv/#{application}"
 set :use_sudo, false
-set :unicorn_instance_name, "unicorn"
 
 set :scm, :git
 set :repository, "git://github.com/openteam-esp/documents.git"
@@ -73,14 +72,9 @@ namespace :deploy do
     run "ln -s #{shared_path}/config/unicorn.rb #{release_path}/config/unicorn.rb"
   end
 
-  desc "Reload Unicorn"
-  task :reload_servers do
-    run "/etc/init.d/#{unicorn_instance_name} restart"
-  end
-
   desc "Update crontab tasks"
   task :crontab do
-    run "cd #{release_path} && exec bundle exec whenever --update-crontab --load-file #{release_path}/config/schedule.rb"
+    run "cd #{release_path} && exec bundle exec whenever --update-crontab"
   end
 
   desc "Airbrake notify"

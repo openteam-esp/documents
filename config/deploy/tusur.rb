@@ -19,7 +19,6 @@ set :ssh_options, { :forward_agent => true }
 set :rails_env, "production"
 set :deploy_to, "/srv/#{application}"
 set :use_sudo, false
-set :unicorn_instance_name, "unicorn"
 
 set :scm, :git
 set :repository, "git://github.com/openteam-esp/documents.git"
@@ -78,15 +77,26 @@ namespace :deploy do
     run "ln -s #{shared_path}/config/unicorn.rb #{release_path}/config/unicorn.rb"
   end
 
-  desc "Reload Unicorn"
-  task :reload_servers do
-    sudo "/etc/init.d/nginx reload"
-    sudo "/etc/init.d/#{unicorn_instance_name} restart"
-  end
-
   desc "Airbrake notify"
   task :airbrake do
     run "cd #{release_path} && RAILS_ENV=production TO=production bundle exec rake airbrake:deploy"
+  end
+end
+
+namespace :unicorn do
+  desc "Start Unicorn"
+  task :start do
+    run "/usr/local/etc/rc.d/unicorn start"
+  end
+
+  desc "Stop Unicorn"
+  task :stop do
+    run "/usr/local/etc/rc.d/unicorn stop"
+  end
+
+  desc "Restart Unicorn"
+  task :restart do
+    run "/usr/local/etc/rc.d/unicorn restart"
   end
 end
 
@@ -94,9 +104,9 @@ end
 after "deploy:finalize_update", "deploy:config_app"
 after "deploy", "deploy:migrate"
 after "deploy", "deploy:copy_unicorn_config"
-after "deploy", "deploy:reload_servers"
+after "deploy", "unicorn:restart"
 after "deploy:restart", "deploy:cleanup"
 after "deploy", "deploy:airbrake"
 
 # deploy:rollback
-after "deploy:rollback", "deploy:reload_servers"
+after "deploy:rollback", "unicorn:restart"
