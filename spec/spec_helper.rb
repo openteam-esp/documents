@@ -27,4 +27,10 @@ RSpec.configure do |config|
   config.before do
     stub_message_maker
   end
+
+  config.before do
+    Paper.any_instance.stub(:save_attached_files).and_return(true)
+    Paper.any_instance.stub(:prepare_for_destroy).and_return(true)
+    Paper.any_instance.stub(:destroy_attached_files).and_return(true)
+  end
 end
