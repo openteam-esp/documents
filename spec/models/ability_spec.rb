@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 require 'spec_helper'
-require 'esp_auth/spec_helper'
+require 'sso-auth/spec_helper'
 
 describe Ability do
-  include EspAuth::SpecHelper
+  include SsoAuth::SpecHelper
 
 
   def document(context)

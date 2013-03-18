@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(:version => 20130129094726) do
     t.string   "type"
     t.string   "state"
     t.date     "deflected_on"
-    t.text     "file_url"
     t.integer  "context_id"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"

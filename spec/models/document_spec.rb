@@ -25,12 +25,7 @@ describe Document do
   describe 'should send message to queue <esp.documents.cms>' do
     let(:document) { Fabricate :document }
 
-    before { Document.any_instance.stub(:id).and_return(888) }
-    before { Document.any_instance.stub(:context_id).and_return(3) }
-
-    let(:message) {
-      { 'context_id' => 3, 'id' => 888, 'kind' => 'document' }
-    }
+    let(:message) { {'context_id' => 1, 'id' => 1, 'kind' => 'document'} }
 
     describe '<add> when save' do
       before { MessageMaker.should_receive(:make_message).with('esp.documents.cms', 'add', message) }

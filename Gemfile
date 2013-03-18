@@ -39,6 +39,7 @@ group :development do
   gem 'annotate'
   gem 'brakeman'
   gem 'capistrano-ext'
+  gem 'debugger'
   gem 'hirb',                                       :require => false
   gem 'rails-erd'
   gem 'rvm-capistrano'
