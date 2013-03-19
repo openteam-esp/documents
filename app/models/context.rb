@@ -13,6 +13,10 @@ class Context < ActiveRecord::Base
   end
 
   alias_attribute :to_s, :title
+
+  def subtree_condition
+    "#{child_ancestry}/%"
+  end
 end
 
 # == Schema Information
