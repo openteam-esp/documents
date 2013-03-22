@@ -1,5 +1,4 @@
-require 'bundler/capistrano'
-require 'rvm/capistrano'
-require 'capistrano/ext/multistage'
+set :default_stage, :ato
 
-set :stages, %w(ato tusur)
+require 'openteam/capistrano'
+require 'whenever/capistrano'
