@@ -1,4 +1,4 @@
 set :default_stage, :ato
 
-require 'openteam/capistrano'
+require 'openteam/capistrano/recipes'
 require 'whenever/capistrano'
