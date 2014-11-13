@@ -60,11 +60,11 @@ class Paper < ActiveRecord::Base
     end
 
     def send_add_message
-      MessageMaker.make_message 'esp.documents.cms', 'add', message_for_queue
+      MessageMaker.make_message 'esp.documents.cms', 'add', message_for_queue if Rails.env.production?
     end
 
     def send_remove_message
-      MessageMaker.make_message 'esp.documents.cms', 'remove', message_for_queue
+      MessageMaker.make_message 'esp.documents.cms', 'remove', message_for_queue if Rails.env.production?
     end
 end
 
