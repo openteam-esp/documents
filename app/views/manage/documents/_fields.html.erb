@@ -1,6 +1,10 @@
 <%= form.inputs do %>
   <%= form.input :kind, :collection => form.object.class.values_for_select_tag(:kind) %>
-  <%= form.input :context, :collection => current_user.context_tree,
+  <% collection = current_user.context_tree %>
+  <% if (current_user.permissions.map(&:context).map(&:title) & ['Органы власти', 'Администрация Томской области']).any?
+       collection = current_user.context_tree.map{ |context| context if context.title.scan(/администрация|губернатор|департамент/i).any? }.compact
+  end %>
+  <%= form.input :context, :collection => collection,
                              :member_label => ->(c) { ('&nbsp;' * 2 * c.depth + c.title).html_safe },
                              :include_blank => t('commons.not_selected') %>
   <%= form.input :number  %>
