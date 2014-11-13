@@ -32,6 +32,7 @@ class Document < Paper
     integer :object_id do |d| d.id end
 
     text    :title
+    text    :kind do |d| I18n.t("activerecord.attributes.paper.kind_enum.#{d.kind}") end
     text    :authority
     text    :number
   end
