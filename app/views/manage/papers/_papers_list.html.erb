@@ -10,7 +10,7 @@
               <%= form.input :subject_id, :as => :hidden %>
               <%= form.input :objekt_id, :as => :hidden, :value => item.id %>
             <% end %>
-            <%= form.buttons do %>
+            <%= form.actions do %>
               <li><%= button_tag t('add'), :class => 'button icon add primary' %></li>
             <% end %>
           <% end %>
