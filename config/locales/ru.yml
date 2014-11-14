@@ -62,6 +62,7 @@ ru:
       paper:
         authority:              Орган власти
         context:                Орган власти
+        context_title:          Орган власти
         kind:                   Вид документа
         kind_enum:
           decision:             Постановление

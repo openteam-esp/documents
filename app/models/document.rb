@@ -1,7 +1,9 @@
 class Document < Paper
   attr_accessible :kind, :authority, :title, :published_on, :number,
                   :approved_on, :type, :state, :deflected_on, :file_url,
-                  :context_id, :category_ids, :attachment
+                  :context_id, :category_ids, :attachment, :context_title
+
+  attr_accessor :context_title
 
   has_many :assertations_for_project, :class_name => 'Assertation', :foreign_key => :subject_id, :dependent => :destroy
   has_many :asserted_projects, :through => :assertations_for_project, :source => :objekt
@@ -14,7 +16,7 @@ class Document < Paper
 
   default_scope order('approved_on DESC')
 
-  validates_presence_of :number, :approved_on
+  validates_presence_of :number, :approved_on, :context_title
 
   after_save :send_add_message
 

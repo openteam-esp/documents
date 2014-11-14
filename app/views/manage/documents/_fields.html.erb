@@ -1,8 +1,10 @@
 <%= form.inputs do %>
   <%= form.input :kind, :collection => form.object.class.values_for_select_tag(:kind) %>
   <%= form.input :context, :collection => current_user.context_tree,
-                             :member_label => ->(c) { ('&nbsp;' * 2 * c.depth + c.title).html_safe },
-                             :include_blank => t('commons.not_selected') %>
+                           :member_label => ->(c) { ('&nbsp;' * 2 * c.depth + c.title).html_safe },
+                           :include_blank => t('commons.not_selected'),
+                           :wrapper_html => { :class => 'hidden' } %>
+  <%= form.input :context_title, :require => true, :input_html => { :placeholder => 'Начните вводить название органа власти', :value => form.object.context } %>
   <%= form.input :number  %>
   <%= form.input :approved_on, :as => :date_picker, :format => "%d.%m.%Y" %>
   <%= form.input :title, :input_html => {:class => 'for_info_path'} %>

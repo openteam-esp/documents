@@ -10,6 +10,8 @@
 //= require jquery_ujs
 //= require rails.validations
 //= require jquery.scrollto
+//= require autocmplete
+//= require main
 
 function add_datepicker(){
   $('input.ui-date-picker').datepicker({
