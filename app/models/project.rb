@@ -1,7 +1,9 @@
 class Project < Paper
   attr_accessible :kind, :authority, :title, :published_on, :number,
                   :approved_on, :type, :state, :deflected_on, :file_url,
-                  :context_id, :category_ids, :attachment
+                  :context_id, :category_ids, :attachment, :context_title
+
+  attr_accessor :context_title
 
   has_many :assertations_for_project, :class_name => 'Assertation', :foreign_key => :objekt_id, :dependent => :destroy
   has_many :asserted_by, :through => :assertations_for_project, :source => :subject
@@ -11,6 +13,8 @@ class Project < Paper
   default_scope order('published_on DESC')
 
   scope :by_state, ->(state) { where(:state => state) }
+
+  validates_presence_of :context_title
 
   has_enum :state,  %w[actual asserted deflected]
   has_enum :kind,   %w[decision direction order project law]
