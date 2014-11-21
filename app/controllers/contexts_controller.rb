@@ -1,7 +1,12 @@
 class ContextsController < InheritedResourcesController
   actions :index
 
-  has_scope :with_papers, :default => 1
-
   respond_to :json
+
+  protected
+
+    def collection
+      @contexts = Context.with_papers.all
+    end
+
 end
