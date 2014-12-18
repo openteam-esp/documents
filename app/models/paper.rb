@@ -25,7 +25,7 @@ class Paper < ActiveRecord::Base
   end
 
   def description
-    res = "#{authority}, #{human_kind.mb_chars.downcase} "
+    res = "#{authority}, #{human_kind.uncapitalize} "
     res << "от #{I18n.l(approved_on)} " if approved_on
     res << "№#{number}" if number
     res
