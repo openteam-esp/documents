@@ -25,7 +25,11 @@ class Paper < ActiveRecord::Base
   end
 
   def description
-    res = "#{authority}, #{human_kind.uncapitalize} "
+    if human_kind.match(/Закон/)
+      res = "#{human_kind} "
+    else
+      res = "#{authority}, #{human_kind.uncapitalize} "
+    end
     res << "от #{I18n.l(approved_on)} " if approved_on
     res << "№#{number}" if number
     res
