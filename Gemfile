@@ -28,6 +28,7 @@ group :default do
   gem 'paperclip-elvfs'
   gem 'progress_bar'
   gem 'rails', '~> 3.2.12'
+  gem 'rest-client'
   gem 'russian'
   gem 'sso-auth'
   gem 'state_machine'

@@ -391,6 +391,7 @@ DEPENDENCIES
   progress_bar
   rails (~> 3.2.12)
   rails-erd
+  rest-client
   rspec-rails
   russian
   ryba
